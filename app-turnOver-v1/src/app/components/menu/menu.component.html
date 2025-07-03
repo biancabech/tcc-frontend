@@ -1,0 +1,89 @@
+<main>
+<div class="flex-shrink-0 p-1 bg-white" style="width: 65%; height: 100%;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-8 fw-semibold">Simplifique +</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+          Dashboard
+        </button>
+        <div class="collapse" id="home-collapse">
+          <ul class="btn-toggle-nav  fw-normal pb-1 small">
+           <li><a href="#" class="link-dark rounded">Mensal</a></li>
+            <li><a routerLink="/dashboard/grafico-anual" class="link-dark rounded">Anual</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          IA Indica
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Campanhas</a></li>
+            <li><a href="#" class="link-dark rounded">Titulo</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Funcionario
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav fw-normal pb-1 small">
+            <li><a routerLink="/cadastro" class="link-dark rounded">Cadastro</a></li>
+            <li><a routerLink="/acompanhamento" class="link-dark rounded">Acompanhamento</a></li>
+            <li><a routerLink="/fit-cultural" class="link-dark rounded">Fit Cutural</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#teste-collapse" aria-expanded="false">
+          Desligamento
+        </button>
+        <div class="collapse" id="teste-collapse">
+          <ul class="btn-toggle-nav fw-normal pb-1 small">
+            <li><a routerLink="/desligamento" class="link-dark rounded">Cadastro de Desligamento</a></li>
+            <li><a href="#" class="link-dark rounded">Motivos de Desligamento</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">New...</a></li>
+            <li><a href="#" class="link-dark rounded">Profile</a></li>
+            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+ 
+
+
+
+
+  <!-- <ul>
+  <li> <a routerLink="dashboard"> DASHBOARD</a></li>
+  <li> <a routerLink="indica">IA INDICA </a></li>
+  <li> <a routerLink="funcionarios"> FUNCIONARIOS</a></li>
+  <li><a routerLink="fit-cultural"> FIT CULTURAL</a></li>
+  <li><a routerLink="acompanhamento"> ACOMPANHAMENTO</a></li>
+ <li>
+    <ul>DESLIGAMENTO
+      <li><a routerLink="cadastro-desligamento"> CADASTRO DESLIGAMENTO</a></li>
+      <li><a routerLink="motivos-desligamentos"> MOTIVOS DE DESLIGAMENTOS</a></li>
+    </ul>
+ </li>
+</ul> -->
+</main>

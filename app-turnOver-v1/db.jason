@@ -1,0 +1,29 @@
+{
+    "lista_produtos": [
+      {
+        "id":1,
+        "NomeProduto": "Camisa Regata",
+        "descricao": "Camisa regata 100% algodão.",
+        "preco": 24.90,
+      },
+     {
+        "id":2,
+        "NomeProduto": "Camisa manga curta",
+        "descricao": "Cretáceo Superior",
+        "preco": "América do Norte,
+      },
+      {
+        "id":3,
+        "NomeProduto": "Camisa manga longa",
+        "descricao": "Cretáceo Superior",
+        "preco": "América do Norte,
+      },
+     {
+        "id":4,
+        "NomeProduto": "Vestido",
+        "descricao": "Cretáceo Superior",
+        "preco": "América do Norte
+      }
+    ]
+  }
+  
