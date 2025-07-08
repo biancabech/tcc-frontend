@@ -1,14 +1,12 @@
-<main>
-  
-  <h1>Cadastro de Funcionários</h1>
-<form class="row g-3" style="width: 100%; height: 80%;">
 
+<form class="row justify-content-center p-3" style="height: 93vh;">
+  <h2>Cadastro de Funcionários</h2>
 <div class="col-md-6">
   <label for="" class="form-label">Nome</label>
   <input type="text" class="form-control" placeholder="Nome" aria-label="Nome">
 </div>
 
-<div class="col-md-6">
+<div class="col-md-5">
   <label for="inputEmail4" class="form-label">Email</label>
   <input type="email" class="form-control" id="inputEmail4">
 </div>
@@ -17,19 +15,19 @@
     <label for="inputAddress" class="form-label">Rua</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="col-2">
+  <div class="col-1">
     <label for="inputAddress2" class="form-label">Numero</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input type="text" class="form-control" id="inputAddress2" placeholder="numero">
   </div>
 
    <div class="col-4">
     <label for="inputAddress2" class="form-label">Complemento</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, or floor">
+    <input type="text" class="form-control" id="inputAddress2" placeholder="complemento">
   </div>
 
   <div class="col-md-3">
   <label for="inputCep" class="form-label">Cep</label>
-  <input type="text" class="form-control" id="inputCep">
+  <input type="text" class="form-control" id="inputCep" placeholder="00000-000">
 </div>
 
   <div class="col-3">
@@ -37,21 +35,23 @@
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="col-md-3">
-    <label for="inputCity" class="form-label">City</label>
+    <label for="inputCity" class="form-label">Cidade</label>
     <input type="text" class="form-control" id="inputCity">
   </div>
-  <div class="col-md-3">
-    <label for="inputState" class="form-label">State</label>
+  <div class="col-md-2">
+    <label for="inputState" class="form-label">Estado</label>
     <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
+      <option selected>Selecionar...</option>
       <option>...</option>
     </select>
   </div>
 
-<div class="col-12 g-5 ">
-  <button class="btn btn-primary me-md-3" type="button">Cadastrar</button>
+  <p></p>
+
+<div class="col-12 g-5 d-flex justify-content-end">
+  <button routerLink="/" class="btn btn-primary me-md-2" type="button">Cadastrar</button>
   <button routerLink="/" class="btn btn-primary me-md-2"  type="button">Cancelar</button>
 </div>
 
 </form>
-</main>
+

@@ -1,0 +1,26 @@
+h2{
+text-align: center;
+}
+
+h3{
+  text-align: center;
+}
+
+p{
+  height: 4vh;
+  background-color:#ef4444;
+}
+
+form{
+  background-color: #FFFF;
+  border-left: solid 1px darkgray;
+  border-right: solid 1px darkgray;
+  border-radius: 10px;
+}
+
+.btn-primary{
+  width: 10vw;
+  height: 8vh;
+  background-color: #2b2d42;
+  border: solid 1px ;
+}

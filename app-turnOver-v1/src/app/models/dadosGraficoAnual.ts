@@ -1,8 +1,9 @@
 //dto são os dados que eu envio
 
 export interface DadosGraficoAnualDto {
-  anos: string;
+  ano: string[];
   meses: Value<string>[];
+
 }
 
 

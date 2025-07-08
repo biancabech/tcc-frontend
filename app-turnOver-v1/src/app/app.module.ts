@@ -14,9 +14,10 @@ import { CadastroFuncionarioComponent } from './components/funcionario/cadastro-
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { DesligamentoComponent } from './components/desligamento/desligamento.component';
-import { FitCuturalComponent } from './components/fit-cutural/fit-cutural.component';
+import { FitCulturalComponent } from './components/funcionario/fit-cultural/fit-cultural.component';
 import { GraficoAnualComponent } from './dashboard/grafico-anual/grafico-anual.component';
 import { DashboardService } from './services/dashboard.service';
+import { AcompanhamentoComponent } from './components/funcionario/acompanhamento/acompanhamento.component';
 
 
 @NgModule({
@@ -30,8 +31,9 @@ import { DashboardService } from './services/dashboard.service';
     MenuComponent,
     HomeComponent,
     DesligamentoComponent,
-    FitCuturalComponent,
+    FitCulturalComponent,
     GraficoAnualComponent,
+    AcompanhamentoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, CommonModule],
   providers: [
