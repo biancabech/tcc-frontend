@@ -15,10 +15,11 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { DesligamentoComponent } from './components/desligamento/desligamento.component';
 import { FitCulturalComponent } from './components/funcionario/fit-cultural/fit-cultural.component';
-import { GraficoAnualComponent } from './dashboard/grafico-anual/grafico-anual.component';
+import { GraficoAnualComponent } from './components/dashboard/grafico-anual/grafico-anual.component';
 import { DashboardService } from './services/dashboard.service';
 import { AcompanhamentoComponent } from './components/funcionario/acompanhamento/acompanhamento.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GraficoComponent } from './components/grafico/grafico.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +33,17 @@ import { AcompanhamentoComponent } from './components/funcionario/acompanhamento
     HomeComponent,
     DesligamentoComponent,
     FitCulturalComponent,
+    GraficoComponent,
     GraficoAnualComponent,
     AcompanhamentoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, CommonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CommonModule,
+    FontAwesomeModule,
+  ],
   providers: [
     provideHttpClient(),
     DashboardService,

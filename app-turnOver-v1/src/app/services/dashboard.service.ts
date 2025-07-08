@@ -10,7 +10,6 @@ export class DashboardService {
   async dadosAnuais(): Promise<DadosGraficoAnual> {
     // trocar por chamada de API
     return {
-
       units: [
         { value: "RJ", label: "RJ" },
         { value: "SP", label: "SP" },
@@ -19,10 +18,13 @@ export class DashboardService {
         { label: "Jan", value: 2.4 },
         { label: "Fev", value: 2.9 },
         { label: "Mar", value: 1.5 },
+        { label: "abr", value: 0 },
+        { label: "Mar", value: 7 },
       ],
       terminationReasons: [
-        { label: "Justa Causa", value: 2 },
+        { label: "Justa Causa", value: 1 },
         { label: "Insatisfação Gestão", value: 2 },
+        { label: "Benefícios", value: 5 },
       ],
       hiringReasons: [{ label: "Crescimento", value: 6 }],
       departmentsWithTerminations: [

@@ -6,7 +6,7 @@ import { CadastroFuncionarioComponent } from './components/funcionario/cadastro-
 import { AcompanhamentoComponent } from './components/funcionario/acompanhamento/acompanhamento.component';
 import { DesligamentoComponent } from './components/desligamento/desligamento.component';
 import { HomeComponent } from './components/home/home.component';
-import { GraficoAnualComponent } from './dashboard/grafico-anual/grafico-anual.component';
+import { GraficoAnualComponent } from './components/dashboard/grafico-anual/grafico-anual.component';
 import { FitCulturalComponent } from './components/funcionario/fit-cultural/fit-cultural.component';
 
 
