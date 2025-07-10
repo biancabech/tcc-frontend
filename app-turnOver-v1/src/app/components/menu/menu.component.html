@@ -3,34 +3,67 @@
     <svg class="bi me-2" width="40" height="32">
       <use xlink:href="#bootstrap"></use>
     </svg>
-    <span class="fs-4">Sidebar</span>
+    <span class="fs-4">Simplifique+</span>
   </a>
 
   <hr>
 
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">
+      <a routerLink="dashboard/grafico-anual" class="nav-link active" aria-current="page">
         <fa-icon [icon]="faChartBar" />
         Dashboard
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <!-- IA Indica -->
+      <a routerLink="" class="nav-link link-dark">
         <fa-icon [icon]="faSquareBinary" />
         IA Indica
       </a>
     </li>
+
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a routerLink="funcionario/cadastro-funcionario" class="nav-link link-dark">
         <fa-icon [icon]="faUser" />
         Funcionários
       </a>
     </li>
+
+
+
+
+
+    <!-- <li class="mb-1">
+    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+      data-bs-target="#funcionario-collapse" aria-expanded="false">
+      Funcionario
+    </button>
+    <div class="collapse" id="funcionario-collapse">
+      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+        <li><a routerLink="/funcionario/cadastro-funcionario" class="link-dark rounded">Cadastro</a></li>
+        <li><a routerLink="/funcionario/acompanhamento" class="link-dark rounded">Acompanhamento</a></li>
+        <li><a routerLink="/funcionario/fit-cultural" class="link-dark rounded">Fit Cutural</a></li>
+      </ul>
+    </div>
+  </li> -->
+
+
+
+
+
+
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a routerLink="desligamento" class="nav-link link-dark">
         <fa-icon [icon]="faLinkSlash" />
         Desligamento
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="funcionario/fit-cultural" class="nav-link link-dark">
+        <fa-icon [icon]="faLinkSlash" />
+        Fit
       </a>
     </li>
   </ul>
@@ -41,16 +74,16 @@
     <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
       data-bs-toggle="dropdown" aria-expanded="false">
       <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>mdo</strong>
+      <strong>Bia</strong>
     </a>
     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-      <li><a class="dropdown-item" href="#">New project...</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li><a class="dropdown-item" href="#">Novo</a></li>
+      <li><a class="dropdown-item" href="#">Configurações</a></li>
+      <li><a class="dropdown-item" href="#">Perfil</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      <li><a class="dropdown-item" href="#">Sair</a></li>
     </ul>
   </div>
 </div>

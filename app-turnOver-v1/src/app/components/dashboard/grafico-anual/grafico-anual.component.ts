@@ -11,6 +11,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 export class GraficoAnualComponent implements OnInit {
   turnoverDataset?: ChartConfiguration['data'];
   motivosDesligamentos?: ChartConfiguration['data'];
+  setoresMaiorDesligamento?: ChartConfiguration['data'];
   demitidos = 0;
   admitidos = 0;
 
@@ -41,5 +42,18 @@ export class GraficoAnualComponent implements OnInit {
     };
 
     console.log(this.motivosDesligamentos, motivosDesligamentos);
+
+
+
+    const setoresMaiorDesligamento = dados.terminationReasons;
+    this.setoresMaiorDesligamento = {
+      datasets: [{
+        data: setoresMaiorDesligamento.map(t => t.value),
+        label: "TOP 5 Setores com mais Desligamentos"
+      }],
+      labels: setoresMaiorDesligamento.map(t => t.label)
+    };
+
+    console.log(this.setoresMaiorDesligamento, setoresMaiorDesligamento);
   }
 }

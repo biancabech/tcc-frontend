@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'funcionario/acompanhamento', component: AcompanhamentoComponent },
   { path: 'funcionario/fit-cultural', component: FitCulturalComponent },
   { path: 'desligamento', component: DesligamentoComponent },
+
 ];
 
 @NgModule({
