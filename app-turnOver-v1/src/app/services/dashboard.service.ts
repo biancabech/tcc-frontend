@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DadosGraficoAnual, DadosGraficoAnualDto } from '../models/dadosGraficoAnual';
+import { DadosGraficoAnual, DadosGraficoAnualDto } from '../models/DadosGraficoAnual';
 
 @Injectable({
   providedIn: 'root'

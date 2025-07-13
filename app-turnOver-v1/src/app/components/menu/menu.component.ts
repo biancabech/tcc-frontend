@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { faUser, faLinkSlash, faChartBar, faSquareBinary } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLinkSlash, faChartBar, faSquareBinary, faHandshake } from '@fortawesome/free-solid-svg-icons';
+
 
 
 @Component({
@@ -12,4 +13,6 @@ export class MenuComponent {
   faUser = faUser;
   faLinkSlash = faLinkSlash;
   faSquareBinary = faSquareBinary;
+  faHandshake = faHandshake;
 }
+

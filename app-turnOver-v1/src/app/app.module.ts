@@ -9,7 +9,7 @@ import { ContatoComponent } from './components/contato/contato.component';
 import { SobreComponent } from './components/sobre/sobre.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { CadastroFuncionarioComponent } from './components/funcionario/cadastro-funcionario/cadastro-funcionario.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
@@ -43,6 +43,7 @@ import { GraficoComponent } from './components/grafico/grafico.component';
     FormsModule,
     CommonModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [
     provideHttpClient(),

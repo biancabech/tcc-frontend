@@ -1,6 +1,6 @@
-<div class="menu-container d-flex flex-column flex-shrink-0 p-3 bg-light">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-    <svg class="bi me-2" width="40" height="32">
+<div class="menu-container d-flex flex-column flex-shrink-0 bg-light">
+  <a href="/" class="d-flex align-items-center  mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <svg class="bi me-3" width="20" height="30">
       <use xlink:href="#bootstrap"></use>
     </svg>
     <span class="fs-4">Simplifique+</span>
@@ -24,35 +24,18 @@
     </li>
 
     <li>
-      <a routerLink="funcionario/cadastro-funcionario" class="nav-link link-dark">
+      <button class="btn  align-items-center rounded collapsed" data-bs-toggle="collapse"
+        data-bs-target="#funcionario-collapse" aria-expanded="false">
         <fa-icon [icon]="faUser" />
         Funcionários
-      </a>
+      </button>
+      <div class="collapse" id="funcionario-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a routerLink="/funcionario/cadastro-funcionario" class="link-dark rounded">Cadastro</a></li>
+          <li><a routerLink="/funcionario/acompanhamento" class="link-dark rounded">Acompanhamento</a></li>
+        </ul>
+      </div>
     </li>
-
-
-
-
-
-    <!-- <li class="mb-1">
-    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-      data-bs-target="#funcionario-collapse" aria-expanded="false">
-      Funcionario
-    </button>
-    <div class="collapse" id="funcionario-collapse">
-      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li><a routerLink="/funcionario/cadastro-funcionario" class="link-dark rounded">Cadastro</a></li>
-        <li><a routerLink="/funcionario/acompanhamento" class="link-dark rounded">Acompanhamento</a></li>
-        <li><a routerLink="/funcionario/fit-cultural" class="link-dark rounded">Fit Cutural</a></li>
-      </ul>
-    </div>
-  </li> -->
-
-
-
-
-
-
     <li>
       <a routerLink="desligamento" class="nav-link link-dark">
         <fa-icon [icon]="faLinkSlash" />
@@ -62,8 +45,8 @@
 
     <li>
       <a routerLink="funcionario/fit-cultural" class="nav-link link-dark">
-        <fa-icon [icon]="faLinkSlash" />
-        Fit
+        <fa-icon [icon]="faHandshake" />
+        Fit Cultural
       </a>
     </li>
   </ul>

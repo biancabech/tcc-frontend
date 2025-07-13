@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { DadosGraficoAnual } from 'src/app/models/dadosGraficoAnual';
+import { DadosGraficoAnual } from 'src/app/models/DadosGraficoAnual';
 import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
