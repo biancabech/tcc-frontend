@@ -48,14 +48,17 @@
       <div class="col-md-3">
         <label for="bairro" class="form-label">Bairro</label>
         <input type="text" class="form-control" id="bairro" [(ngModel)]="endereco.bairro" name="bairro">
+        <div *ngIf="erros.get('bairro')" class="text-danger">{{ erros.get('bairro') }}</div>
       </div>
       <div class="col-md-3">
         <label for="cidade" class="form-label">Cidade</label>
         <input type="text" class="form-control" id="cidade" [(ngModel)]="endereco.cidade" name="cidade">
+        <div *ngIf="erros.get('cidade')" class="text-danger">{{ erros.get('cidade') }}</div>
       </div>
       <div class="col-md-3">
         <label for="estado" class="form-label">Estado</label>
         <input type="text" class="form-control" id="estado" [(ngModel)]="endereco.estado" name="estado">
+        <div *ngIf="erros.get('estado')" class="text-danger">{{ erros.get('estado') }}</div>
       </div>
     </div>
   </div>

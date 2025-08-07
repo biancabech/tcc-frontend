@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './components/componentes-compartilhados/footer/footer.component';
+import { FooterComponent } from './components/compartilhados/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { CadastroFuncionarioComponent } from './components/paginas/paginas-cadastro/cadastro-funcionario/cadastro-funcionario.component';
-import { MenuComponent } from './components/componentes-compartilhados/menu/menu.component';
+import { MenuComponent } from './components/compartilhados/menu/menu.component';
 import { HomeComponent } from './components/paginas/home/home.component';
 import { DesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-desligamento/desligamento.component';
 import { FitCulturalComponent } from './components/paginas/paginas-cadastro/cadastro-fit-cultural/fit-cultural.component';
