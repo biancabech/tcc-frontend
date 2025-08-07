@@ -42,7 +42,8 @@
       </div>
       <div class="col-md-3">
         <label for="cep" class="form-label">CEP</label>
-        <input type="text" class="form-control" id="cep" [(ngModel)]="endereco.cep" name="cep">
+        <input type="text" class="form-control" id="cep" [(ngModel)]="endereco.cep" (focusout)="buscarEnderecoPorCep()"
+          name="cep">
         <div *ngIf="erros.get('cep')" class="text-danger">{{ erros.get('cep') }}</div>
       </div>
       <div class="col-md-3">
