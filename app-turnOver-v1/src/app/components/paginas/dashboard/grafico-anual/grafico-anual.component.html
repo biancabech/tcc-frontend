@@ -1,0 +1,65 @@
+<div class="row mb-4">
+  <div class="col text-start mt-4">
+    <h1 class="display-5 fw-bold m-3">
+      <fa-icon [icon]="faChartBar" class="fs-1 text-primary me-2" />Dashboard
+    </h1>
+    <p class="lead">Decisões estratégicas com base em dados reais.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">QTDE Demitidos</h5>
+
+        <h1>{{ demitidos}}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">QTDE Admitidos</h5>
+
+        <h1>{{ admitidos}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p></p>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">% Turnover</h5>
+
+    <desenhar-grafico [dados]="turnoverDataset" [height]=20 [width]=100 tipo="line" />
+  </div>
+</div>
+
+<p></p>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">TOP 5 Motivos Desligamentos</h5>
+
+        <desenhar-grafico [dados]="motivosDesligamentos" [height]=20 [width]=100 tipo="pie" />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">TOP 5 Setores com mais Desligamentos</h5>
+        <desenhar-grafico [dados]="setoresMaiorDesligamento" [height]=20 [width]=100 tipo="pie" />
+      </div>
+    </div>
+  </div>
+  <p></p>
+</div>

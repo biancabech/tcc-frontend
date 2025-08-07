@@ -3,31 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ContatoComponent } from './components/contato/contato.component';
-import { SobreComponent } from './components/sobre/sobre.component';
+import { FooterComponent } from './components/componentes-compartilhados/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
-import { CadastroFuncionarioComponent } from './components/funcionario/cadastro-funcionario/cadastro-funcionario.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { HomeComponent } from './components/home/home.component';
-import { DesligamentoComponent } from './components/desligamento/desligamento.component';
-import { FitCulturalComponent } from './components/funcionario/fit-cultural/fit-cultural.component';
-import { GraficoAnualComponent } from './components/dashboard/grafico-anual/grafico-anual.component';
+import { CadastroFuncionarioComponent } from './components/paginas/paginas-cadastro/cadastro-funcionario/cadastro-funcionario.component';
+import { MenuComponent } from './components/componentes-compartilhados/menu/menu.component';
+import { HomeComponent } from './components/paginas/home/home.component';
+import { DesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-desligamento/desligamento.component';
+import { FitCulturalComponent } from './components/paginas/paginas-cadastro/cadastro-fit-cultural/fit-cultural.component';
+import { GraficoAnualComponent } from './components/paginas/dashboard/grafico-anual/grafico-anual.component';
 import { DashboardService } from './services/dashboard.service';
-import { AcompanhamentoComponent } from './components/funcionario/acompanhamento/acompanhamento.component';
+import { AcompanhamentoComponent } from './components/paginas/paginas-cadastro/cadastro-acompanhamento/acompanhamento.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { GraficoComponent } from './components/grafico/grafico.component';
+import { GraficoComponent } from './components/paginas/dashboard/grafico/grafico.component';
+import { IaIndicaComponent } from './components/paginas/ia-indica/ia-indica.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ListagemFuncionariosComponent } from './components/paginas/paginas-listagem/listagem-funcionarios/listagem-funcionarios.component';
+import { CargoComponent } from './components/paginas/paginas-cadastro/cadastro-cargo/cargo.component';
+import { SetorComponent } from './components/paginas/paginas-cadastro/cadastro-setor/setor.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
-    ContatoComponent,
-    SobreComponent,
     CadastroFuncionarioComponent,
     MenuComponent,
     HomeComponent,
@@ -36,7 +37,12 @@ import { GraficoComponent } from './components/grafico/grafico.component';
     GraficoComponent,
     GraficoAnualComponent,
     AcompanhamentoComponent,
+    IaIndicaComponent,
+    ListagemFuncionariosComponent,
+    CargoComponent,
+    SetorComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,6 +50,8 @@ import { GraficoComponent } from './components/grafico/grafico.component';
     CommonModule,
     FontAwesomeModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     provideHttpClient(),
