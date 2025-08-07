@@ -1,0 +1,60 @@
+.ia-indica-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ia-indica-container h2 {
+  text-align: center;
+  color: #ef4444;
+  margin-bottom: 32px;
+}
+
+.ia-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ia-card {
+  background: #f7f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  padding: 24px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ia-card h3 {
+  color: #ef4444;
+  margin-bottom: 12px;
+}
+
+.ia-card p {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.ia-card button {
+  background-color: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ia-card button:hover {
+  background: #b91c1c;
+}
+
+.text-primary {
+  color: #ef4444 !important;
+}

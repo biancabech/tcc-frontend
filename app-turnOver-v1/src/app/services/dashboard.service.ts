@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DadosGraficoAnual, DadosGraficoAnualDto } from '../models/dadosGraficoAnual';
+import { DadosGraficoAnual, DadosGraficoAnualDto } from '../models/DadosGraficoAnual';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,14 @@ export class DashboardService {
         { value: "SP", label: "SP" },
       ],
       turnoverData: [
-        { label: "Jan", value: 2.4 },
-        { label: "Fev", value: 2.9 },
-        { label: "Mar", value: 1.5 },
-        { label: "abr", value: 0 },
-        { label: "Mar", value: 7 },
+        { label: "Jan", value: 1 },
+        { label: "Fev", value: 4.9 },
+        { label: "Mar", value: 0.5 },
+        { label: "abr", value: 8 },
+        { label: "Mar", value: 2 },
+        { label: "Abr", value: 9.2 },
+        { label: "Mai", value: 1.5 },
+        { label: "Jun", value: 1 },
       ],
       terminationReasons: [
         { label: "Justa Causa", value: 1 },
@@ -32,7 +35,7 @@ export class DashboardService {
         { label: "Engenharia", value: 2 },
       ],
       positionsWithTerminations: [{ label: "Auxiliar Financeiro", value: 2 }],
-      admittedCount: 6,
+      admittedCount: 10,
       terminatedCount: 4,
     }
   }

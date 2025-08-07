@@ -19,4 +19,4 @@ export interface DadosGraficoAnual {
   admittedCount: number;
   terminatedCount: number;
 }
-//preciso criar 2 modelos 1 que manda e outro que recebe
+

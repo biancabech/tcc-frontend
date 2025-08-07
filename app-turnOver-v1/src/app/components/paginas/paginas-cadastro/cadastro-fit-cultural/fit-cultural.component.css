@@ -1,0 +1,122 @@
+/* Custom styles for Bootstrap 5 adjustments */
+
+/* General body/container styling */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+/* Custom border and focus for inputs */
+.form-control.border-2:focus {
+  border-color: #2b2d42 !important;
+  box-shadow: 0 0 0 0.25rem rgba(43, 45, 66, 0.25) !important;
+  /* Custom focus ring */
+}
+
+/* Custom checkbox styling */
+.form-check-input:checked {
+  background-color: #10b981 !important;
+  /* Green for checked */
+  border-color: #10b981 !important;
+}
+
+.form-check-input:focus {
+  border-color: #2b2d42 !important;
+  box-shadow: 0 0 0 0.25rem rgba(43, 45, 66, 0.25) !important;
+}
+
+/* Text sizes for badges and small text */
+.text-xs {
+  font-size: 0.75rem;
+  /* 12px */
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  /* 14px */
+}
+
+/* Custom badge colors for status */
+.bg-success-subtle {
+  background-color: #d1fae5 !important;
+  /* Light green */
+}
+
+.text-success-emphasis {
+  color: #065f46 !important;
+  /* Darker green */
+}
+
+.bg-warning-subtle {
+  background-color: #fef3c7 !important;
+  /* Light yellow */
+}
+
+.text-warning-emphasis {
+  color: #92400e !important;
+  /* Darker yellow */
+}
+
+.bg-danger-subtle {
+  background-color: #fee2e2 !important;
+  /* Light red */
+}
+
+.text-danger-emphasis {
+  color: #991b1b !important;
+  /* Darker red */
+}
+
+/* Custom hover effects for cards and buttons */
+.hover-shadow-lg:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.hover-bg-light:hover {
+  background-color: #f8f9fa !important;
+}
+
+/* Transition for progress bar */
+.progress-bar.transition-all {
+  transition: width 0.3s ease-in-out;
+}
+
+/* Specific text color for light emphasis */
+.text-light-emphasis {
+  color: #ced4da !important;
+  /* A lighter gray for text on dark backgrounds */
+}
+
+/* Ensure icons are visible */
+.bi {
+  display: inline-block;
+  vertical-align: -0.125em;
+  fill: currentcolor;
+}
+
+/* Adjustments for the main title icon */
+.p-3.rounded-3.shadow-lg i {
+  font-size: 2rem;
+  /* Larger icon */
+}
+
+/* Adjustments for card title icons */
+.card-title i {
+  font-size: 1.25rem;
+  /* Standard icon size for titles */
+}
+
+/* Adjustments for label icons */
+.form-label i {
+  font-size: 1rem;
+  /* Smaller icon for labels */
+}
+
+/* Ensure full width for the container */
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}

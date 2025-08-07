@@ -1,0 +1,32 @@
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  height: 4vh;
+}
+
+form {
+  background-color: #FFFF;
+  border-left: solid 1px darkgray;
+  border-right: solid 1px darkgray;
+  border-radius: 10px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.btn-primary {
+  border: solid 1px;
+  background-color: #2b2d42;
+}
+
+.btn-secondary {
+  border: solid 1px;
+  background-color: white;
+  color: #2b2d42;
+  font-weight: bold;
+}

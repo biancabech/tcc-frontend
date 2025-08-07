@@ -1,4 +1,4 @@
 export const environment = {
-  viaCepUrl: "viacep.com.br/ws/",
-  dashboardUrl: 'localhost:3000',
+  viaCepUrl: "https://viacep.com.br/ws/",
+  apiUrl: "https://localhost:5000/api"
 };

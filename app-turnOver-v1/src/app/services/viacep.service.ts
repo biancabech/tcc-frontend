@@ -10,15 +10,15 @@ import { ViacepResult } from '../models/ViacepResult';
 export class ViacepService {
   apiUrl: string = environment.viaCepUrl
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getEnderecoByCep(cep: String){
+  getEnderecoByCep(cep: String) {
     return this.http.get<ViacepResult>
-    (this.apiUrl + cep + "/json/")
-    .pipe(
-      map((Response) =>{
-        return Response;
-      })
-    )
+      (this.apiUrl + cep + "/json/")
+      .pipe(
+        map((Response) => {
+          return Response;
+        })
+      )
   }
 }

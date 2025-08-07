@@ -1,0 +1,49 @@
+:root {
+  --bs-primary: #ef4444;
+  --bs-primary-rgb: 239, 68, 68;
+  --bs-primary-text-emphasis: #7f1d1d;
+  --bs-primary-bg-subtle: #fecaca;
+  --bs-primary-border-subtle: #fca5a5;
+}
+
+.btn-primary {
+  --bs-btn-bg: #ef4444;
+  --bs-btn-border-color: #ef4444;
+  --bs-btn-hover-bg: #dc2626;
+  --bs-btn-hover-border-color: #dc2626;
+  --bs-btn-focus-shadow-rgb: 239, 68, 68;
+  --bs-btn-active-bg: #b91c1c;
+  --bs-btn-active-border-color: #b91c1c;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #ef4444;
+  --bs-btn-border-color: #ef4444;
+  --bs-btn-hover-bg: #ef4444;
+  --bs-btn-hover-border-color: #ef4444;
+  --bs-btn-focus-shadow-rgb: 239, 68, 68;
+  --bs-btn-active-bg: #dc2626;
+  --bs-btn-active-border-color: #dc2626;
+}
+
+.bg-primary {
+  background-color: #ef4444 !important;
+}
+
+.text-primary {
+  color: #ef4444 !important;
+}
+
+.border-primary {
+  border-color: #ef4444 !important;
+}
+
+.form-control:focus {
+  border-color: #f87171;
+  box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.25);
+}
+
+.form-select:focus {
+  border-color: #f87171;
+  box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.25);
+}

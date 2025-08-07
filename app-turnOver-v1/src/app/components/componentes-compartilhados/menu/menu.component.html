@@ -1,0 +1,76 @@
+<div class="menu-container d-flex flex-column flex-shrink-0 bg-light">
+  <a href="/" class="d-flex align-items-center  mb-2 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <svg class="bi me-3" width="20" height="30">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+    <span class="fs-4">Simplifique+</span>
+  </a>
+
+  <hr>
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a routerLink="paginas/dashboard/grafico-anual" class="nav-link active" aria-current="page">
+        <fa-icon [icon]="faChartBar" />
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <!-- IA Indica -->
+      <a routerLink="paginas/ia-indica" class="nav-link link-dark">
+        <fa-icon [icon]="faSquareBinary" />
+        IA Indica
+      </a>
+    </li>
+
+    <li>
+      <button class="btn  align-items-center rounded collapsed" data-bs-toggle="collapse"
+        data-bs-target="#funcionario-collapse" aria-expanded="false">
+        <fa-icon [icon]="faUser" />
+        Funcionários
+      </button>
+      <div class="collapse" id="funcionario-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a routerLink="/paginas/paginas-cadastro/cadastro-funcionario" class="link-dark rounded">Novo
+              Funcionário</a></li>
+          <li><a routerLink="/paginas/paginas-listagem/listagem-funcionarios" class="link-dark rounded">Buscar
+              Funcionário</a></li>
+          <li><a routerLink="/paginas/paginas-cadastro/cadastro-acompanhamento"
+              class="link-dark rounded">Acompanhamento</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a routerLink="/paginas/paginas-cadastro/cadastro-desligamento" class="nav-link link-dark">
+        <fa-icon [icon]="faLinkSlash" />
+        Desligamento
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/paginas/paginas-cadastro/cadastro-fit-cultural" class="nav-link link-dark">
+        <fa-icon [icon]="faHandshake" />
+        Fit Cultural
+      </a>
+    </li>
+  </ul>
+
+  <hr>
+
+  <div class="dropdown">
+    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong>Bia</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+      <li><a class="dropdown-item" href="#">Novo</a></li>
+      <li><a class="dropdown-item" href="#">Configurações</a></li>
+      <li><a class="dropdown-item" href="#">Perfil</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="#">Sair</a></li>
+    </ul>
+  </div>
+</div>
