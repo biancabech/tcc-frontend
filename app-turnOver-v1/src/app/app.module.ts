@@ -23,6 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { ListagemFuncionariosComponent } from './components/paginas/paginas-listagem/listagem-funcionarios/listagem-funcionarios.component';
 import { CargoComponent } from './components/paginas/paginas-cadastro/cadastro-cargo/cargo.component';
 import { SetorComponent } from './components/paginas/paginas-cadastro/cadastro-setor/setor.component';
+import { ListagemCargoComponent } from './components/paginas/paginas-listagem/listagem-cargos/listagem-cargos.component';
+
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { SetorComponent } from './components/paginas/paginas-cadastro/cadastro-s
     AcompanhamentoComponent,
     IaIndicaComponent,
     ListagemFuncionariosComponent,
+    ListagemCargoComponent,
     CargoComponent,
     SetorComponent,
   ],

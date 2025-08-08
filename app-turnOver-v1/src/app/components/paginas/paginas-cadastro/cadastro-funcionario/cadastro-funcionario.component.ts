@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViacepService } from 'src/app/services/viacep.service';
 import { Funcionario } from 'src/app/models/Funcionario';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
-import { CargoService } from 'src/app/services/cargo.service';
 import { Cargo } from 'src/app/models/Cargo';
 import { Setor } from 'src/app/models/Setor';
 import { SetorService } from 'src/app/services/setor.service';
+import { CargoService } from 'src/app/services/cargo.service';
 import { ToastrService } from 'ngx-toastr';
 import { Endereco } from 'src/app/models/Endereco';
 
@@ -81,7 +81,6 @@ export class CadastroFuncionarioComponent implements OnInit {
       error: (error) => {
         console.error('Erro ao carregar setores:', error);
         this.toastr.error('Erro ao carregar setores.', 'Erro');
-
       }
     });
   }

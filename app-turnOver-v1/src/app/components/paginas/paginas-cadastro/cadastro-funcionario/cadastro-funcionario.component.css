@@ -13,7 +13,6 @@ form {
   border-radius: 10px;
   max-height: 100vh;
   height: 99vh;
-  overflow-y: auto;
 }
 
 .btn-primary {

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container-fluid">
+    <div class="navbar-brand d-flex align-items-center">
+      <div class="icon-wrapper bg-primary text-white me-2">
+        <i class="bi bi-box-seam fs-4"></i>
+      </div>
+      Lista de Cargos
+    </div>
+    <div class="d-flex align-items-center">
+      <button class="btn btn-primary btn-custom me-3">
+        <i class="bi bi-plus-circle me-1"></i> Add Cargo
+      </button>
+      <div class="bg-secondary rounded-circle" style="width: 2rem; height: 2rem;"></div>
+    </div>
+  </div>
+</nav>
+<table class="card p-3">
+  <tr>
+    <th>Cargo</th>
+  </tr>
+  <tr *ngFor="let cargo of cargos">
+    <td>{{ cargo.nome }}</td>
+  </tr>
+</table>
