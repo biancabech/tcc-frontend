@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-desligamento',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./desligamento.component.css']
 })
 export class DesligamentoComponent {
-
+  faLinkSlash = faLinkSlash;
 }

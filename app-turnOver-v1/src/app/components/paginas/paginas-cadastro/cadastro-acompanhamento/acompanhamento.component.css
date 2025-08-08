@@ -12,9 +12,6 @@ p {
 
 form {
   background-color: #FFFF;
-  border-left: solid 1px darkgray;
-  border-right: solid 1px darkgray;
-  border-radius: 10px;
   max-height: 100vh;
 }
 
