@@ -15,8 +15,8 @@
         Dashboard
       </a>
     </li>
+
     <li>
-      <!-- IA Indica -->
       <a routerLink="paginas/ia-indica" class="nav-link link-dark">
         <fa-icon [icon]="faSquareBinary" />
         IA Indica
@@ -25,10 +25,17 @@
 
     <li>
       <button class="btn align-items-center rounded" aria-expanded="false"
+        routerLink="/paginas/paginas-listagem/listagem-setores">
+        <fa-icon [icon]="faUser" />
+        Setores
+      </button>
+    </li>
+
+    <li>
+      <button class="btn align-items-center rounded" aria-expanded="false"
         routerLink="/paginas/paginas-listagem/listagem-cargos">
         <fa-icon [icon]="faUser" />
         Cargos
-
       </button>
     </li>
 
@@ -40,8 +47,6 @@
       </button>
       <div class="collapse" id="funcionario-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a routerLink="/paginas/paginas-cadastro/cadastro-funcionario" class="link-dark rounded">Novo
-              Funcionário</a></li>
           <li><a routerLink="/paginas/paginas-listagem/listagem-funcionarios" class="link-dark rounded">Buscar
               Funcionário</a></li>
           <li><a routerLink="/paginas/paginas-cadastro/cadastro-acompanhamento"

@@ -11,6 +11,7 @@ import { ListagemFuncionariosComponent } from './components/paginas/paginas-list
 import { CargoComponent } from './components/paginas/paginas-cadastro/cadastro-cargo/cargo.component';
 import { SetorComponent } from './components/paginas/paginas-cadastro/cadastro-setor/setor.component';
 import { ListagemCargoComponent } from './components/paginas/paginas-listagem/listagem-cargos/listagem-cargos.component';
+import { ListagemSetoresComponent } from './components/paginas/paginas-listagem/listagem-setores/listagem-setores.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   //Componentes de Listagem
   { path: 'paginas/paginas-listagem/listagem-funcionarios', component: ListagemFuncionariosComponent },
   { path: 'paginas/paginas-listagem/listagem-cargos', component: ListagemCargoComponent },
+  { path: 'paginas/paginas-listagem/listagem-setores', component: ListagemSetoresComponent },
 ];
 
 @NgModule({

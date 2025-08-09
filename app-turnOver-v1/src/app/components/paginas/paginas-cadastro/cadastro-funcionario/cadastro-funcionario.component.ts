@@ -122,6 +122,15 @@ export class CadastroFuncionarioComponent implements OnInit {
     });
   }
 
+  editar() {
+    this.funcionarioService.put(this.funcionario, 'id').subscribe({
+      next: () => {
+        this.mensagemDeSucesso = 'Funcionário atualizado com sucesso!';
+        this.mensagemDeErro = 'erro';
+      }
+    });
+  }
+
   salvarFuncionario() {
     this.funcionarioService.post(this.funcionario).subscribe({
       next: () => {

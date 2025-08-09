@@ -20,12 +20,11 @@ export class ListagemCargoComponent implements OnInit {
   ngOnInit(): void {
     this.cargoService.getAll().subscribe({
       next: (cargos) => {
-        console.log({ cargos })
         this.cargos = cargos;
       },
       error: (error) => {
-        console.error('Erro ao carregar setores:', error);
-        this.toastr.error('Erro ao carregar setores.', 'Erro');
+        console.error('Erro ao carregar cargos:', error);
+        this.toastr.error('Erro ao carregar cargos.', 'Erro');
       }
     });
   }

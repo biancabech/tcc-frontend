@@ -1,17 +1,17 @@
-<form class="container-fluid p-3 card mt-3">
-  <h2 class="m-4 text-center"> 🏢 Cadastro de Setor</h2>
+<form class="container-fluid p-3 mt-3" (ngSubmit)="salvarSetor()">
+  <h2 class="m-4 text-center"> 🏢 Setores - {{ acao }} </h2>
 
   <div class="card p-4 mb-4 shadow-sm">
     <div class="row g-3">
       <div class="col-md-4">
         <label for="nome" class="form-label">Setor</label>
-        <input type="text" class="form-control" id="setor" name="setor">
+        <input type="text" class="form-control" id="setor" name="setor" [(ngModel)]="setor.nome">
+        <div *ngIf="erroValidacao" class="text-danger">{{ erroValidacao }}</div>
       </div>
 
-
       <div class="text-start mt-3">
-        <button routerLink="/" class="btn btn-secondary me-2" type="button">Editar</button>
-        <button class="btn btn-primary" type="submit">Cadastrar</button>
+        <button [routerLink]="listaDeSetoresUrl" class="btn btn-secondary me-2" type="button">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Salvar</button>
       </div>
     </div>
   </div>
