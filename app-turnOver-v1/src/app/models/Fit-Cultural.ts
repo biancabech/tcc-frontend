@@ -1,10 +1,12 @@
 export interface FitCultural {
+  id: string;
   nome: string;
   data: string;
-  colaborativo: boolean;
+  trabalhoEquipe: boolean;
   adaptabilidade: boolean;
   comunicativo: boolean;
-  alinhadoValores: boolean;
+  resolucaoComflitos: boolean;
   iniciativa: boolean;
-  observacoes?: string;
+  observacoes: string;
+  createdAt: string;
 }

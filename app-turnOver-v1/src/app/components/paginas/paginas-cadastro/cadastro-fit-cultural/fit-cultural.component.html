@@ -1,189 +1,44 @@
-<div class="container-fluid min-vh-100 py-4 px-md-5">
+<div class="container-fluid min-vh-100 py-4 px-md-5 m-2">
+  <h2 class="fs-2 fw-bold text-dark"><fa-icon [icon]="faHandshake" class="fs-1 text-primary me-2" />Avaliação
+    de Fit Cultural</h2>
+  <p class="text-secondary">Avalie o alinhamento cultural dos candidatos</p>
   <div class="w-100">
-    <div class="d-flex align-items-center justify-content-between mb-4">
-      <div class="d-flex align-items-center gap-3">
-        <div class="p-3 rounded-3 shadow-lg" style="background-color: #ef4444;">
-          <!-- Placeholder for FileText icon -->
-          <i class="bi bi-file-text" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <div>
-          <h1 class="fs-3 fw-bold text-dark">Avaliação de Fit Cultural</h1>
-          <p class="text-secondary">Avalie o alinhamento cultural dos candidatos</p>
-        </div>
-      </div>
-
-    </div>
-
-    <ng-container>
-      <div class="d-flex align-items-center justify-content-start gap-2 mb-4">
-
-        <button (click)="alternarVisualizacao('search')"
-          class="btn btn-outline-secondary d-flex align-items-center gap-2 border-2"
-          [ngStyle]="{'border-color': '#2b2d42', 'color': '#2b2d42'}">
-          <!-- Placeholder for Search icon -->
-          <i class="bi bi-search" style="font-size: 1rem;"></i>
-          Ver Avaliações
-        </button>
-
-
-
-
-        <button class="btn text-white shadow-lg d-flex align-items-center gap-2"
-          [ngStyle]="{'background-color': '#ef4444'}">
-          <!-- Placeholder for FileText icon -->
-          <i class="bi bi-file-text" style="font-size: 1rem;"></i>
-          Nova Avaliação
-        </button>
-      </div>
-
-      <div class="card mb-4 shadow-lg border-0">
-        <div class="card-header text-white rounded-top"
-          style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
-          <h5 class="card-title d-flex align-items-center gap-2 mb-0">
-            <!-- Placeholder for Search icon -->
-            <i class="bi bi-search" style="font-size: 1.25rem;"></i>
-            Buscar Avaliações
-          </h5>
-        </div>
-        <div class="card-body p-4 bg-white">
-          <div class="row g-3">
-            <div class="col-12">
-              <label for="search" class="form-label text-sm fw-medium text-secondary">
-                Buscar por nome do candidato
-              </label>
-              <input id="search" type="text" class="form-control mt-1 border-2" [ngStyle]="{'border-color': '#2b2d42'}"
-                placeholder="Digite o nome do candidato..." />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="d-grid gap-4">
-        <ng-container>
-          <div class="card shadow-lg border-0">
-            <div class="card-body text-center py-5 bg-white">
-              <!-- Placeholder for FileText icon -->
-              <i class="bi bi-file-text d-block mx-auto mb-3" style="font-size: 3rem; color: #adb5bd;"></i>
-              <h3 class="fs-5 fw-semibold text-dark mb-2">
-                Nenhuma avaliação encontrada
-              </h3>
-              <p class="text-secondary mb-4">Tente ajustar o termo de busca ou realize uma nova avaliação.</p>
-              <button class="btn text-white" [ngStyle]="{'background-color': '#ef4444'}">
-                <!-- Placeholder for FileText icon -->
-                <i class="bi bi-file-text me-2" style="font-size: 1rem;"></i>
-                Nova Avaliação
-              </button>
-            </div>
-          </div>
-        </ng-container>
-
-        <ng-container>
-          <div class="card hover-shadow-lg transition-all duration-300 border-0 shadow-lg bg-white">
-            <div class="card-header text-white rounded-top"
-              style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
-              <div class="d-flex justify-content-between align-items-start">
-                <div>
-                  <h5 class="card-title fs-5 d-flex align-items-center gap-2 mb-0">
-                    <!-- Placeholder for User icon -->
-                    <i class="bi bi-person" style="font-size: 1.25rem;"></i>
-                  </h5>
-                  <p class="card-text d-flex align-items-center gap-4 mt-1 text-light-emphasis">
-                    <span class="d-flex align-items-center gap-1">
-                      <!-- Placeholder for CalendarDays icon -->
-                      <i class="bi bi-calendar-day" style="font-size: 1rem;"></i>
-                      Entrevista:
-                    </span>
-                    <span>Avaliado em:</span>
-                  </p>
-                </div>
-                <div class="text-end">
-                  <span class="badge rounded-pill mb-2">
-                  </span>
-                  <div class="text-sm text-light-emphasis">
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body p-4 bg-white">
-              <div class="row g-4">
-                <div class="col-12 col-lg-6">
-                  <h4 class="fw-semibold text-dark mb-3">
-                    Critérios Avaliados
-                  </h4>
-                  <div class="d-grid gap-3">
-                    <div>
-                      <ng-container>
-                        <!-- Placeholder for CheckCircle2 icon -->
-                        <i class="bi bi-check-circle-fill text-success" style="font-size: 1.25rem;"></i>
-                      </ng-container>
-                      <ng-template #xCircle>
-                        <!-- Placeholder for XCircle icon -->
-                        <i class="bi bi-x-circle-fill" style="font-size: 1.25rem; color: #ef4444;"></i>
-                      </ng-template>
-                      <span class="fs-5"></span>
-                      <span class="text-sm"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                  <h4 class="fw-semibold text-dark mb-3">
-                    Observações
-                  </h4>
-                  <div class="p-3 rounded-3 border"
-                    [ngStyle]="{'background-color': '#f8f9fa', 'border-color': '#2b2d42'}">
-                    <p class="text-sm text-secondary">
-                      "Nenhuma observação adicional foi registrada."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </ng-container>
-
     <ng-container>
       <form (ngSubmit)="salvarFitCultural()" class="d-grid gap-4">
         <div class="card shadow-lg border-0 bg-white">
           <div class="card-header text-white rounded-top"
             style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
-            <h5 class="card-title d-flex align-items-center gap-2 mb-0">
-              <!-- Placeholder for User icon -->
+            <h4 class="card-title d-flex align-items-center gap-2 mb-1">
+
               <i class="bi bi-person" style="font-size: 1.25rem;"></i>
               Informações da Entrevista
-            </h5>
-            <p class="card-text text-light-emphasis">
-              Dados básicos sobre o candidato e a entrevista
-            </p>
+            </h4>
           </div>
-          <div class="card-body p-4 bg-white">
-            <div class="row g-3">
-              <div class="col-12 col-md-8">
-                <label for="nome" class="form-label d-flex align-items-center gap-2 text-sm fw-medium text-secondary">
-                  <!-- Placeholder for User icon -->
-                  <i class="bi bi-person" style="font-size: 1rem; color: #2b2d42;"></i>
-                  Nome do Candidato *
-                </label>
-                <input id="nome" type="text" class="form-control mt-1 border-2" [ngStyle]="{'border-color': '#2b2d42'}"
-                  [(ngModel)]="fitCultural.nome" name="nome" placeholder="Digite o nome completo do candidato"
-                  required />
-              </div>
-              <div class="col-12 col-md-4">
-                <label for="dataEntrevista"
-                  class="form-label d-flex align-items-center gap-2 text-sm fw-medium text-secondary">
-                  <!-- Placeholder for CalendarDays icon -->
-                  <i class="bi bi-calendar-day" style="font-size: 1rem; color: #2b2d42;"></i>
-                  Data da Entrevista
-                </label>
-                <input id="dataEntrevista" type="date" class="form-control mt-1 border-2"
-                  [ngStyle]="{'border-color': '#2b2d42'}" [(ngModel)]="fitCultural.data" name="dataEntrevista" />
-              </div>
+        </div>
+        <div class="card-body p-4 bg-white">
+          <div class="row g-3">
+            <div class="col-12 col-md-8">
+              <label for="nome" class="form-label d-flex align-items-center gap-2 text-sm fw-medium text-secondary">
+
+                <i class="bi bi-person" style="font-size: 1rem; color: #2b2d42;"></i>
+                Nome do Candidato *
+              </label>
+              <input id="nome" type="text" class="form-control mt-1 border-2" [ngStyle]="{'border-color': '#2b2d42'}"
+                [(ngModel)]="fitCultural.nome" name="nome" placeholder="Digite o nome completo do candidato" required />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="dataEntrevista"
+                class="form-label d-flex align-items-center gap-2 text-sm fw-medium text-secondary">
+
+                <i class="bi bi-calendar-day" style="font-size: 1rem; color: #2b2d42;"></i>
+                Data da Entrevista
+              </label>
+              <input id="dataEntrevista" type="date" class="form-control mt-1 border-2"
+                [ngStyle]="{'border-color': '#2b2d42'}" [(ngModel)]="fitCultural.data" name="dataEntrevista" />
             </div>
           </div>
         </div>
+
 
         <div class="card shadow-lg border-0 bg-white">
           <div class="card-header text-white rounded-top"
@@ -191,61 +46,88 @@
             <div class="d-flex justify-content-between align-items-start">
               <div>
                 <h5 class="card-title mb-0">Critérios de Avaliação</h5>
-                <p class="card-text text-light-emphasis">
-                  Marque os critérios que o candidato atende
-                </p>
-              </div>
-              <!-- Indicador de Porcentagem em Tempo Real -->
-              <div class="text-end" style="min-width: 200px;">
-                <div class="d-flex align-items-center gap-2 mb-2 justify-content-end">
-                  <!-- Placeholder for TrendingUp icon -->
-                  <i class="bi bi-graph-up" style="font-size: 1rem; color: white;"></i>
-                  <span class="text-sm fw-medium text-white">Fit Cultural</span>
-                </div>
-                <div class="fs-3 fw-bold text-white mb-1">%</div>
-                <div class="text-xs text-danger-emphasis mb-2">
-                  critérios
-                </div>
-                <div class="progress bg-white bg-opacity-25 rounded-pill" style="height: 8px;">
-                  <div class="progress-bar bg-white rounded-pill transition-all duration-300" role="progressbar"
-                    [style.width]="calcularPorcentagemAtual().percentual + '%'" aria-valuemin="0" aria-valuemax="100">
-                  </div>
-                </div>
-                <div class="text-xs text-danger-emphasis mt-1">
+                <p class="card-text text-light-emphasis">Marque os critérios que o candidato atende</p>
 
+              </div>
+              <div class="d-flex align-items-center gap-2">
+
+                <!-- Exemplo de como exibir a porcentagem em tempo real -->
+                <div class="text-end" style="min-width: 200px;">
+                  <div class="d-flex align-items-center gap-2 mb-2 justify-content-end">
+                    <i class="bi bi-graph-up" style="font-size: 1rem; color: white;"></i>
+                    <span class="text-sm fw-medium text-white">Fit Cultural</span>
+                  </div>
+                  <div class="fs-3 fw-bold text-white mb-1">{{calcularPorcentagemAtual().percentual}}%</div>
+                  <div class="text-xs text-light-emphasis mb-2">
+                    {{calcularPorcentagemAtual().pontos}} de {{calcularPorcentagemAtual().total}} critérios
+                  </div>
+                  <div class="progress bg-white bg-opacity-25 rounded-pill" style="height: 8px;">
+                    <div class="progress-bar bg-white rounded-pill transition-all duration-300" role="progressbar"
+                      [style.width]="calcularPorcentagemAtual().percentual + '%'" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="card-body p-4 bg-white">
             <div class="row g-3">
-              <div *ngFor="let criterio of criterios" class="col-12 col-md-6">
-                <div class="d-flex align-items-start space-x-3 p-3 border-2 rounded-3 transition-all duration-200">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="{{criterio.key}}" />
-                    <label class="form-check-label d-flex align-items-center gap-2 cursor-pointer"
-                      for="{{criterio.key}}">
-                      <span class="fs-5">{{criterio.icon}}</span>
-                      <div class="flex-grow-1">
-                        <span class="text-sm fw-medium lh-base text-dark">
-                          {{criterio.label}}
-                        </span>
-                        <div class="d-flex align-items-center gap-2 mt-1">
-                          <span class="badge text-secondary border-2"
-                            [ngStyle]="{'border-color': '#2b2d42', 'color': '#2b2d42'}">
-                            {{criterio.peso}}% do total
-                          </span>
-                          <ng-container>
-                            <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">
-                              ✓ Atendido
-                            </span>
-                          </ng-container>
-                        </div>
-                      </div>
-                    </label>
-                  </div>
+
+              <div
+                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                <div class="form-check d-flex align-items-center gap-2">
+                  <input id="trabalhoEquipe" type="checkbox" class="form-check-input"
+                    [(ngModel)]="fitCultural.trabalhoEquipe" name="trabalhoEquipe" />
+                  <label for="trabalhoEquipe" class="form-check-label text-secondary">
+                    Trabalho em Equipe
+                  </label>
                 </div>
               </div>
+              <div
+                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                <div class="form-check d-flex align-items-center gap-2">
+                  <input id="adaptabilidade" type="checkbox" class="form-check-input"
+                    [(ngModel)]="fitCultural.adaptabilidade" name="adaptabilidade" />
+                  <label for="adaptabilidade" class="form-check-label text-secondary">
+                    Mostra adaptabilidade a mudanças
+                  </label>
+                </div>
+              </div>
+
+
+              <div
+                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                <div class="form-check d-flex align-items-center gap-2">
+                  <input id="comunicativo" type="checkbox" class="form-check-input"
+                    [(ngModel)]="fitCultural.comunicativo" name="comunicativo" />
+                  <label for="adaptabilidade" class="form-check-label text-secondary">
+                    Boa comunicação interpessoal
+                  </label>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                <div class="form-check d-flex align-items-center gap-2">
+                  <input id="iniciativa" type="checkbox" class="form-check-input" [(ngModel)]="fitCultural.iniciativa"
+                    name="iniciativa" />
+                  <label for="iniciativa" class="form-check-label text-secondary">
+                    Proatividade e Iniciativa
+                  </label>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                <div class="form-check d-flex align-items-center gap-2">
+                  <input id="resolucaoComflitos" type="checkbox" class="form-check-input"
+                    [(ngModel)]="fitCultural.resolucaoComflitos" name="resolucaoComflitos" />
+                  <label for="resolucaoComflitos" class="form-check-label text-secondary">
+                    Resolução de Conflitos
+                  </label>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -265,9 +147,8 @@
           </div>
         </div>
 
-        <div class="d-flex justify-content-end gap-3">
-          <button type="button" class="btn btn-outline-secondary border-2 hover-bg-light"
-            [ngStyle]="{'border-color': '#2b2d42', 'color': '#2b2d42'}" (click)="alternarVisualizacao('search')">
+        <div class="d-flex justify-content-end gap-3 me-2">
+          <button type="button" class="btn btn-outline-secondary border-2 hover-bg-light">
             Cancelar
           </button>
           <button type="submit" class="btn text-white shadow-lg px-4" [ngStyle]="{'background-color': '#ef4444'}">
