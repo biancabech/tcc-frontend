@@ -4,155 +4,159 @@
   <div class="card p-4">
     <!-- 1. Informações do Colaborador -->
     <div class="row g-3">
-      <div class="col-md-4">
-        <label for="cpf" class="form-label">CPF</label>
-        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF">
-      </div>
-
       <div class="col-md-3">
         <label for="data" class="form-label">Data</label>
         <input type="date" id="data" class="form-control" name="data">
       </div>
-
-      <div class="col-md-5">
+      <div class="col-md-3">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF">
+      </div>
+      <div class="col-md-8">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome">
       </div>
 
-      <div class="col-md-6">
-        <label for="setor" class="form-label">Setor</label>
-        <input type="text" id="setor" class="form-control" name="setor" placeholder="Setor">
+
+
+      <div class="col-md-2">
+        <label for="setores" class="form-label">Setor</label>
+        <select class="form-select" id="setor" [(ngModel)]="acompanhamento.setorId" name="setor">
+          <option *ngFor="let setor of setores" [value]="setor.id">{{ setor.nome }}</option>
+        </select>
       </div>
-
-      <div class="col-md-6">
-        <label for="cargo" class="form-label">Cargo</label>
-        <input type="text" id="cargo" class="form-control" name="cargo" placeholder="Cargo">
-      </div>
-    </div>
-
-    <hr class="my-4">
-
-    <!-- 2. Avaliação de Desempenho -->
-    <h5 class="mb-3">Avaliação de Desempenho</h5>
-    <div class="row g-3">
-      <div class="col-md-4">
-        <label class="form-label">Produtividade</label>
-        <select class="form-select" [(ngModel)]="acompanhamento.produtividade" name="produtividade">
-          <option disabled selected value="">Selecione</option>
-          <option>1 - Muito Baixa</option>
-          <option>2 - Baixa</option>
-          <option>3 - Média</option>
-          <option>4 - Boa</option>
-          <option>5 - Excelente</option>
+      <div class="col-md-2">
+        <label for="cargos" class="form-label">Cargo</label>
+        <select class="form-select" id="cargo" [(ngModel)]="acompanhamento.cargoId" name="cargo">
+          <option *ngFor="let cargo of cargos" [value]="cargo.id">{{ cargo.nome }}</option>
         </select>
       </div>
 
-      <div class="col-md-4">
-        <label class="form-label">Qualidade do Trabalho</label>
-        <select class="form-select" [(ngModel)]="acompanhamento.qualidade" name="qualidade">
-          <option disabled selected value="">Selecione</option>
-          <option>1 - Muito Baixa</option>
-          <option>2 - Baixa</option>
-          <option>3 - Média</option>
-          <option>4 - Boa</option>
-          <option>5 - Excelente</option>
-        </select>
+      <hr class="my-4">
+
+      <!-- 2. Avaliação de Desempenho -->
+      <h5 class="mb-3">Avaliação de Desempenho</h5>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Produtividade</label>
+          <select class="form-select" [(ngModel)]="acompanhamento.produtividade" name="produtividade">
+            <option disabled selected value="">Selecione</option>
+            <option>1 - Muito Baixa</option>
+            <option>2 - Baixa</option>
+            <option>3 - Média</option>
+            <option>4 - Boa</option>
+            <option>5 - Excelente</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Qualidade do Trabalho</label>
+          <select class="form-select" [(ngModel)]="acompanhamento.qualidade" name="qualidade">
+            <option disabled selected value="">Selecione</option>
+            <option>1 - Muito Baixa</option>
+            <option>2 - Baixa</option>
+            <option>3 - Média</option>
+            <option>4 - Boa</option>
+            <option>5 - Excelente</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Cumprimento de Prazos</label>
+          <select class="form-select" [(ngModel)]="acompanhamento.prazos" name="prazos">
+            <option disabled selected value="">Selecione</option>
+            <option>1 - Muito Baixo</option>
+            <option>2 - Baixo</option>
+            <option>3 - Médio</option>
+            <option>4 - Bom</option>
+            <option>5 - Excelente</option>
+          </select>
+        </div>
       </div>
 
-      <div class="col-md-4">
-        <label class="form-label">Cumprimento de Prazos</label>
-        <select class="form-select" [(ngModel)]="acompanhamento.prazos" name="prazos">
-          <option disabled selected value="">Selecione</option>
-          <option>1 - Muito Baixo</option>
-          <option>2 - Baixo</option>
-          <option>3 - Médio</option>
-          <option>4 - Bom</option>
-          <option>5 - Excelente</option>
-        </select>
-      </div>
-    </div>
+      <hr class="my-4">
 
-    <hr class="my-4">
+      <!-- 3. Competências Comportamentais -->
+      <h5 class="mb-3">Competências Comportamentais</h5>
+      <div class="row g-3">
+        <div class="col-md-6 form-check">
+          <input class="form-check-input" type="checkbox" id="comunicacao" [(ngModel)]="acompanhamento.comunicacao"
+            name="comunicacao">
+          <label class="form-check-label" for="comunicacao">
+            Boa Comunicação
+          </label>
+        </div>
 
-    <!-- 3. Competências Comportamentais -->
-    <h5 class="mb-3">Competências Comportamentais</h5>
-    <div class="row g-3">
-      <div class="col-md-6 form-check">
-        <input class="form-check-input" type="checkbox" id="comunicacao" [(ngModel)]="acompanhamento.comunicacao"
-          name="comunicacao">
-        <label class="form-check-label" for="comunicacao">
-          Boa Comunicação
-        </label>
-      </div>
+        <div class="col-md-6 form-check">
+          <input class="form-check-input" type="checkbox" id="trabalhoEquipe"
+            [(ngModel)]="acompanhamento.trabalhoEquipe" name="trabalhoEquipe">
+          <label class="form-check-label" for="trabalhoEquipe">
+            Trabalho em Equipe
+          </label>
+        </div>
 
-      <div class="col-md-6 form-check">
-        <input class="form-check-input" type="checkbox" id="trabalhoEquipe" [(ngModel)]="acompanhamento.trabalhoEquipe"
-          name="trabalhoEquipe">
-        <label class="form-check-label" for="trabalhoEquipe">
-          Trabalho em Equipe
-        </label>
-      </div>
+        <div class="col-md-6 form-check">
+          <input class="form-check-input" type="checkbox" id="adaptabilidade"
+            [(ngModel)]="acompanhamento.adaptabilidade" name="adaptabilidade">
+          <label class="form-check-label" for="adaptabilidade">
+            Adaptabilidade
+          </label>
+        </div>
 
-      <div class="col-md-6 form-check">
-        <input class="form-check-input" type="checkbox" id="adaptabilidade" [(ngModel)]="acompanhamento.adaptabilidade"
-          name="adaptabilidade">
-        <label class="form-check-label" for="adaptabilidade">
-          Adaptabilidade
-        </label>
+        <div class="col-md-6 form-check">
+          <input class="form-check-input" type="checkbox" id="proatividade" [(ngModel)]="acompanhamento.proatividade"
+            name="proatividade">
+          <label class="form-check-label" for="proatividade">
+            Proatividade
+          </label>
+        </div>
       </div>
 
-      <div class="col-md-6 form-check">
-        <input class="form-check-input" type="checkbox" id="proatividade" [(ngModel)]="acompanhamento.proatividade"
-          name="proatividade">
-        <label class="form-check-label" for="proatividade">
-          Proatividade
-        </label>
+      <hr class="my-4">
+
+      <!-- 4. Feedback do Gestor -->
+      <div class="mb-3">
+        <label for="feedbackGestor" class="form-label">Feedback do Gestor</label>
+        <textarea class="form-control" id="feedbackGestor" rows="4" [(ngModel)]="acompanhamento.feedback"
+          name="feedback" placeholder="Comentários sobre o período..."></textarea>
       </div>
-    </div>
 
-    <hr class="my-4">
-
-    <!-- 4. Feedback do Gestor -->
-    <div class="mb-3">
-      <label for="feedbackGestor" class="form-label">Feedback do Gestor</label>
-      <textarea class="form-control" id="feedbackGestor" rows="4" [(ngModel)]="acompanhamento.feedback" name="feedback"
-        placeholder="Comentários sobre o período..."></textarea>
-    </div>
-
-    <!-- 5. Desenvolvimento -->
-    <div class="mb-3">
-      <label for="desenvolvimento" class="form-label">Treinamentos ou Desenvolvimento</label>
-      <textarea class="form-control" id="desenvolvimento" rows="3" [(ngModel)]="acompanhamento.treinamento"
-        name="treinamento" placeholder="Cursos, treinamentos, pontos de desenvolvimento..."></textarea>
-    </div>
-
-    <!-- 6. Plano de Ação -->
-    <div class="mb-3">
-      <label for="plano" class="form-label">Plano de Ação / Próximas Metas</label>
-      <textarea class="form-control" id="plano" rows="3" [(ngModel)]="acompanhamento.plano" name="plano"
-        placeholder="Metas, prazos, acompanhamento futuro..."></textarea>
-    </div>
-
-    <!-- 7. Avaliador -->
-    <div class="row g-3">
-      <div class="col-md-6">
-        <label for="avaliador" class="form-label">Avaliador Responsável</label>
-        <input type="text" id="avaliador" class="form-control" [(ngModel)]="acompanhamento.avaliador" name="avaliador">
+      <!-- 5. Desenvolvimento -->
+      <div class="mb-3">
+        <label for="desenvolvimento" class="form-label">Treinamentos ou Desenvolvimento</label>
+        <textarea class="form-control" id="desenvolvimento" rows="3" [(ngModel)]="acompanhamento.treinamento"
+          name="treinamento" placeholder="Cursos, treinamentos, pontos de desenvolvimento..."></textarea>
       </div>
-      <div class="col-md-6">
-        <label for="confirmacao" class="form-label">Colaborador ciente?</label>
-        <select id="confirmacao" class="form-select" [(ngModel)]="acompanhamento.confirmacao" name="confirmacao">
-          <option disabled selected value="">Selecione</option>
-          <option>Sim</option>
-          <option>Não</option>
-        </select>
-      </div>
-    </div>
 
-    <!-- Botões -->
-    <div class="d-flex justify-content-end m-4">
-      <button routerLink="/" type="button" class="btn btn-secondary me-2">Cancelar</button>
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <!-- 6. Plano de Ação -->
+      <div class="mb-3">
+        <label for="plano" class="form-label">Plano de Ação / Próximas Metas</label>
+        <textarea class="form-control" id="plano" rows="3" [(ngModel)]="acompanhamento.plano" name="plano"
+          placeholder="Metas, prazos, acompanhamento futuro..."></textarea>
+      </div>
+
+      <!-- 7. Avaliador -->
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="avaliador" class="form-label">Avaliador Responsável</label>
+          <input type="text" id="avaliador" class="form-control" [(ngModel)]="acompanhamento.avaliador"
+            name="avaliador">
+        </div>
+        <div class="col-md-6">
+          <label for="confirmacao" class="form-label">Colaborador ciente?</label>
+          <select id="confirmacao" class="form-select" [(ngModel)]="acompanhamento.confirmacao" name="confirmacao">
+            <option disabled selected value="">Selecione</option>
+            <option>Sim</option>
+            <option>Não</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="d-flex justify-content-end m-4">
+        <button routerLink="/" type="button" class="btn btn-secondary me-2">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </div>
     </div>
   </div>
 </form>

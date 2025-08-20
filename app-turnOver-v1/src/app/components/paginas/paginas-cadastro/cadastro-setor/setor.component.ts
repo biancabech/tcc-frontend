@@ -72,6 +72,17 @@ export class SetorComponent implements OnInit {
     }
   }
 
+  validarFormulario() {
+    this.erroValidacao = null;
+    if (this.setor.nome.trim() === "") {
+      this.erroValidacao = 'Nome do setor é inválido'
+    }
+
+    let temErro = !this.erroValidacao;
+
+    return temErro;
+  }
+
   atualizarSetor() {
     this.setorService.put(this.setor, this.setor.id).subscribe({
       next: () => {
@@ -96,16 +107,5 @@ export class SetorComponent implements OnInit {
         this.toastr.error('Erro ao cadatrar setor');
       }
     });
-  }
-
-  validarFormulario() {
-    this.erroValidacao = null;
-    if (this.setor.nome.trim() === "") {
-      this.erroValidacao = 'Nome do setor é inválido'
-    }
-
-    let temErro = !this.erroValidacao;
-
-    return temErro;
   }
 }

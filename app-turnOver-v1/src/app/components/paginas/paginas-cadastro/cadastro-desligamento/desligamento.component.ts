@@ -8,4 +8,5 @@ import { faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 })
 export class DesligamentoComponent {
   faLinkSlash = faLinkSlash;
+  listaDeDesligamentosUrl = '/paginas/paginas-listagem/listagem-setores';
 }

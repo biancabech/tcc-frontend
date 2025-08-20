@@ -15,8 +15,20 @@ export class CargoService {
     return this.http.get<Cargo[]>(this.apiUrl);
   }
 
+  get(id: string) {
+    return this.http.get<Cargo>(this.apiUrl + '/' + id);
+  }
+
   post(funcionario: Cargo): Observable<string> {
     return this.http.post<string>(this.apiUrl, funcionario);
+  }
+
+  put(funcionario: Cargo, id: string): Observable<string> {
+    return this.http.put<string>(this.apiUrl + "/" + id, funcionario);
+  }
+
+  delete(id: string): Observable<string> {
+    return this.http.delete<string>(this.apiUrl + "/" + id);
   }
 }
 

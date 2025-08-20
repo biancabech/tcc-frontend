@@ -1,12 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container-fluid">
     <div class="navbar-brand d-flex align-items-center">
-      <fa-icon [icon]="faUserGear" class="fs-1 text-primary me-2" />
-      Lista de Cargos
+      <div class="icon-wrapper bg-primary text-white me-2">
+        <i class="bi bi-box-seam fs-4"></i>
+      </div>
+      Lista de Desligamentos
     </div>
     <div class="d-flex align-items-center mb-3">
-      <button routerLink="/paginas/paginas-cadastro/cadastro-cargo" class="btn btn-danger btn-custom me-3">
-        <i class="bi bi-plus-circle me-1"></i> Add Cargo
+      <button routerLink="/paginas/paginas-cadastro/cadastro-desligamento" class="btn btn-primary btn-custom me-3">
+        <i class="bi bi-plus-circle me-1"></i> Add Desligamento
       </button>
       <div class="bg-secondary rounded-circle" style="width: 2rem; height: 2rem;"></div>
     </div>
@@ -30,19 +32,20 @@
             <table class="table table-hover">
               <thead className="table-light">
                 <tr>
-                  <th><i class="bi bi-briefcase me-1"></i>Cargo</th>
+                  <th><i class="bi bi-briefcase me-1"></i>Desligamento</th>
                   <th class="col-md-2"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let cargo of cargos">
-                  <td>{{ cargo.nome }}</td>
+                <tr *ngFor="let desligamento of desligamentos">
+                  <td>{{ desligamento.dataDesligamento }}</td>
                   <td>
-                    <a routerLink="/paginas/paginas-cadastro/cadastro-cargo" [queryParams]="{ id: cargo.id }">
+                    <a routerLink="/paginas/paginas-cadastro/cadastro-cargo" [queryParams]="{ id: desligamento.id }">
+                      {{ desligamento.descricao }}
                       <i class="bi bi-pencil"></i>
                     </a>
                     &nbsp;
-                    <a (click)="deletar(cargo)" href="javascript:void(0)">
+                    <a (click)="deletar(desligamento)" href="javascript:void(0)">
                       <i class="bi bi-trash"></i>
                     </a>
                   </td>

@@ -1,36 +1,42 @@
 <form class="container-fluid p-3" (ngSubmit)="salvarFuncionario()">
   <h2 class="mb-4 text-center">Cadastro de Funcionários</h2>
-  <button onclick="editar()">EDITAR</button>
+
   <!-- Dados Pessoais -->
   <div class="card p-4 mb-4 shadow-sm">
     <h5 class="mb-3">Dados Pessoais</h5>
     <div class="row g-3">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome" [(ngModel)]="funcionario.nome" name="nome">
         <div *ngIf="erros.get('nome')" class="text-danger">{{ erros.get('nome') }}</div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <label for="dataNasci" class="form-label">Data de Nascimento</label>
         <input type="date" class="form-control" id="dataNasci" [(ngModel)]="funcionario.dataNasci" name="dataNasci">
         <div *ngIf="erros.get('dataNasci')" class="text-danger">{{ erros.get('dataNasci') }}</div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <label for="cpf" class="form-label">CPF</label>
         <input type="text" class="form-control" id="cpf" [(ngModel)]="funcionario.cpf" name="cpf">
         <div *ngIf="erros.get('cpf')" class="text-danger">{{ erros.get('cpf') }}</div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" [(ngModel)]="funcionario.email" name="email">
         <div *ngIf="erros.get('email')" class="text-danger">{{ erros.get('email') }}</div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-2">
+        <label for="cep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="cep" [(ngModel)]="endereco.cep" (focusout)="buscarEnderecoPorCep()"
+          name="cep">
+        <div *ngIf="erros.get('cep')" class="text-danger">{{ erros.get('cep') }}</div>
+      </div>
+      <div class="col-md-5">
         <label for="rua" class="form-label">Rua</label>
         <input type="text" class="form-control" id="rua" [(ngModel)]="endereco.rua" name="rua">
         <div *ngIf="erros.get('rua')" class="text-danger">{{ erros.get('rua') }}</div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-1">
         <label for="numero" class="form-label">Número</label>
         <input type="text" class="form-control" id="numero" [(ngModel)]="endereco.numero" name="numero">
         <div *ngIf="erros.get('numero')" class="text-danger">{{ erros.get('numero') }}</div>
@@ -40,13 +46,7 @@
         <input type="text" class="form-control" id="complemento" [(ngModel)]="endereco.complemento" name="complemento">
         <div *ngIf="erros.get('complemento')" class="text-danger">{{ erros.get('complemento') }}</div>
       </div>
-      <div class="col-md-3">
-        <label for="cep" class="form-label">CEP</label>
-        <input type="text" class="form-control" id="cep" [(ngModel)]="endereco.cep" (focusout)="buscarEnderecoPorCep()"
-          name="cep">
-        <div *ngIf="erros.get('cep')" class="text-danger">{{ erros.get('cep') }}</div>
-      </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <label for="bairro" class="form-label">Bairro</label>
         <input type="text" class="form-control" id="bairro" [(ngModel)]="endereco.bairro" name="bairro">
         <div *ngIf="erros.get('bairro')" class="text-danger">{{ erros.get('bairro') }}</div>
@@ -68,12 +68,17 @@
   <div class="card p-4 shadow-sm">
     <h5 class="mb-3">Informações do Cargo</h5>
     <div class="row g-3">
-      <div class="col-md-4">
+      <div class="col-md-2">
         <label for="dataAdmissao" class="form-label">Data de Admissão</label>
         <input type="date" class="form-control" id="dataAdmissao" [(ngModel)]="funcionario.dataAdmi"
           name="dataAdmissao">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
+        <label for="dataDemissao" class="form-label">Data de Demissão</label>
+        <input type="date" class="form-control" id="dataDemissao" [(ngModel)]="funcionario.dataDemi"
+          name="dataDemissao">
+      </div>
+      <div class="col-md-3">
         <label for="genero" class="form-label">Gênero</label>
         <select class="form-select" id="genero" [(ngModel)]="funcionario.genero" name="genero">
           <option value="">Selecione</option>
@@ -82,13 +87,13 @@
           <option value="Outro">Outro</option>
         </select>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label for="setores" class="form-label">Setor</label>
         <select class="form-select" id="setor" [(ngModel)]="funcionario.setorId" name="setor">
           <option *ngFor="let setor of setores" [value]="setor.id">{{ setor.nome }}</option>
         </select>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <label for="cargos" class="form-label">Cargo</label>
         <select class="form-select" id="cargo" [(ngModel)]="funcionario.cargoId" name="cargo">
           <option *ngFor="let cargo of cargos" [value]="cargo.id">{{ cargo.nome }}</option>

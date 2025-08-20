@@ -7,15 +7,15 @@ export interface Funcionario {
   dataAdmi: string;
   dataDemi?: string
   email: string;
-  cargoId: '',
-  setorId: '',
+  cargoId: string;
+  setorId: string;
   cargo: {
-    id: '',
-    nome: ''
+    id: string;
+    nome: string;
   },
   setor: {
-    id: '',
-    nome: ''
+    id: string;
+    nome: string;
   },
   enderecoId: string;
 }

@@ -25,6 +25,8 @@ import { CargoComponent } from './components/paginas/paginas-cadastro/cadastro-c
 import { SetorComponent } from './components/paginas/paginas-cadastro/cadastro-setor/setor.component';
 import { ListagemCargoComponent } from './components/paginas/paginas-listagem/listagem-cargos/listagem-cargos.component';
 import { ListagemSetoresComponent } from './components/paginas/paginas-listagem/listagem-setores/listagem-setores.component';
+import { ListagemFitCulturalComponent } from './components/paginas/paginas-listagem/listagem-fit-cultural/listagem-fit-cultural.component';
+import { ListagemDesligamentosComponent } from './components/paginas/paginas-listagem/listagem-desligamentos/listagem-desligamentos.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ListagemSetoresComponent } from './components/paginas/paginas-listagem/
     CargoComponent,
     SetorComponent,
     ListagemSetoresComponent,
+    ListagemFitCulturalComponent,
+    ListagemDesligamentosComponent,
   ],
 
   imports: [

@@ -8,6 +8,7 @@ import { SetorService } from 'src/app/services/setor.service';
 import { CargoService } from 'src/app/services/cargo.service';
 import { ToastrService } from 'ngx-toastr';
 import { Endereco } from 'src/app/models/Endereco';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { Endereco } from 'src/app/models/Endereco';
   styleUrls: ['./cadastro-funcionario.component.css']
 })
 export class CadastroFuncionarioComponent implements OnInit {
+  listaDeFuncionariosUrl = '/paginas/paginas-listagem/listagem-funcionarios';
+
   funcionario: Funcionario = {
     id: '',
     nome: '',
@@ -60,7 +63,8 @@ export class CadastroFuncionarioComponent implements OnInit {
     private funcionarioService: FuncionarioService,
     private cargoService: CargoService,
     private setorService: SetorService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -83,6 +87,7 @@ export class CadastroFuncionarioComponent implements OnInit {
         this.toastr.error('Erro ao carregar setores.', 'Erro');
       }
     });
+    this.salvarFuncionario();
   }
 
   limparEndereco() {
@@ -134,68 +139,18 @@ export class CadastroFuncionarioComponent implements OnInit {
   salvarFuncionario() {
     this.funcionarioService.post(this.funcionario).subscribe({
       next: () => {
-        this.mensagemDeSucesso = 'Funcionário cadastrado com sucesso!';
-        this.mensagemDeErro = 'erro';
+        this.toastr.success('Funcionário cadastrado com sucesso!');
+        this.router.navigate([this.listaDeFuncionariosUrl]);
       },
-      error: (e) => {
-        this.mensagemDeSucesso = '';
-        if (e && e.error && e.error.message) {
-          this.mensagemDeErro = 'Erro ao cadastrar funcionário: ' + e.error.message;
-        } else if (e && e.status) {
-          this.mensagemDeErro = `Erro ao cadastrar funcionário (status ${e.status})`;
-        } else {
-          this.mensagemDeErro = 'Erro ao cadastrar funcionário.';
-        }
-        console.error('Erro ao cadastrar funcionário:', e);
+      error: (error) => {
+        console.error('Erro ao cadastrar funcionário:', error);
+        this.toastr.error('Erro ao cadastrar funcionário.', 'Erro');
       }
     });
   }
 
 
   validarFormulario() {
-    this.erros.clear();
 
-    if (this.funcionario.nome.trim() === '') {
-      this.erros.set('nome', 'O nome é obrigatório.');
-    }
-    if (this.funcionario.email.trim() === '') {
-      this.erros.set('email', 'O email é obrigatório.');
-    }
-    if (this.endereco.rua.trim() === '') {
-      this.erros.set('rua', 'A rua é obrigatória.');
-    }
-    if (this.endereco.bairro.trim() === '') {
-      this.erros.set('bairro', 'O bairro é obrigatório.');
-    }
-    if (this.endereco.cidade.trim() === '') {
-      this.erros.set('cidade', 'A cidade é obrigatória.');
-    }
-    if (this.endereco.estado.trim() === '') {
-      this.erros.set('estado', 'O estado é obrigatório.');
-    }
-    if (this.endereco.cep.trim() === '') {
-      this.erros.set('cep', 'O CEP é obrigatório.');
-    }
-    if (this.funcionario.cpf.trim() === '') {
-      this.erros.set('cpf', 'O CPF é obrigatório.');
-    }
-    if (this.funcionario.dataAdmi.trim() === '') {
-      this.erros.set('dataAdmi', 'A data de admissão é obrigatória.');
-    }
-    if (this.funcionario.dataNasci.trim() === '') {
-      this.erros.set('dataNasci', 'A data de nascimento é obrigatória.');
-    }
-    if (this.funcionario.genero.trim() === '') {
-      this.erros.set('genero', 'O gênero é obrigatório.');
-    }
-    if (this.funcionario.setorId.trim() === '') {
-      this.erros.set('setorId', 'O setor é obrigatório.');
-    }
-    if (this.funcionario.cargoId.trim() === '') {
-      this.erros.set('cargoId', 'O cargo é obrigatório.');
-    }
-
-    let deuErro = this.erros.size > 0;
-    return deuErro;
   }
 }

@@ -13,4 +13,14 @@ export interface Acompanhamento {
   plano: string;
   avaliador: string;
   confirmacao: string;
+  cargoId: '',
+  setorId: '',
+  cargo: {
+    id: '',
+    nome: ''
+  },
+  setor: {
+    id: '',
+    nome: ''
+  },
 }

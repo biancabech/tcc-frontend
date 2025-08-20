@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faBuilding, faDiagramProject, faLayerGroup, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { Setor } from 'src/app/models/Setor';
 import { SetorService } from 'src/app/services/setor.service';
@@ -12,6 +13,7 @@ import SweetAlert2 from 'sweetalert2';
   styleUrls: ['./listagem-setores.component.css']
 })
 export class ListagemSetoresComponent implements OnInit {
+  faNetworkWired = faNetworkWired;
   setores: Setor[] = [];
 
   constructor(
