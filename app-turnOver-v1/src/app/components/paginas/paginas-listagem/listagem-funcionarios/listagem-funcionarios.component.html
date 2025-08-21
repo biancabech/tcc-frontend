@@ -1,4 +1,4 @@
-<div class="container-fluid py-4">
+<div class="container-fluid">
   <div class="container">
 
     <div class="row mb-4">
@@ -31,6 +31,7 @@
           </div>
           <div class="card-body">
             <div class="row g-3">
+
               <!-- Busca por Nome -->
               <div class="col-md-4">
                 <label for="nomeBusca" class="form-label">
@@ -109,20 +110,35 @@
                     <th>Cargo</th>
                     <th>Setor</th>
                     <th>Data de Admissão</th>
+                    <th>Data de Demissão</th>
                     <th>Status</th>
-                    <th>Salário</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let funcionario of funcionariosFiltrados">
-                    <td class="fw-semibold">{{ funcionario.nome }}</td>
-                    <td>{{ funcionario.cargo }}</td>
-                    <td>{{ funcionario.setor }}</td>
+                  <tr *ngFor="let funcionario of funcionarios">
+                    <td>{{ funcionario.nome }}</td>
+                    <td>{{ funcionario.cargo.nome }}</td>
+                    <td>{{ funcionario.setor.nome }}</td>
                     <td>{{ formatarData(funcionario.dataAdmi) }}</td>
+                    <td>{{ formatarData(funcionario.dataDemi) }}</td>
                     <td>
-                      <span class="badge">
+                      <span class="badge"
+                        [ngClass]="funcionario.dataDemi ? 'bg-secondary text-dark' : 'bg-success text-white'">
                         {{ funcionario.dataDemi ? 'Inativo' : 'Ativo' }}
                       </span>
+
+
+
+                    </td>
+                    <td>
+                      <a routerLink="/paginas/paginas-cadastro/cadastro-funcionario"
+                        [queryParams]="{ id: funcionario.id }">
+                        <i class="bi bi-pencil"></i>
+                      </a>
+                      &nbsp;
+                      <a (click)="deletar(funcionario)" href="javascript:void(0)">
+                        <i class="bi bi-trash"></i>
+                      </a>
                     </td>
                     <!-- <td>{{ funcionario.salario }}</td> -->
                   </tr>

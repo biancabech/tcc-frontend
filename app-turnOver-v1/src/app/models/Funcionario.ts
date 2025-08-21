@@ -1,3 +1,7 @@
+import { Cargo } from "./Cargo";
+import { Endereco } from "./Endereco";
+import { Setor } from "./Setor";
+
 export interface Funcionario {
   id: string;
   nome: string;
@@ -9,13 +13,8 @@ export interface Funcionario {
   email: string;
   cargoId: string;
   setorId: string;
-  cargo: {
-    id: string;
-    nome: string;
-  },
-  setor: {
-    id: string;
-    nome: string;
-  },
+  cargo: Cargo,
+  setor: Setor,
   enderecoId: string;
+  endereco: Endereco;
 }

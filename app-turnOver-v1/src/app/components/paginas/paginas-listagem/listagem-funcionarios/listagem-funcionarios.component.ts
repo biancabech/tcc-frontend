@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { Funcionario } from 'src/app/models/Funcionario';
-
+import { ToastrService } from 'ngx-toastr';
+import SweetAlert2 from 'sweetalert2';
 
 @Component({
   selector: 'app-listagem-funcionarios',
@@ -12,7 +13,10 @@ export class ListagemFuncionariosComponent implements OnInit {
 
   funcionarios: Funcionario[] = [];
 
-  constructor(private funcionarioService: FuncionarioService) { }
+  constructor(
+    private funcionarioService: FuncionarioService,
+    private toastr: ToastrService,
+  ) { }
 
 
   // Propriedades para os filtros
@@ -27,6 +31,20 @@ export class ListagemFuncionariosComponent implements OnInit {
   ngOnInit(): void {
     this.inicializarDados();
     this.filtrarFuncionarios();
+    this.carregarFuncionarios();
+  }
+
+  carregarFuncionarios() {
+    this.funcionarioService.getAll().subscribe({
+      next: (funcionarios) => {
+        this.funcionarios = funcionarios;
+        this.funcionariosFiltrados = funcionarios;
+        this.inicializarDados();
+      },
+      error: (error) => {
+        console.error('Erro ao carregar funcionários:', error);
+      }
+    });
   }
 
   // Método para inicializar listas de cargos e setores
@@ -47,6 +65,29 @@ export class ListagemFuncionariosComponent implements OnInit {
     });
   }
 
+  deletar(funcionario: Funcionario) {
+    SweetAlert2.fire({
+      title: `Tem certeza que deseja apagar o funcionário '${funcionario.nome}'?`,
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não",
+      showCancelButton: true,
+      showCloseButton: true
+    }).then(result => {
+      if (result.isConfirmed) {
+        this.funcionarioService.delete(funcionario.id).subscribe({
+          next: () => {
+            this.toastr.success(`Funcionário ${funcionario.nome} apagado com sucesso!`);
+            this.carregarFuncionarios();
+          },
+          error: (e) => {
+            console.log(e);
+            this.toastr.error("Erro ao apagar o funcionário " + funcionario.nome);
+          }
+        });
+      }
+    });
+  }
+
   // Método para limpar filtros
   limparFiltros(): void {
     this.nomeBusca = '';
@@ -56,7 +97,10 @@ export class ListagemFuncionariosComponent implements OnInit {
   }
 
   // Método para formatar data
-  formatarData(dataString: string): string {
+  formatarData(dataString: string | undefined): string {
+    // se não tem data, retorna string vazia
+    if (!dataString) return '';
+
     const data = new Date(dataString);
     return data.toLocaleDateString('pt-BR');
   }

@@ -27,38 +27,39 @@
       </div>
       <div class="col-md-2">
         <label for="cep" class="form-label">CEP</label>
-        <input type="text" class="form-control" id="cep" [(ngModel)]="endereco.cep" (focusout)="buscarEnderecoPorCep()"
-          name="cep">
+        <input type="text" class="form-control" id="cep" [(ngModel)]="funcionario.endereco.cep"
+          (focusout)="buscarEnderecoPorCepNoViaCep()" name="cep">
         <div *ngIf="erros.get('cep')" class="text-danger">{{ erros.get('cep') }}</div>
       </div>
       <div class="col-md-5">
         <label for="rua" class="form-label">Rua</label>
-        <input type="text" class="form-control" id="rua" [(ngModel)]="endereco.rua" name="rua">
+        <input type="text" class="form-control" id="rua" [(ngModel)]="funcionario.endereco.rua" name="rua">
         <div *ngIf="erros.get('rua')" class="text-danger">{{ erros.get('rua') }}</div>
       </div>
       <div class="col-md-1">
         <label for="numero" class="form-label">Número</label>
-        <input type="text" class="form-control" id="numero" [(ngModel)]="endereco.numero" name="numero">
+        <input type="text" class="form-control" id="numero" [(ngModel)]="funcionario.endereco.numero" name="numero">
         <div *ngIf="erros.get('numero')" class="text-danger">{{ erros.get('numero') }}</div>
       </div>
       <div class="col-md-3">
         <label for="complemento" class="form-label">Complemento</label>
-        <input type="text" class="form-control" id="complemento" [(ngModel)]="endereco.complemento" name="complemento">
+        <input type="text" class="form-control" id="complemento" [(ngModel)]="funcionario.endereco.complemento"
+          name="complemento">
         <div *ngIf="erros.get('complemento')" class="text-danger">{{ erros.get('complemento') }}</div>
       </div>
       <div class="col-md-2">
         <label for="bairro" class="form-label">Bairro</label>
-        <input type="text" class="form-control" id="bairro" [(ngModel)]="endereco.bairro" name="bairro">
+        <input type="text" class="form-control" id="bairro" [(ngModel)]="funcionario.endereco.bairro" name="bairro">
         <div *ngIf="erros.get('bairro')" class="text-danger">{{ erros.get('bairro') }}</div>
       </div>
       <div class="col-md-3">
         <label for="cidade" class="form-label">Cidade</label>
-        <input type="text" class="form-control" id="cidade" [(ngModel)]="endereco.cidade" name="cidade">
+        <input type="text" class="form-control" id="cidade" [(ngModel)]="funcionario.endereco.cidade" name="cidade">
         <div *ngIf="erros.get('cidade')" class="text-danger">{{ erros.get('cidade') }}</div>
       </div>
       <div class="col-md-3">
         <label for="estado" class="form-label">Estado</label>
-        <input type="text" class="form-control" id="estado" [(ngModel)]="endereco.estado" name="estado">
+        <input type="text" class="form-control" id="estado" [(ngModel)]="funcionario.endereco.estado" name="estado">
         <div *ngIf="erros.get('estado')" class="text-danger">{{ erros.get('estado') }}</div>
       </div>
     </div>
@@ -102,9 +103,8 @@
     </div>
   </div>
 
-  <!-- Botões -->
   <div class="d-flex justify-content-end py-5">
-    <button routerLink="/" type="button" class="btn btn-secondary me-2">Cancelar</button>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button [routerLink]="listaDeFuncionariosUrl" type="button" class="btn btn-secondary me-2">Cancelar</button>
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
   </div>
 </form>
