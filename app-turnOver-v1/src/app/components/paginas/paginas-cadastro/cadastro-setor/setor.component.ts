@@ -32,7 +32,7 @@ export class SetorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe(queryParam => {
       // queryParam funciona como um Map
-      this.setor.id = queryParam.get('id') || ''; // se retornar null, assume string vazio
+      this.setor.id = queryParam.get('id') || ''; // se retornar null ou undefined, assume string vazio
 
       this.acao = 'Cadatrar';
 
