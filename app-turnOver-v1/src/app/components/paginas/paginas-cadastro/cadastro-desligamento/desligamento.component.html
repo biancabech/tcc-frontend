@@ -1,4 +1,4 @@
-<form class="container-fluid mt-3">
+<form class="container-fluid mt-3" (ngSubmit)="salvarDesligamento()">
   <h3 class="display-5 fw-bold mb-3"><fa-icon [icon]="faLinkSlash" class="fs-1 text-primary me-2" />Desligamento de
     Funcionários</h3>
 
@@ -10,27 +10,30 @@
 
         <div class="m-2">
           <label class="form-label">Data</label>
-          <input type="date" class="form-control" placeholder="Digite a data">
+          <input type="date" class="form-control" placeholder="Digite a data"
+            [(ngModel)]="desligamento.dataDesligamento" name="dataDesligamento">
         </div>
 
         <div class="m-2">
           <label class="form-label">CPF</label>
-          <input type="text" class="form-control" placeholder="Digite o cpf">
+          <input type="text" class="form-control" placeholder="Digite o cpf" [(ngModel)]="desligamento.funcionario.cpf"
+            name="cpf" (focusout)="buscarFuncionario()">
+          <div></div>
         </div>
 
         <div class="m-2">
           <label class="form-label">Nome</label>
-          <input type="text" class="form-control" placeholder="Nome">
+          <input type="text" class="form-control" [(ngModel)]="desligamento.funcionario.nome" name="nome" readonly>
         </div>
 
         <div class="m-2">
           <label class="form-label">Setor</label>
-          <input type="text" class="form-control" placeholder="TI">
+          <input type="text" class="form-control" [(ngModel)]="setor.nome" name="setor_nome" readonly>
         </div>
 
         <div class="m-2">
           <label class="form-label">Cargo</label>
-          <input type="text" class="form-control" placeholder="Analista">
+          <input type="text" class="form-control" [(ngModel)]="cargo.nome" name="cargo_nome" readonly>
         </div>
       </div>
     </div>
@@ -42,30 +45,41 @@
 
         <div class="m-2">
           <label for="grave">Grave:</label>
-          <select class="form-control form-control-sm" id="grave">
+          <select class="form-control form-control-sm" id="isGrave" name="isGrave" [(ngModel)]=" desligamento.isGrave">
             <option selected>Escolher...</option>
-            <option>Sim</option>
-            <option>Não</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+          </select>
+        </div>
+
+        <div class="col-md-5">
+          <label for="motivoDesligamento" class="form-label">Motivo de Desligamento</label>
+          <select class="form-select" id="motivoDesligamento" name="motivoDesligamento"
+            [(ngModel)]="desligamento.motivoDesligamentoId">
+            <option *ngFor="let motivo of motivosDesligamentos" [value]="motivo.id">{{ motivo.motivo }}</option>
           </select>
         </div>
 
         <div class="m-2">
-          <label for="motivo">Motivo:</label>
-          <textarea class="form-control" id="motivo" rows="3"></textarea>
+          <label for="feedback">Descrição:</label>
+          <textarea class="form-control" id="descricao" rows="3" name="descricao"
+            [(ngModel)]="desligamento.descricao"></textarea>
         </div>
 
         <div class="m-2">
-          <label for="feedback">Feedback:</label>
-          <textarea class="form-control" id="feedback" rows="3"></textarea>
+          <label for="feedback">Feedback do Funcionário:</label>
+          <textarea class="form-control" id="feedback" rows="3" name="feedback"
+            [(ngModel)]="desligamento.feedDesligamento"></textarea>
         </div>
+
       </div>
     </div>
 
   </div>
 
-  <div class="text-start mt-3">
-    <button [routerLink]="listaDeDesligamentosUrl" class="btn btn-secondary me-2" type="button">Cancelar</button>
-    <button class="btn btn-primary" type="submit">Salvar</button>
+  <div class="d-flex justify-content-end py-5">
+    <button [routerLink]="listaDeDesligamentosUrl" type="button" class="btn btn-secondary me-2">Cancelar</button>
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
   </div>
 
 </form>

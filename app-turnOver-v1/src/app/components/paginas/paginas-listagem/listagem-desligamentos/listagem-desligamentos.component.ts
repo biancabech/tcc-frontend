@@ -36,7 +36,7 @@ export class ListagemDesligamentosComponent implements OnInit {
 
   deletar(desligamento: Desligamento) {
     SweetAlert2.fire({
-      title: `Tem certeza que deseja apagar o setor '${desligamento.descricao}'?`,
+      title: `Tem certeza que deseja apagar o setor '${desligamento}'?`,
       confirmButtonText: "Sim",
       cancelButtonText: "Não",
       showCancelButton: true,
@@ -45,7 +45,7 @@ export class ListagemDesligamentosComponent implements OnInit {
       if (result.isConfirmed) {
         this.desligamentoService.delete(desligamento.id).subscribe({
           next: () => {
-            this.toastr.success(`Desligamento ${desligamento.id} apagado com sucesso!`);
+            this.toastr.success(`Desligamento de ${desligamento.funcionario.nome} apagado com sucesso!`);
             this.carregarDesligamentos();
           },
           error: (e) => {
@@ -55,5 +55,14 @@ export class ListagemDesligamentosComponent implements OnInit {
         })
       }
     })
+  }
+
+  // Método para formatar data
+  formatarData(dataString: string | undefined): string {
+    // se não tem data, retorna string vazia
+    if (!dataString) return '';
+
+    const data = new Date(dataString);
+    return data.toLocaleDateString('pt-BR');
   }
 }

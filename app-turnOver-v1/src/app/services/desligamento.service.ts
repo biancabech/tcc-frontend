@@ -19,14 +19,22 @@ export class DesligamentoService {
     return this.http.get<Desligamento>(this.apiUrl + '/' + id);
   }
 
-  post(funcionario: Desligamento): Observable<string> {
-    return this.http.post<string>(this.apiUrl, funcionario);
+  post(desligamento: Desligamento): Observable<string> {
+    return this.http.post<string>(this.apiUrl, this.mapearValores(desligamento));
   }
-  put(funcionario: Desligamento, id: string): Observable<string> {
-    return this.http.put<string>(this.apiUrl + "/" + id, funcionario);
+
+  put(desligamento: Desligamento, id: string): Observable<string> {
+    return this.http.put<string>(this.apiUrl + "/" + id, this.mapearValores(desligamento));
   }
 
   delete(id: string): Observable<string> {
     return this.http.delete<string>(this.apiUrl + "/" + id);
+  }
+
+  mapearValores(desligamento: Desligamento) {
+    return {
+      ...desligamento,
+      isGrave: desligamento.isGrave == "true"
+    }
   }
 }
