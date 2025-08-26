@@ -1,4 +1,5 @@
 export interface Acompanhamento {
+  id: string;
   funcionarioId: string; // para receber Guid
   data: string;
   produtividade: string;

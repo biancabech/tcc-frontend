@@ -5,7 +5,7 @@ import { CargoService } from 'src/app/services/cargo.service';
 import { SetorService } from 'src/app/services/setor.service';
 import { Cargo } from 'src/app/models/Cargo';
 import { Setor } from 'src/app/models/Setor';
-import { AcompanhamentoServiceService } from 'src/app/services/acompanhamento.service';
+import { AcompanhamentoService } from 'src/app/services/acompanhamento.service';
 
 @Component({
   selector: 'app-acompanhamento',
@@ -17,6 +17,7 @@ export class AcompanhamentoComponent {
   acao = '';
 
   acompanhamento: Acompanhamento = {
+    id: '',
     funcionarioId: '', // para receber Guid
     data: '',
     produtividade: '',
@@ -51,7 +52,7 @@ export class AcompanhamentoComponent {
   mensagemDeErro: string = '';
 
   constructor(
-    private acompanhamentoService: AcompanhamentoServiceService,
+    private acompanhamentoService: AcompanhamentoService,
     private toastr: ToastrService,
     private cargoService: CargoService,
     private setorService: SetorService,
