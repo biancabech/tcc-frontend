@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Funcionario } from '../models/Funcionario';
+import { somenteNumeros } from '../utils/somente-numeros';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,14 @@ export class FuncionarioService {
     return this.http.get<Funcionario[]>(this.apiUrl);
   }
 
-  get(id: string) {
+  getById(id: string) {
     return new Promise<Funcionario>((resolve, reject) => {
       this.http.get<Funcionario>(this.apiUrl + '/' + id).subscribe({
         next: resolve,
         error: (e) => {
           console.error('Erro ao buscar funcionario:', {
             erro: e,
-            enderecoId: id,
+            funcionarioId: id,
           });
           reject(e);
         }
@@ -30,13 +31,25 @@ export class FuncionarioService {
     })
   }
 
+  getByCpf(cpf: string) {
+    return new Promise<Funcionario>((resolve, reject) => {
+      this.http.get<Funcionario>(this.apiUrl + '/cpf/' + somenteNumeros(cpf)).subscribe({
+        next: resolve,
+        error: (e) => {
+          console.error('Erro ao buscar funcionario:', e);
+          reject(e);
+        }
+      })
+    })
+  }
+
   post(funcionario: Funcionario): Observable<string> {
-    return this.http.post<string>(this.apiUrl, funcionario);
+    return this.http.post<string>(this.apiUrl, { ...funcionario, cpf: somenteNumeros(funcionario.cpf) });
   }
 
   put(funcionario: Funcionario, id: string): Promise<string> {
     return new Promise((resolve, reject) => {
-      this.http.put<string>(this.apiUrl + "/" + id, funcionario).subscribe({
+      this.http.put<string>(this.apiUrl + "/" + id, { ...funcionario, cpf: somenteNumeros(funcionario.cpf) }).subscribe({
         next: resolve,
         error: (e) => {
           console.error('Erro ao atualizar funcionario:', {
@@ -52,7 +65,6 @@ export class FuncionarioService {
   delete(id: string): Observable<string> {
     return this.http.delete<string>(this.apiUrl + "/" + id);
   }
-
 }
 
 

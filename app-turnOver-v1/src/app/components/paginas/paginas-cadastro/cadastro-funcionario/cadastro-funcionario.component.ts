@@ -51,7 +51,6 @@ export class CadastroFuncionarioComponent implements OnInit {
     }
   };
 
-
   cargos: Cargo[] = [];
   setores: Setor[] = [];
   erros: Map<string, string> = new Map<string, string>();
@@ -71,7 +70,7 @@ export class CadastroFuncionarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregarSetoresServicos();
+    this.carregarSetoresCargos();
 
     this.activatedRoute.queryParamMap.subscribe(async queryParam => {
       // queryParam funciona como um Map
@@ -81,15 +80,14 @@ export class CadastroFuncionarioComponent implements OnInit {
 
       if (this.funcionario.id) {
         this.acao = 'Editar';
-        await this.buscarFuncionarioComEndereco();
+        await this.buscarFuncionarioPorId();
       }
     })
   }
 
-  async buscarFuncionarioComEndereco() {
+  async buscarFuncionarioPorId() {
     try {
-      this.funcionario = await this.funcionarioService.get(this.funcionario.id);
-      this.funcionario.endereco = await this.enderecoService.get(this.funcionario.enderecoId);
+      this.funcionario = await this.funcionarioService.getById(this.funcionario.id);
 
       this.funcionario.dataNasci = this.funcionario.dataNasci?.split('T')?.at(0) || '';
       this.funcionario.dataDemi = this.funcionario.dataDemi?.split('T')?.at(0) || '';
@@ -135,7 +133,7 @@ export class CadastroFuncionarioComponent implements OnInit {
     // })
   }
 
-  carregarSetoresServicos() {
+  carregarSetoresCargos() {
     this.cargoService.getAll().subscribe({
       next: (cargos) => {
         this.cargos = cargos;
@@ -220,6 +218,7 @@ export class CadastroFuncionarioComponent implements OnInit {
     if (this.funcionario.id) {
       this.atualizarFuncionario();
     } else {
+
       this.cadastrarFuncionario();
     }
   }
@@ -233,29 +232,6 @@ export class CadastroFuncionarioComponent implements OnInit {
     } catch (e: any) {
       this.toastr.error('Erro ao atualizar funcionário');
     }
-  }
-
-  cadastrarFuncionario() {
-    this.enderecoService.post(this.funcionario.endereco).subscribe({
-      next: (enderecoSalvo) => {
-        this.funcionario.enderecoId = enderecoSalvo.id
-
-        this.funcionarioService.post(this.funcionario).subscribe({
-          next: () => {
-            this.toastr.success('Funcionário cadastrado com sucesso!');
-            this.router.navigate([this.listaDeFuncionariosUrl]);
-          },
-          error: (e) => {
-            console.log('Erro ao cadastrar funcionário', e);
-            this.toastr.error('Erro ao cadastrar funcionário');
-          }
-        });
-      },
-      error: (e) => {
-        console.log('Erro ao cadastrar endereço', e);
-        this.toastr.error('Erro ao cadastrar endereço');
-      }
-    });
   }
 
   validarFormulario() {
@@ -282,4 +258,29 @@ export class CadastroFuncionarioComponent implements OnInit {
     }
     return true;
   }
+
+  cadastrarFuncionario() {
+    this.enderecoService.post(this.funcionario.endereco).subscribe({
+      next: (enderecoSalvo) => {
+        this.funcionario.enderecoId = enderecoSalvo.id
+
+        this.funcionarioService.post(this.funcionario).subscribe({
+          next: () => {
+            this.toastr.success('Funcionário cadastrado com sucesso!');
+            this.router.navigate([this.listaDeFuncionariosUrl]);
+          },
+          error: (e) => {
+            console.log('Erro ao cadastrar funcionário', e);
+            this.toastr.error('Erro ao cadastrar funcionário');
+          }
+        });
+      },
+      error: (e) => {
+        console.log('Erro ao cadastrar endereço', e);
+        this.toastr.error('Erro ao cadastrar endereço');
+      }
+    });
+  }
+
+
 }

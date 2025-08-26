@@ -1,19 +1,18 @@
-<div class="container-fluid">
+<div class="container-fluid mb-5">
   <div class="container">
-
     <div class="row mb-4">
       <div class="col-12">
-        <div class="d-flex align-items-center mb-3">
+        <div class="d-flex align-items-center">
           <i class="bi bi-people-fill fs-1 text-primary me-3"></i>
           <div>
-            <h2 class="display-5 fw-bold m-2">Busca de Funcionários</h2>
+            <h1 class="fs-3 fw-bold text-dark">Busca de Funcionários</h1>
             <p class="text-muted mb-0">Sistema de Turnover - Pesquise funcionários por nome, cargo ou setor</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="d-flex align-items-center mb-3">
+    <div class="d-flex align-items-center m-3 justify-content-end">
       <button routerLink="/paginas/paginas-cadastro/cadastro-funcionario" class="btn btn-primary btn-custom">
         <i class="bi bi-plus-circle me-1"></i> Add Funcionário
       </button>
@@ -112,6 +111,7 @@
                     <th>Data de Admissão</th>
                     <th>Data de Demissão</th>
                     <th>Status</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -126,9 +126,6 @@
                         [ngClass]="funcionario.dataDemi ? 'bg-secondary text-dark' : 'bg-success text-white'">
                         {{ funcionario.dataDemi ? 'Inativo' : 'Ativo' }}
                       </span>
-
-
-
                     </td>
                     <td>
                       <a routerLink="/paginas/paginas-cadastro/cadastro-funcionario"
