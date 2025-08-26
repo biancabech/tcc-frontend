@@ -1,14 +1,16 @@
+.conteudo {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
 }
 
-.conteudo {
-  margin-bottom: 30px;
-}
-
 .menu {
   position: fixed;
   top: 0;
-  width: 35vh;
+  width: 15vw;
+  margin-top: 0px;
 }
