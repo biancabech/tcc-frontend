@@ -7,6 +7,6 @@ export interface FitCultural {
   comunicativo: boolean;
   resolucaoComflitos: boolean;
   iniciativa: boolean;
-  observacoes: string;
+  descricao: string;
   createdAt: string;
 }

@@ -1,43 +1,21 @@
-<div class="container-fluid py-4">
+<div class="container-fluid mb-5">
   <div class="container">
-
     <div class="row mb-4">
       <div class="col-12">
-        <div class="d-flex align-items-center mb-3">
-          <i class="bi bi-people-fill fs-1 text-primary me-3"></i>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-file-text fs-1 text-primary me-3"></i>
           <div>
-            <h2 class="display-5 fw-bold m-2">Busca de Fit Cultural</h2>
-            <p class="text-muted mb-0">Pesquisa de Candidatos - Fit Cultural</p>
+            <h1 class="fs-3 fw-bold text-dark">Avaliação de Fit Cultural</h1>
+            <p class="text-secondary">Avalie o alinhamento cultural dos candidatos</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="d-flex align-items-center mb-3">
-      <button routerLink="/paginas/paginas-cadastro/cadastro-fit-cultural" class="btn btn-primary btn-custom">
-        <i class="bi bi-plus-circle me-1"></i> Add Candidato
-      </button>
-    </div>
-
-    <div class="d-flex align-items-center justify-content-between mb-4">
-      <div class="d-flex align-items-center gap-3">
-        <div class="p-3 rounded-3 shadow-lg" style="background-color: #ef4444;">
-          <!-- Placeholder for FileText icon -->
-          <i class="bi bi-file-text" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <div>
-          <h1 class="fs-3 fw-bold text-dark">Avaliação de Fit Cultural</h1>
-          <p class="text-secondary">Avalie o alinhamento cultural dos candidatos</p>
-        </div>
-      </div>
-
-    </div>
-
     <ng-container>
-      <div class="d-flex align-items-center justify-content-start gap-2 mb-4">
-
-        <button class="btn text-white shadow-lg d-flex align-items-center gap-2"
-          [ngStyle]="{'background-color': '#ef4444'}">
+      <div class="d-flex align-items-center m-3 justify-content-end">
+        <button routerLink="/paginas/paginas-cadastro/cadastro-fit-cultural"
+          class="btn text-white shadow-lg d-flex align-items-center gap-2" [ngStyle]="{'background-color': '#ef4444'}">
           <!-- Placeholder for FileText icon -->
           <i class="bi bi-file-text" style="font-size: 1rem;"></i>
           Nova Avaliação
@@ -59,96 +37,63 @@
               <label for="search" class="form-label text-sm fw-medium text-secondary">
                 Buscar por nome do candidato
               </label>
-              <input id="search" type="text" class="form-control mt-1 border-2" [ngStyle]="{'border-color': '#2b2d42'}"
+              <input id="search" type="text" class="form-control mt-1 border-2"
                 placeholder="Digite o nome do candidato..." />
             </div>
           </div>
         </div>
       </div>
 
-      <div class="d-grid gap-4">
-        <ng-container>
-          <div class="card shadow-lg border-0">
-            <div class="card-body text-center py-5 bg-white">
-              <!-- Placeholder for FileText icon -->
-              <i class="bi bi-file-text d-block mx-auto mb-3" style="font-size: 3rem; color: #adb5bd;"></i>
-              <h3 class="fs-5 fw-semibold text-dark mb-2">
-                Nenhuma avaliação encontrada
-              </h3>
-              <p class="text-secondary mb-4">Tente ajustar o termo de busca ou realize uma nova avaliação.</p>
-              <button class="btn text-white" [ngStyle]="{'background-color': '#ef4444'}">
-                <!-- Placeholder for FileText icon -->
-                <i class="bi bi-file-text me-2" style="font-size: 1rem;"></i>
-                Nova Avaliação
-              </button>
+      <div class="row">
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="card-title mb-0">Resultados da Busca</h5>
+              <span class="badge bg-secondary fs-6">
+                {{ obterQuantidadeResultados() }} candidato(s) encontrado(s)
+              </span>
             </div>
-          </div>
-        </ng-container>
-
-        <ng-container>
-          <div class="card hover-shadow-lg transition-all duration-300 border-0 shadow-lg bg-white">
-            <div class="card-header text-white rounded-top"
-              style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
-              <div class="d-flex justify-content-between align-items-start">
-                <div class="text-white">
-                  <h5 class="card-title fs-5 d-flex align-items-center gap-2 mb-0">
-                    <!-- Placeholder for User icon -->
-                    <i class="bi bi-person" style="font-size: 1.25rem;"></i>
-                  </h5>
-                  <p class="card-text d-flex align-items-center gap-4 mt-1 text-light-emphasis">
-                    <span class="d-flex align-items-center gap-1">
-                      <!-- Placeholder for CalendarDays icon -->
-                      <i class="bi bi-calendar-day" style="font-size: 1rem;"></i>
-                      Entrevista:
-                    </span>
-                    <span>Avaliado em:</span>
-                  </p>
-                </div>
-                <div class="text-end">
-                  <span class="badge rounded-pill mb-2">
-                  </span>
-                  <div class="text-sm text-light-emphasis">
-
-                  </div>
-                </div>
+            <div class="card-body">
+              <!-- Mensagem quando não há resultados -->
+              <div *ngIf="!temResultados()" class="text-center py-5">
+                <i class="bi bi-people display-1 text-muted opacity-50"></i>
+                <p class="text-muted mt-3 mb-0">Nenhum funcionário encontrado com os critérios de busca.</p>
               </div>
-            </div>
-            <div class="card-body p-4 bg-white">
-              <div class="row g-4">
-                <div class="col-12 col-lg-6">
-                  <h4 class="fw-semibold text-dark mb-3">
-                    Critérios Avaliados
-                  </h4>
-                  <div class="d-grid gap-3">
-                    <div>
-                      <ng-container>
-                        <!-- Placeholder for CheckCircle2 icon -->
-                        <i class="bi bi-check-circle-fill text-success" style="font-size: 1.25rem;"></i>
-                      </ng-container>
-                      <ng-template #xCircle>
-                        <!-- Placeholder for XCircle icon -->
-                        <i class="bi bi-x-circle-fill" style="font-size: 1.25rem; color: #ef4444;"></i>
-                      </ng-template>
-                      <span class="fs-5"></span>
-                      <span class="text-sm"></span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="col-12 col-lg-6">
-                  <h4 class="fw-semibold text-dark mb-3">
-                    Observações
-                  </h4>
-                  <div class="p-3 rounded-3 border"
-                    [ngStyle]="{'background-color': '#f8f9fa', 'border-color': '#2b2d42'}">
-                    <p class="text-sm text-secondary">
-                      "Nenhuma observação adicional foi registrada."
-                    </p>
-                  </div>
-                </div>
+              <!-- Tabela de resultados -->
+              <div *ngIf="temResultados()" class="table-responsive">
+                <table class="table table-hover">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Data da Entrevista</th>
+                      <th>Nome</th>
+                      <th>Observações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let avaliacaoFitCultural of avaliacoesFitCultural">
+                      <td>{{ avaliacaoFitCultural.data }}</td>
+                      <td>{{ avaliacaoFitCultural.nome }}</td>
+                      <td>{{ avaliacaoFitCultural.descricao }}</td>
+                      <td>
+                        <a routerLink="/paginas/paginas-cadastro/cadastro-fit-cultural"
+                          [queryParams]="{ id: avaliacaoFitCultural.id }">
+                          <i class="bi bi-pencil"></i>
+                        </a>
+                        &nbsp;
+                        <a (click)="deletar(avaliacaoFitCultural)" href="javascript:void(0)">
+                          <i class="bi bi-trash"></i>
+                        </a>
+                      </td>
+                      <!-- <td>{{ funcionario.salario }}</td> -->
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        </ng-container>
+        </div>
       </div>
     </ng-container>
+  </div>
+</div>

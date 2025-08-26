@@ -2,13 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { Cargo } from 'src/app/models/Cargo';
 import { FitCultural } from 'src/app/models/Fit-Cultural';
+import { Setor } from 'src/app/models/Setor';
 import { FitCulturalService } from 'src/app/services/fit-cultural.service';
-
-
-
-
-
 
 @Component({
   selector: 'app-fit-cutural',
@@ -16,12 +13,9 @@ import { FitCulturalService } from 'src/app/services/fit-cultural.service';
   styleUrls: ['./fit-cultural.component.css']
 })
 
-
-
-
 export class FitCulturalComponent implements OnInit {
   faHandshake = faHandshake;
-  listaDeFitCulturalsUrl = '/paginas/paginas-listagem/listagem-fitculturals';
+  listaDeFitCulturalsUrl = '/paginas/paginas-listagem/listagem-fit-cultural';
   acao = '';
 
   fitCultural: FitCultural = {
@@ -33,10 +27,12 @@ export class FitCulturalComponent implements OnInit {
     comunicativo: false,
     resolucaoComflitos: false,
     iniciativa: false,
-    observacoes: '',
+    descricao: '',
     createdAt: '',
   };
 
+  cargos: Cargo[] = [];
+  setores: Setor[] = [];
   porcentagem!: number;
   erroValidacao: string | null = null;
 
@@ -87,14 +83,16 @@ export class FitCulturalComponent implements OnInit {
 
 
   salvarFitCultural() {
-    const validou = this.validarFormulario();
-    if (!validou) return;
+
     if (this.fitCultural.id) {
       this.atualizarFitCultural();
     } else {
       this.cadastrarFitCultural();
     };
   }
+
+
+
   atualizarFitCultural() {
     this.fitCulturalService.put(this.fitCultural, this.fitCultural.id).subscribe({
       next: () => {
@@ -107,9 +105,10 @@ export class FitCulturalComponent implements OnInit {
       }
     })
   }
+
   cadastrarFitCultural() {
     this.fitCulturalService.post(this.fitCultural).subscribe({
-      next: (id) => {
+      next: () => {
         this.toastr.success('Fit Cultural cadastrado com sucesso');
         this.router.navigate([this.listaDeFitCulturalsUrl]);
       },
@@ -118,16 +117,6 @@ export class FitCulturalComponent implements OnInit {
         this.toastr.error('Erro ao cadastrar Fit Cultural');
       }
     })
-  }
-  validarFormulario() {
-    this.erroValidacao = null;
-    if (this.fitCultural.nome.trim() === "") {
-      this.erroValidacao = 'Nome do setor é inválido'
-    }
-
-    let temErro = !this.erroValidacao;
-
-    return temErro;
   }
 
   calcularPorcentagemAtual() {
@@ -157,9 +146,6 @@ export class FitCulturalComponent implements OnInit {
     if (this.fitCultural.trabalhoEquipe) atendidos++;
 
     this.porcentagem = (atendidos / total) * 100;
-
-
-
 
     console.log(`Porcentagem de atendimento: ${this.porcentagem}%`);
     return this.porcentagem;
