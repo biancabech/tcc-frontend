@@ -15,8 +15,19 @@ export class DesligamentoService {
     return this.http.get<Desligamento[]>(this.apiUrl);
   }
 
-  get(id: string) {
-    return this.http.get<Desligamento>(this.apiUrl + '/' + id);
+  getById(id: string) {
+    return new Promise<Desligamento>((resolve, reject) => {
+      this.http.get<Desligamento>(this.apiUrl + '/' + id).subscribe({
+        next: resolve,
+        error: (e) => {
+          console.error('Erro ao buscar desligamento:', {
+            erro: e,
+            desligamntoId: id,
+          });
+          reject(e);
+        }
+      })
+    })
   }
 
   post(desligamento: Desligamento): Observable<string> {

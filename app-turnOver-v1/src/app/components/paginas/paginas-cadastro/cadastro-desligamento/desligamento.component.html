@@ -17,7 +17,7 @@
         <div class="m-2">
           <label class="form-label">CPF</label>
           <input type="text" class="form-control" placeholder="Digite o cpf" [(ngModel)]="desligamento.funcionario.cpf"
-            name="cpf" (focusout)="buscarFuncionario()">
+            name="cpf" (focusout)="buscarFuncionarioCpf()">
           <div></div>
         </div>
 
@@ -28,12 +28,14 @@
 
         <div class="m-2">
           <label class="form-label">Setor</label>
-          <input type="text" class="form-control" [(ngModel)]="setor.nome" name="setor_nome" readonly>
+          <input type="text" class="form-control" [(ngModel)]="desligamento.funcionario.setor.nome" name="setor_nome"
+            readonly>
         </div>
 
         <div class="m-2">
           <label class="form-label">Cargo</label>
-          <input type="text" class="form-control" [(ngModel)]="cargo.nome" name="cargo_nome" readonly>
+          <input type="text" class="form-control" [(ngModel)]="desligamento.funcionario.cargo.nome" name="cargo_nome"
+            readonly>
         </div>
       </div>
     </div>

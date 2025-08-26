@@ -20,6 +20,7 @@ import { MotivoDesligamentoService } from 'src/app/services/motivo-desligamento.
 export class DesligamentoComponent implements OnInit {
   faLinkSlash = faLinkSlash;
   listaDeDesligamentosUrl = '/paginas/paginas-listagem/listagem-desligamentos';
+  acao = '';
 
   desligamento: Desligamento = {
     id: '',
@@ -29,6 +30,14 @@ export class DesligamentoComponent implements OnInit {
       id: '',
       cpf: '',
       nome: '',
+      setor: {
+        id: '',
+        nome: '',
+      },
+      cargo: {
+        id: '',
+        nome: '',
+      }
     },
     feedDesligamento: '',
     funcionarioId: '',
@@ -40,16 +49,6 @@ export class DesligamentoComponent implements OnInit {
   motivosDesligamentos: MotivoDesligamento[] = [];
   erroValidacao: string | null = null;
 
-  setor: Setor = {
-    id: '',
-    nome: '',
-  }
-
-  cargo: Cargo = {
-    id: '',
-    nome: '',
-  }
-
   constructor(
     private funcionarioService: FuncionarioService,
     private desligamentoService: DesligamentoService,
@@ -60,6 +59,22 @@ export class DesligamentoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.carregarmotivosDesligamentos();
+    this.activatedRoute.queryParamMap.subscribe(async queryParam => {
+      // queryParam funciona como um Map
+      this.desligamento.id = queryParam.get('id') || ''; // se retornar null ou undefined, assume string vazio
+
+      this.acao = 'Cadatrar';
+
+      if (this.desligamento.id) {
+        this.acao = 'Editar';
+        await this.carregarDesligamento();
+      }
+    })
+  }
+
+
+  carregarmotivosDesligamentos() {
     this.motivoDesligamentoService.getAll().subscribe({
       next: (motivos) => {
         this.motivosDesligamentos = motivos;
@@ -71,29 +86,25 @@ export class DesligamentoComponent implements OnInit {
     });
   }
 
-  async buscarFuncionario() {
-    if (!this.desligamento.funcionario.cpf) {
-      this.toastr.error('Digite o CPF para buscar o funcionário');
-      return;
-    }
+  async carregarDesligamento() {
     try {
-      const result = await this.funcionarioService.getByCpf(this.desligamento.funcionario.cpf);
-      this.desligamento.funcionario.nome = result.nome;
-      this.desligamento.funcionarioId = result.id;
-      this.setor.id = result.setor.id;
-      this.setor.nome = result.setor.nome;
-      this.cargo.id = result.cargo.id;
-      this.cargo.nome = result.cargo.nome;
+      this.desligamento = await this.desligamentoService.getById(this.desligamento.id);
       this.desligamento.dataDesligamento = this.desligamento.dataDesligamento?.split('T')?.at(0) || '';
+
+
     } catch (e: any) {
       this.router.navigate([this.listaDeDesligamentosUrl]);
+
       if (e.error.status == 404) {
-        this.toastr.error('Funcionário não encontrado');
+        this.toastr.error('Desligamento não encontrado');
       } else {
-        this.toastr.error('Erro ao carregar o funcionário');
+        this.toastr.error('Erro ao carregar o desligamento');
       }
     }
+
   }
+
+
 
   salvarDesligamento() {
     const validou = this.validarFormulario();
@@ -105,6 +116,24 @@ export class DesligamentoComponent implements OnInit {
       this.cadastrarDesligamento();
     }
   }
+
+  validarFormulario() {
+    this.erroValidacao = null;
+    if (this.desligamento.dataDesligamento.trim() === "") {
+      this.erroValidacao = 'Data de desligamento é obrigatória';
+      return false;
+    }
+    if (!this.desligamento.funcionarioId) {
+      this.erroValidacao = 'Funcionário é obrigatório';
+      return false;
+    }
+    if (!this.desligamento.motivoDesligamentoId) {
+      this.erroValidacao = 'Motivo de desligamento é obrigatório';
+      return false;
+    }
+    return true;
+  }
+
   atualizarDesligamento() {
     this.desligamentoService.put(this.desligamento, this.desligamento.id).subscribe({
 
@@ -119,18 +148,10 @@ export class DesligamentoComponent implements OnInit {
     });
   }
 
-  validarFormulario() {
-    this.erroValidacao = null;
-    if (this.desligamento.dataDesligamento.trim() === "") {
-      this.erroValidacao = 'Nome é obrigatório';
-      return false;
-    }
-    return true
-  }
+
 
   cadastrarDesligamento() {
     console.log(this.desligamento);
-
     this.desligamentoService.post(this.desligamento).subscribe({
       next: () => {
         this.toastr.success('Desligamento cadastrado com sucesso!');
@@ -143,5 +164,26 @@ export class DesligamentoComponent implements OnInit {
     });
   }
 
+  async buscarFuncionarioCpf() {
+    if (!this.desligamento.funcionario.cpf) {
+      this.toastr.error('Digite o CPF para buscar o funcionário');
+      return;
+    }
+    try {
+      const result = await this.funcionarioService.getByCpf(this.desligamento.funcionario.cpf);
+      this.desligamento.funcionario.nome = result.nome;
+      this.desligamento.funcionarioId = result.id;
+      this.desligamento.funcionario.cargo = result.cargo;
+      this.desligamento.funcionario.setor = result.setor;
+      this.desligamento.dataDesligamento = this.desligamento.dataDesligamento?.split('T')?.at(0) || '';
+    } catch (e: any) {
+      this.router.navigate([this.listaDeDesligamentosUrl]);
+      if (e.error.status == 404) {
+        this.toastr.error('Funcionário não encontrado');
+      } else {
+        this.toastr.error('Erro ao carregar o funcionário');
+      }
+    }
+  }
 
 }

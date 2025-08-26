@@ -30,13 +30,13 @@
           <!-- Filtro por Cargo -->
           <div className="table-responsive">
             <table class="table table-hover">
-              <thead className="table-light">
-                <thead class="table-light">
-                  <tr>
-                    <th>Funcionário</th>
-                    <th>Data de Demissão</th>
-                  </tr>
-                </thead>
+              <thead class="table-light">
+                <tr>
+                  <th>Funcionário</th>
+                  <th>Data de Demissão</th>
+                  <th></th>
+                </tr>
+              </thead>
               <tbody>
                 <tr *ngFor="let desligamento of desligamentos">
                   <td>{{ desligamento.funcionario.nome }}</td>

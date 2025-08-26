@@ -5,7 +5,7 @@ export interface Desligamento {
   dataDesligamento: string;
   isGrave: string;
   descricao: string;
-  funcionario: Pick<Funcionario, 'id' | 'nome' | 'cpf'>;   //Pick serve para puxar só as propriedades que eu quero
+  funcionario: Pick<Funcionario, 'id' | 'nome' | 'cpf' | 'setor' | 'cargo'>;   //Pick serve para puxar só as propriedades que eu quero
   feedDesligamento: string;
   funcionarioId: string;
   motivoDesligamentoId: string;
