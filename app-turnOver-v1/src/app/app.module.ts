@@ -27,6 +27,11 @@ import { ListagemCargoComponent } from './components/paginas/paginas-listagem/li
 import { ListagemSetoresComponent } from './components/paginas/paginas-listagem/listagem-setores/listagem-setores.component';
 import { ListagemFitCulturalComponent } from './components/paginas/paginas-listagem/listagem-fit-cultural/listagem-fit-cultural.component';
 import { ListagemDesligamentosComponent } from './components/paginas/paginas-listagem/listagem-desligamentos/listagem-desligamentos.component';
+import { HeaderComponent } from './components/compartilhados/header/header.component';
+import { ListagemAcompanhamentosComponent } from './components/paginas/paginas-listagem/listagem-acompanhamentos/listagem-acompanhamentos.component';
+import { MotivoDesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-motivo-desligamento/cadastro-motivo-desligamento.component';
+import { ListagemMotivoDesligamentoComponent } from './components/paginas/paginas-listagem/listagem-motivo-desligamento/listagem-motivo-desligamento/listagem-motivo-desligamento.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +53,10 @@ import { ListagemDesligamentosComponent } from './components/paginas/paginas-lis
     ListagemSetoresComponent,
     ListagemFitCulturalComponent,
     ListagemDesligamentosComponent,
+    HeaderComponent,
+    ListagemAcompanhamentosComponent,
+    MotivoDesligamentoComponent,
+    ListagemMotivoDesligamentoComponent,
   ],
 
   imports: [
