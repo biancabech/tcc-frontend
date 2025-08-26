@@ -86,11 +86,11 @@ export class SetorComponent implements OnInit {
   atualizarSetor() {
     this.setorService.put(this.setor, this.setor.id).subscribe({
       next: () => {
-        this.toastr.success('Setor cadastrado com sucesso!');
+        this.toastr.success('Setor atualizado com sucesso!');
         this.router.navigate([this.listaDeSetoresUrl]);
       },
       error: (e) => {
-        console.log('Erro ao cadatrar setor', e);
+        console.log('Erro ao atualizar setor', e);
         this.toastr.error('Erro ao cadatrar setor');
       }
     });

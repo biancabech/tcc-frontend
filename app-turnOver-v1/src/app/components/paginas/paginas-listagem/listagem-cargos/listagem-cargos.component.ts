@@ -3,7 +3,7 @@ import { CargoService } from 'src/app/services/cargo.service';
 import { Cargo } from 'src/app/models/Cargo';
 import { ToastrService } from 'ngx-toastr';
 import SweetAlert2 from 'sweetalert2';
-import { faBriefcase, faUserGear, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faUserGear } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -15,13 +15,11 @@ import { faBriefcase, faUserGear, faUserTie } from '@fortawesome/free-solid-svg-
 
 export class ListagemCargoComponent implements OnInit {
   faUserGear = faUserGear;
-
   cargos: Cargo[] = [];
 
   constructor(
     private cargoService: CargoService,
     private toastr: ToastrService,
-
   ) { }
 
   ngOnInit(): void {
@@ -51,12 +49,12 @@ export class ListagemCargoComponent implements OnInit {
       if (result.isConfirmed) {
         this.cargoService.delete(cargo.id).subscribe({
           next: () => {
-            this.toastr.success(`Setor ${cargo.nome} apagado com sucesso!`);
+            this.toastr.success(`Cargo ${cargo.nome} apagado com sucesso!`);
             this.carregarCargos();
           },
           error: (e) => {
             console.log(e);
-            this.toastr.error("Erro ao apagar o setor " + cargo.nome);
+            this.toastr.error("Erro ao apagar o cargo " + cargo.nome);
           }
         });
       }

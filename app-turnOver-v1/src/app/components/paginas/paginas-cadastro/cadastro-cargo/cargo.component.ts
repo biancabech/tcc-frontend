@@ -71,10 +71,21 @@ export class CargoComponent implements OnInit {
     }
   }
 
-  atualizarCargo() {
-    this.cargoService.put(this.cargo, this.cargo.id).subscribe({
+
+  validarFormulario() {
+    this.erroValidacao = null;
+    if (this.cargo.nome.trim() === "") {
+      this.erroValidacao = 'Nome do cargo é inválido'
+    }
+    let temErro = !this.erroValidacao;
+
+    return temErro;
+  }
+
+  cadastrarCargo() {
+    this.cargoService.post(this.cargo).subscribe({
       next: () => {
-        this.toastr.success('Setor cadastrado com sucesso!');
+        this.toastr.success('Cargo cadastrado com sucesso!');
         this.router.navigate([this.listaDeCargosUrl]);
       },
       error: (e) => {
@@ -84,27 +95,20 @@ export class CargoComponent implements OnInit {
     });
   }
 
-  cadastrarCargo() {
-    this.cargoService.post(this.cargo).subscribe({
+  atualizarCargo() {
+    this.cargoService.put(this.cargo, this.cargo.id).subscribe({
       next: () => {
-        this.toastr.success('Setor cadastrado com sucesso!');
+        this.toastr.success('Cargo atualizado com sucesso!');
         this.router.navigate([this.listaDeCargosUrl]);
       },
       error: (e) => {
-        console.log('Erro ao cadatrar setor', e);
-        this.toastr.error('Erro ao cadatrar setor');
+        console.log('Erro ao atualizar cargo', e);
+        this.toastr.error('Erro ao atualizar cargo');
       }
     });
   }
 
-  validarFormulario() {
-    this.erroValidacao = null;
-    if (this.cargo.nome.trim() === "") {
-      this.erroValidacao = 'Nome do setor é inválido'
-    }
 
-    let temErro = !this.erroValidacao;
 
-    return temErro;
-  }
+
 }
