@@ -37,7 +37,8 @@
                   <i class="bi bi-search me-1"></i>
                   Nome do Funcionário
                 </label>
-                <input type="text" class="form-control" id="nomeBusca" placeholder="Digite o nome...">
+                <input type="text" class="form-control" id="nomeBusca" placeholder="Digite o nome..."
+                  [(ngModel)]="nomeBusca" (input)="aoMudarNome()" name="nomeBusca">
               </div>
 
               <!-- Filtro por Cargo -->
@@ -46,7 +47,8 @@
                   <i class="bi bi-briefcase me-1"></i>
                   Cargo
                 </label>
-                <select class="form-select" id="cargoSelecionado">
+                <select class="form-select" [(ngModel)]="cargoSelecionado" (change)="aoMudarCargo()"
+                  name="cargoSelecionado" id="cargoSelecionado">
                   <option value="">Todos os cargos</option>
                   <option *ngFor="let cargo of cargos" [value]="cargo">
                     {{ cargo }}
@@ -60,7 +62,8 @@
                   <i class="bi bi-building me-1"></i>
                   Setor
                 </label>
-                <select class="form-select" id="setorSelecionado" (change)="aoMudarSetor()">
+                <select class="form-select" id="setorSelecionado" [(ngModel)]="setorSelecionado"
+                  (change)="aoMudarSetor()" name="setorSelecionado">
                   <option value="">Todos os setores</option>
                   <option *ngFor="let setor of setores" [value]="setor">
                     {{ setor }}
@@ -115,7 +118,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let funcionario of funcionarios">
+                  <tr *ngFor="let funcionario of funcionariosFiltrados">
                     <td>{{ funcionario.nome }}</td>
                     <td>{{ funcionario.cargo.nome }}</td>
                     <td>{{ funcionario.setor.nome }}</td>
@@ -137,7 +140,6 @@
                         <i class="bi bi-trash"></i>
                       </a>
                     </td>
-                    <!-- <td>{{ funcionario.salario }}</td> -->
                   </tr>
                 </tbody>
               </table>
@@ -148,67 +150,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <div class="container mt-4">
-  <div class="card mb-4">
-    <div class="card-header">
-      <h2>Filtrar Funcionários</h2>
-    </div>
-    <div class="card-body">
-      <form #filtersForm="ngForm" (ngSubmit)="filtrarFuncionarios()">
-        <div class="row g-3">
-          <div class="col-md-4">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" [(ngModel)]="filtros.nome" name="nome"
-              placeholder="Buscar por nome">
-          </div>
-          <div class="col-md-4">
-            <label for="departamento" class="form-label">Setor</label>
-            <input type="text" class="form-control" id="setor" [(ngModel)]="filtros.setor" name="setor"
-              placeholder="Filtrar por setor">
-          </div>
-          <div class="col-md-4">
-            <label for="cargo" class="form-label">Cargo</label>
-            <input type="text" class="form-control" id="cargo" [(ngModel)]="filtros.cargo" name="cargo"
-              placeholder="Filtrar por cargo">
-          </div>
-        </div>
-        <div class="mt-3 d-flex justify-content-end gap-2">
-          <button type="button" class="btn btn-secondary" (click)="limparFiltros()">Limpar Filtros</button>
-          <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h2>Lista de Funcionários</h2>
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Setor</th>
-              <th scope="col">Cargo</th>
-              <th scope="col">Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let funcionario of funcionarios">
-              <td>{{ funcionario.nome }}</td>
-              <td>{{ funcionario.setor.nome }}</td>
-              <td>{{ funcionario.cargo.nome }}</td>
-              <td>{{ funcionario.email }}</td>
-              <td>
-                <button class="btn btn-info btn-sm"
-                  (click)="editarFuncionario(funcionario, 'funcionarios')">Editar</button>
-                <button class="btn btn-danger btn-sm" (click)="removerFuncionario(funcionario.id)">Remover</button>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div> -->

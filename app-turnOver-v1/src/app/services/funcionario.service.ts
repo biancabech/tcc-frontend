@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { Funcionario } from '../models/Funcionario';
 import { somenteNumeros } from '../utils/somente-numeros';
 
@@ -31,16 +31,25 @@ export class FuncionarioService {
     })
   }
 
-  getByCpf(cpf: string) {
-    return new Promise<Funcionario>((resolve, reject) => {
-      this.http.get<Funcionario>(this.apiUrl + '/cpf/' + somenteNumeros(cpf)).subscribe({
-        next: resolve,
-        error: (e) => {
-          console.error('Erro ao buscar funcionario:', e);
-          reject(e);
-        }
-      })
-    })
+  async getByCpf(cpf: string) {
+    try {
+      return await lastValueFrom(
+        this.http.get<Funcionario>(this.apiUrl + '/cpf/' + somenteNumeros(cpf))
+      )
+    } catch (e) {
+      console.error('Erro ao buscar funcionario:', e);
+      throw e;
+    }
+
+    // return new Promise<Funcionario>((resolve, reject) => {
+    //   this.http.get<Funcionario>(this.apiUrl + '/cpf/' + somenteNumeros(cpf)).subscribe({
+    //     next: resolve,
+    //     error: (e) => {
+    //       console.error('Erro ao buscar funcionario:', e);
+    //       reject(e);
+    //     }
+    //   })
+    // })
   }
 
   post(funcionario: Funcionario): Observable<string> {

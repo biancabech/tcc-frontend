@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { Funcionario } from 'src/app/models/Funcionario';
 import { ToastrService } from 'ngx-toastr';
-import SweetAlert2 from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listagem-funcionarios',
@@ -11,26 +11,21 @@ import SweetAlert2 from 'sweetalert2';
 })
 export class ListagemFuncionariosComponent implements OnInit {
 
+  nomeBusca: string = '';
+  cargoSelecionado: string = '';
+  setorSelecionado: string = '';
+
   funcionarios: Funcionario[] = [];
+  funcionariosFiltrados: Funcionario[] = [];
+  cargos: string[] = [];
+  setores: string[] = [];
 
   constructor(
     private funcionarioService: FuncionarioService,
     private toastr: ToastrService,
   ) { }
 
-
-  // Propriedades para os filtros
-  nomeBusca: string = '';
-  cargoSelecionado: string = '';
-  setorSelecionado: string = '';
-
-  funcionariosFiltrados: Funcionario[] = [];
-  cargos: string[] = [];
-  setores: string[] = [];
-
   ngOnInit(): void {
-    this.inicializarDados();
-    this.filtrarFuncionarios();
     this.carregarFuncionarios();
   }
 
@@ -38,8 +33,8 @@ export class ListagemFuncionariosComponent implements OnInit {
     this.funcionarioService.getAll().subscribe({
       next: (funcionarios) => {
         this.funcionarios = funcionarios;
-        this.funcionariosFiltrados = funcionarios;
         this.inicializarDados();
+        this.filtrarFuncionarios();
       },
       error: (error) => {
         console.error('Erro ao carregar funcionários:', error);
@@ -47,26 +42,22 @@ export class ListagemFuncionariosComponent implements OnInit {
     });
   }
 
-  // Método para inicializar listas de cargos e setores
   inicializarDados(): void {
     this.cargos = [...new Set(this.funcionarios.map(func => func.cargo.nome))].sort();
-    this.setores = [...new Set(this.funcionarios.map(func => func.setor.nome
-    ))].sort();
+    this.setores = [...new Set(this.funcionarios.map(func => func.setor.nome))].sort();
   }
 
-  // Método principal de filtro
   filtrarFuncionarios(): void {
     this.funcionariosFiltrados = this.funcionarios.filter(funcionario => {
       const nomeCorresponde = funcionario.nome.toLowerCase().includes(this.nomeBusca.toLowerCase());
       const cargoCorresponde = !this.cargoSelecionado || funcionario.cargo.nome === this.cargoSelecionado;
       const setorCorresponde = !this.setorSelecionado || funcionario.setor.nome === this.setorSelecionado;
-
       return nomeCorresponde && cargoCorresponde && setorCorresponde;
     });
   }
 
   deletar(funcionario: Funcionario) {
-    SweetAlert2.fire({
+    Swal.fire({
       title: `Tem certeza que deseja apagar o funcionário '${funcionario.nome}'?`,
       confirmButtonText: "Sim",
       cancelButtonText: "Não",
@@ -88,7 +79,6 @@ export class ListagemFuncionariosComponent implements OnInit {
     });
   }
 
-  // Método para limpar filtros
   limparFiltros(): void {
     this.nomeBusca = '';
     this.cargoSelecionado = '';
@@ -96,31 +86,24 @@ export class ListagemFuncionariosComponent implements OnInit {
     this.filtrarFuncionarios();
   }
 
-  // Método para formatar data
   formatarData(dataString: string | undefined): string {
-    // se não tem data, retorna string vazia
     if (!dataString) return '';
-
     const data = new Date(dataString);
     return data.toLocaleDateString('pt-BR');
   }
 
-  // Método para obter classe do badge de status
   obterClasseBadgeStatus(status: string): string {
     return status === 'Ativo' ? 'badge bg-success' : 'badge bg-secondary';
   }
 
-  // Método para contar resultados
   obterQuantidadeResultados(): number {
     return this.funcionariosFiltrados.length;
   }
 
-  // Método para verificar se há resultados
   temResultados(): boolean {
     return this.funcionariosFiltrados.length > 0;
   }
 
-  // Eventos de mudança nos filtros
   aoMudarNome(): void {
     this.filtrarFuncionarios();
   }
