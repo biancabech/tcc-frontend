@@ -1,8 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { DadosGraficoAnual } from 'src/app/models/DadosGraficoAnual';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
+
+const CORES_MOTIVO_DESLIGAMENTO = [
+  '#8D99AE',
+  '#2B2D42',
+  '#EF233C',
+  '#9D0429',
+  '#EDF2f4',
+]
+
+const CORES_TURNOVER = [
+  '#2B2D42',
+]
+
+const DESLIGAMENTO = [
+  '#ef4444',
+]
+
 
 @Component({
   selector: 'app-grafico-anual',
@@ -13,49 +29,62 @@ export class GraficoAnualComponent implements OnInit {
   faChartBar = faChartBar;
   turnoverDataset?: ChartConfiguration['data'];
   motivosDesligamentos?: ChartConfiguration['data'];
-  setoresMaiorDesligamento?: ChartConfiguration['data'];
+  desligamentosPorSetor?: ChartConfiguration['data'];
+  desligamentosPorCargos?: ChartConfiguration['data'];
   demitidos = 0;
   admitidos = 0;
 
   constructor(private dashboardService: DashboardService) { }
 
   async ngOnInit(): Promise<void> {
-    const dados = await this.dashboardService.dadosAnuais();
+    const dados = await this.dashboardService.getDadosAnuais();
 
-    this.demitidos = dados.terminatedCount;
-    this.admitidos = dados.admittedCount;
+    this.demitidos = dados.qtdeDesligados;
+    this.admitidos = dados.qtdeAdmitidos;
 
-    const turnover = dados.turnoverData;
+    const turnover = dados.dadosTurnover;
     this.turnoverDataset = {
       datasets: [{
-        data: turnover.map(t => t.value),
-        label: "% Turnover"
+        data: turnover.map(t => t.valor),
+        label: "% Turnover",
+        backgroundColor: CORES_MOTIVO_DESLIGAMENTO,
       }],
-      labels: turnover.map(t => t.label)
+      labels: turnover.map(t => t.titulo)
     };
 
-    const motivosDesligamentos = dados.terminationReasons;
+    const motivosDesligamentos = dados.motivosDeDesligamento;
     this.motivosDesligamentos = {
       datasets: [{
-        data: motivosDesligamentos.map(t => t.value),
-        label: "Motivos Desligamentos"
+        data: motivosDesligamentos.map(t => t.valor),
+        label: "Motivos Desligamentos",
+        backgroundColor: DESLIGAMENTO,
+
       }],
-      labels: motivosDesligamentos.map(t => t.label)
+      labels: motivosDesligamentos.map(t => t.titulo)
     };
 
     console.log(this.motivosDesligamentos, motivosDesligamentos);
 
 
 
-    const setoresMaiorDesligamento = dados.terminationReasons;
-    this.setoresMaiorDesligamento = {
+    const desligamentosPorSetor = dados.desligamentosPorSetor;
+    this.desligamentosPorSetor = {
       datasets: [{
-        data: setoresMaiorDesligamento.map(t => t.value),
-        label: "TOP 5 Setores com mais Desligamentos"
+        data: desligamentosPorSetor.map(t => t.valor),
+        label: "Setores com mais Desligamentos",
+        backgroundColor: CORES_MOTIVO_DESLIGAMENTO,
       }],
-      labels: setoresMaiorDesligamento.map(t => t.label)
+      labels: desligamentosPorSetor.map(t => t.titulo)
     };
 
-    console.log(this.setoresMaiorDesligamento, setoresMaiorDesligamento);
+    const desligamentosPorCargos = dados.desligamentosPorCargos;
+    this.desligamentosPorCargos = {
+      datasets: [{
+        data: desligamentosPorCargos.map(t => t.valor),
+        label: "Setores com mais Desligamentos",
+        backgroundColor: CORES_MOTIVO_DESLIGAMENTO,
+      }],
+      labels: desligamentosPorCargos.map(t => t.titulo)
+    };
   }
 }

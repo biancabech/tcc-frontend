@@ -1,22 +1,14 @@
-//dto são os dados que eu envio
-export interface DadosGraficoAnualDto {
-  ano: string[];
-  meses: Value<string>[];
-}
-
 interface Value<T> {
-  value: T;
-  label: string;
+  valor: T;
+  titulo: string;
 }
 
 export interface DadosGraficoAnual {
-  units: Value<string>[];
-  turnoverData: Value<number>[],
-  terminationReasons: Value<number>[];
-  hiringReasons: Value<number>[];
-  departmentsWithTerminations: Value<number>[];
-  positionsWithTerminations: Value<number>[]
-  admittedCount: number;
-  terminatedCount: number;
+  dadosTurnover: Value<number>[],
+  motivosDeDesligamento: Value<number>[];
+  desligamentosPorSetor: Value<number>[];
+  desligamentosPorCargos: Value<number>[]
+  qtdeAdmitidos: number;
+  qtdeDesligados: number;
 }
 
