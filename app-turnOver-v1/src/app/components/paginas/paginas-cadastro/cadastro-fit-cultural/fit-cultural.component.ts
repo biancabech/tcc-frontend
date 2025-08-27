@@ -25,10 +25,9 @@ export class FitCulturalComponent implements OnInit {
     trabalhoEquipe: false,
     adaptabilidade: false,
     comunicativo: false,
-    resolucaoComflitos: false,
+    resolucaoConflitos: false,
     iniciativa: false,
     descricao: '',
-    createdAt: '',
   };
 
   cargos: Cargo[] = [];
@@ -56,21 +55,21 @@ export class FitCulturalComponent implements OnInit {
 
       if (this.fitCultural.id) {
         this.acao = 'Editar';
-        this.buscarFitCultural();
+        this.carregarFitCultural();
       }
     })
 
 
   }
-  buscarFitCultural() {
+  carregarFitCultural() {
     this.fitCulturalService.get(this.fitCultural.id).subscribe({
       next: (fitCultural) => {
         this.fitCultural = fitCultural;
+        this.fitCultural.data = this.fitCultural.data?.split('T')?.at(0) || '';
       },
       error: (e) => {
         console.log(e);
         this.router.navigate([this.listaDeFitCulturalsUrl]);
-
 
         if (e.error.status == 404) {
           this.toastr.error('Fit Cultural não encontrado');
@@ -93,18 +92,18 @@ export class FitCulturalComponent implements OnInit {
 
 
 
-  atualizarFitCultural() {
-    this.fitCulturalService.put(this.fitCultural, this.fitCultural.id).subscribe({
-      next: () => {
-        this.toastr.success('Fit Cultural atualizado com sucesso');
-        this.router.navigate([this.listaDeFitCulturalsUrl]);
-      },
-      error: (e) => {
-        console.log('Erro ao cadatrar fit cultural', e);
-        this.toastr.error('Erro ao atualizar Fit Cultural');
-      }
-    })
+  async atualizarFitCultural() {
+    try {
+      this.fitCulturalService.put(this.fitCultural, this.fitCultural.id);
+      this.fitCultural.data = this.fitCultural.data?.split('T')?.at(0) || '';
+      await this.toastr.success('Fit Cultural atualizado com sucesso');
+      await this.router.navigate([this.listaDeFitCulturalsUrl]);
+
+    } catch (e: any) {
+      this.toastr.error('Erro ao atualizar Fit Cultural');
+    }
   }
+
 
   cadastrarFitCultural() {
     this.fitCulturalService.post(this.fitCultural).subscribe({
@@ -123,7 +122,7 @@ export class FitCulturalComponent implements OnInit {
     const criteriosAtendidos = [
       this.fitCultural.adaptabilidade,
       this.fitCultural.comunicativo,
-      this.fitCultural.resolucaoComflitos,
+      this.fitCultural.resolucaoConflitos,
       this.fitCultural.iniciativa,
       this.fitCultural.trabalhoEquipe,
     ].filter(Boolean).length;
@@ -141,7 +140,7 @@ export class FitCulturalComponent implements OnInit {
 
     if (this.fitCultural.adaptabilidade) atendidos++;
     if (this.fitCultural.comunicativo) atendidos++;
-    if (this.fitCultural.resolucaoComflitos) atendidos++;
+    if (this.fitCultural.resolucaoConflitos) atendidos++;
     if (this.fitCultural.iniciativa) atendidos++;
     if (this.fitCultural.trabalhoEquipe) atendidos++;
 
@@ -150,4 +149,6 @@ export class FitCulturalComponent implements OnInit {
     console.log(`Porcentagem de atendimento: ${this.porcentagem}%`);
     return this.porcentagem;
   }
+
+
 }

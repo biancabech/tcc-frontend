@@ -68,11 +68,12 @@
                       <th>Data da Entrevista</th>
                       <th>Nome</th>
                       <th>Observações</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let avaliacaoFitCultural of avaliacoesFitCultural">
-                      <td>{{ avaliacaoFitCultural.data }}</td>
+                      <td>{{ formatarData(avaliacaoFitCultural.data) }}</td>
                       <td>{{ avaliacaoFitCultural.nome }}</td>
                       <td>{{ avaliacaoFitCultural.descricao }}</td>
                       <td>

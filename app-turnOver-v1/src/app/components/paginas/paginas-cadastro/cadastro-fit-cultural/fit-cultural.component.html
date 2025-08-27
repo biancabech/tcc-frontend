@@ -33,23 +33,9 @@
                 <i class="bi bi-calendar-day" style="font-size: 1rem; color: #2b2d42;"></i>
                 Data da Entrevista
               </label>
-              <input id="dataEntrevista" type="date" class="form-control mt-1 border-2"
-                [ngStyle]="{'border-color': '#2b2d42'}" [(ngModel)]="fitCultural.data" name="dataEntrevista" />
+              <input id="data" type="date" class="form-control mt-1 border-2" [ngStyle]="{'border-color': '#2b2d42'}"
+                [(ngModel)]="fitCultural.data" name="data" />
             </div>
-
-            <div class="col-md-3">
-              <label for="setores" class="form-label">Setor</label>
-              <select class="form-select" id="setor" [(ngModel)]="this.fitCultural.nome" name="setor">
-                <option *ngFor="let setor of setores" [value]="setor.id">{{ setor.nome }}</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label for="cargos" class="form-label">Cargo</label>
-              <select class="form-select" id="cargo" [(ngModel)]="this.fitCultural.nome" name="cargo">
-                <option *ngFor="let cargo of cargos" [value]="cargo.id">{{ cargo.nome }}</option>
-              </select>
-            </div>
-
           </div>
         </div>
 
@@ -135,7 +121,7 @@
                 class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
                 <div class="form-check d-flex align-items-center gap-2">
                   <input id="resolucaoComflitos" type="checkbox" class="form-check-input"
-                    [(ngModel)]="fitCultural.resolucaoComflitos" name="resolucaoComflitos" />
+                    [(ngModel)]="fitCultural.resolucaoConflitos" name="resolucaoComflitos" />
                   <label for="resolucaoComflitos" class="form-check-label text-secondary">
                     Resolução de Conflitos
                   </label>

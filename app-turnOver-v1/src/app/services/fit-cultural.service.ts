@@ -22,8 +22,19 @@ export class FitCulturalService {
     return this.http.post<FitCultural>(this.apiUrl, fitCultural);
   }
 
-  put(fitCultural: FitCultural, id: string): Observable<FitCultural> {
-    return this.http.put<FitCultural>(this.apiUrl + '/' + id, fitCultural);
+  put(fitCultural: FitCultural, id: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.http.put<string>(this.apiUrl + "/" + id, { ...fitCultural, }).subscribe({
+        next: resolve,
+        error: (e) => {
+          console.error('Erro ao atualizar fit cultural:', {
+            erro: e,
+            fitCultural: id,
+          });
+          reject(e);
+        }
+      })
+    })
   }
 
   delete(id: string): Observable<string> {

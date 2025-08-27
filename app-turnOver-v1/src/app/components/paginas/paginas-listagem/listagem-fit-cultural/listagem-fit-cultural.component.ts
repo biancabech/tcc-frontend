@@ -79,4 +79,14 @@ export class ListagemFitCulturalComponent implements OnInit {
       }
     });
   }
+
+  // Método para formatar data
+  formatarData(dataString: string | undefined): string {
+    // se não tem data, retorna string vazia
+    if (!dataString) return '';
+
+    const data = new Date(dataString);
+    return data.toLocaleDateString('pt-BR');
+  }
+
 }

@@ -1,3 +1,5 @@
+import { Funcionario } from "./Funcionario";
+
 export interface FitCultural {
   id: string;
   nome: string;
@@ -5,8 +7,7 @@ export interface FitCultural {
   trabalhoEquipe: boolean;
   adaptabilidade: boolean;
   comunicativo: boolean;
-  resolucaoComflitos: boolean;
+  resolucaoConflitos: boolean;
   iniciativa: boolean;
   descricao: string;
-  createdAt: string;
 }
