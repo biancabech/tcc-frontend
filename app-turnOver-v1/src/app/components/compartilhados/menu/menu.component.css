@@ -34,7 +34,7 @@
 /*navegação no menu*/
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-  background-color: #d3d3d3;
+  background-color: #ef4444;
 }
 
 .btn-toggle {
@@ -93,3 +93,5 @@
 a {
   font-size: 1.10em;
 }
+
+/*Mobile */
