@@ -59,31 +59,10 @@ export class AcompanhamentoComponent {
   ) { }
 
   ngOnInit(): void {
-    this.carregarCargos();
-    this.carregarSetores();
+
   }
 
-  carregarCargos() {
-    this.cargoService.getAll().subscribe(
-      (cargos: Cargo[]) => {
-        this.cargos = cargos;
-      },
-      (error) => {
-        this.toastr.error('Erro ao carregar cargos', 'Erro');
-      }
-    );
-  }
 
-  carregarSetores() {
-    this.setorService.getAll().subscribe(
-      (setores: Setor[]) => {
-        this.setores = setores;
-      },
-      (error) => {
-        this.toastr.error('Erro ao carregar setores', 'Erro');
-      }
-    );
-  }
 
 
 

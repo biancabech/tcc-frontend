@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { Desligamento } from 'src/app/models/Desligamento';
 import { DesligamentoService } from 'src/app/services/desligamento.service';
@@ -10,6 +11,7 @@ import SweetAlert2 from 'sweetalert2';
   styleUrls: ['./listagem-desligamentos.component.css']
 })
 export class ListagemDesligamentosComponent implements OnInit {
+  faLinkSlash = faLinkSlash;
   desligamentos: Desligamento[] = [];
 
   constructor(

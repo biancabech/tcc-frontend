@@ -1,6 +1,6 @@
-<div class="container-fluid mb-5">
+<div class="container-fluid mb-3">
   <div class="container">
-    <div class="row mb-4">
+    <div class="row mb-2">
       <div class="col-12">
         <div class="d-flex align-items-center">
           <i class="bi bi-file-text fs-1 text-primary me-3"></i>
@@ -38,7 +38,8 @@
                 Buscar por nome do candidato
               </label>
               <input id="search" type="text" class="form-control mt-1 border-2"
-                placeholder="Digite o nome do candidato..." />
+                placeholder="Digite o nome do candidato... " [(ngModel)]="nomeBusca" (input)="aoMudarNome()"
+                name="nomeBusca" />
             </div>
           </div>
         </div>
@@ -55,7 +56,7 @@
             </div>
             <div class="card-body">
               <!-- Mensagem quando não há resultados -->
-              <div *ngIf="!temResultados()" class="text-center py-5">
+              <div *ngIf="!temResultados()" class="text-center">
                 <i class="bi bi-people display-1 text-muted opacity-50"></i>
                 <p class="text-muted mt-3 mb-0">Nenhum funcionário encontrado com os critérios de busca.</p>
               </div>

@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="container">
   <div class="row mb-4">
     <div class="col text-center">
       <h1 class="display-5 fw-bold mb-1">
@@ -8,8 +8,9 @@
       </p>
     </div>
   </div>
-  <div class="row mb-5">
-    <div class="col-md-8 offset-md-2">
+
+  <div class="row mb-5" *ngIf="!carregando">
+    <div class="col-md-8 offset-md-2" *ngIf="!resultado">
       <div class="alert alert-info shadow-sm" style="background-color: #fff; border-color: #ef4444;">
         <h5 class="mb-3"><i class="bi bi-bar-chart-line"></i> Relatório da IA</h5>
         <p>
@@ -20,11 +21,24 @@
           <strong>Impacto Esperado:</strong> Redução do turnover, aumento do engajamento e satisfação dos funcionários.
         </p>
         <div class="text-end">
-          <a href="#" class="btn btn-outline-danger btn-sm">Ver plano de ação</a>
+          <button class="btn btn-outline-danger btn-sm" (click)="analisar()">Ver plano de ação</button>
         </div>
       </div>
     </div>
+
+    <div class="col-md-8 offset-md-2" *ngIf="resultado">
+      {{resultado}}
+    </div>
+
   </div>
+
+  <div class="row mb-5" *ngIf="carregando">
+    <div class="col-md-8 offset-md-2">
+      <span class="spinner loader"></span>
+    </div>
+  </div>
+
+  <!--
   <div class="row g-4">
     <div class="col-md-4">
       <div class="card h-100 shadow-sm">
@@ -57,4 +71,5 @@
       </div>
     </div>
   </div>
+  -->
 </div>

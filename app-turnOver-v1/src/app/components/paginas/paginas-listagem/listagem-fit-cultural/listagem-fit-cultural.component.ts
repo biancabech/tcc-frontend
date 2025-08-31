@@ -10,14 +10,15 @@ import SweetAlert2 from 'sweetalert2';
   styleUrls: ['./listagem-fit-cultural.component.css']
 })
 export class ListagemFitCulturalComponent implements OnInit {
-  avaliacoesFitCultural: FitCultural[] = [];
 
+  nomeBusca: string = '';
+  avaliacoesFitCultural: FitCultural[] = [];
   constructor(
     private fitculturalService: FitCulturalService,
     private toastr: ToastrService,
   ) { }
 
-  nomeBusca: string = '';
+
   cargoSelecionado: string = '';
   setorSelecionado: string = '';
 
@@ -54,8 +55,14 @@ export class ListagemFitCulturalComponent implements OnInit {
 
   // Método principal de filtro
   filtrarFitCultural() {
-
+    return this.avaliacoesFitCultural.filter((avaliacao) =>
+      avaliacao.nome.toLowerCase().includes(this.nomeBusca.toLowerCase())
+    );
   }
+  aoMudarNome(): void {
+    this.filtrarFitCultural();
+  }
+
 
   deletar(fitCultural: FitCultural) {
     SweetAlert2.fire({
