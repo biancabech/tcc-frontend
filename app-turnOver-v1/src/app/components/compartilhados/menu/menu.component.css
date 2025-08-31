@@ -1,20 +1,16 @@
 .logo {
-  width: 15vw;
+  width: 14vw;
   height: 50px;
+  cursor: pointer;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .menu-container {
   height: 95vh;
-}
-
-.b-example-divider {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .bi {
@@ -23,18 +19,32 @@
   fill: currentColor;
 }
 
-.dropdown-toggle {
-  outline: 0;
-}
-
-.nav-flush .nav-link {
-  border-radius: 0;
-}
-
 /*navegação no menu*/
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   background-color: #ef4444;
+}
+
+
+.nav-pills .nav-link.active:hover {
+  background-color: #dc2626;
+}
+
+/* Simplified hover effects for nav-link */
+.nav-pills .nav-link {
+  transition: background-color 0.15s ease;
+  border-radius: 0.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #ef4444 !important;
+  color: #fff !important;
+}
+
+.nav-pills .nav-link:hover * {
+  color: #fff !important;
 }
 
 .btn-toggle {
@@ -42,31 +52,35 @@
   align-items: center;
   padding: .25rem .5rem;
   font-weight: 600;
-  color: rgba(0, 0, 0, .65);
+  color: rgba(0, 0, 0, 0.65);
   background-color: transparent;
   border: 0;
+  border-radius: 0.375rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  width: 100%;
+  justify-content: flex-start;
 }
 
-.btn-toggle:hover,
-.btn-toggle:focus {
-  color: rgba(0, 0, 0, .85);
-  background-color: #d2f4ea;
+/* Fixed hover effects to not interfere with collapse functionality */
+.btn-toggle:hover:not([aria-expanded="true"]),
+.btn-toggle:focus:not([aria-expanded="true"]) {
+  color: #fff !important;
+  background-color: #ef4444;
 }
 
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
+.btn-toggle:hover:not([aria-expanded="true"]) *,
+.btn-toggle:focus:not([aria-expanded="true"]) * {
+  color: #fff !important;
 }
 
+/* Keep normal colors when collapse is expanded */
 .btn-toggle[aria-expanded="true"] {
-  color: rgba(0, 0, 0, .85);
+  color: rgba(0, 0, 0, 0.65);
+  background-color: transparent;
 }
 
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
+.btn-toggle[aria-expanded="true"] * {
+  color: rgba(0, 0, 0, 0.65) !important;
 }
 
 .btn-toggle-nav a {
@@ -75,11 +89,20 @@
   margin-top: .125rem;
   margin-left: 1.25rem;
   text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  width: calc(100% - 1.25rem);
 }
 
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
-  background-color: #d2f4ea;
+  background-color: #ef4444;
+  color: #fff !important;
+}
+
+.btn-toggle-nav a:hover *,
+.btn-toggle-nav a:focus * {
+  color: #fff !important;
 }
 
 .fw-semibold {
@@ -94,4 +117,33 @@ a {
   font-size: 1.10em;
 }
 
+/* Added smooth scrollbar styling for menu */
+.menu-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+  background: #d2f4ea;
+  border-radius: 3px;
+}
+
+.menu-container::-webkit-scrollbar-thumb:hover {
+  background: #a7f3d0;
+}
+
 /*Mobile */
+/* Removed generic li:hover rules that were causing permanent red background */
+/* Removed problematic generic hover rules:
+li:hover {
+  color: #fff;
+}
+
+li:hover * {
+  color: #fff !important;
+}
+*/
