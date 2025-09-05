@@ -5,14 +5,15 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a routerLink="paginas/dashboard/grafico-anual" class="nav-link link-dark menu-hover" aria-current="page">
+      <a routerLink="/paginas/dashboard/grafico-anual" class="nav-link link-dark menu-hover" aria-current="page"
+        (click)="ativarAoClicar($event)">
         <i class="bi bi-graph-up me-2"></i>
         Dashboard
       </a>
     </li>
 
     <li>
-      <a routerLink="paginas/ia-indica" class="nav-link link-dark menu-hover">
+      <a routerLink="/paginas/ia-indica" class="nav-link link-dark menu-hover" (click)="ativarAoClicar($event)">
         <i class="bi bi-cpu me-2"></i>
         IA Indica
       </a>
@@ -26,11 +27,13 @@
       </button>
       <div class="collapse" id="funcionario-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-2">
-          <li><a routerLink="/paginas/paginas-listagem/listagem-funcionarios" class="link-dark rounded submenu-hover">
-              Lista Funcionário
+          <li><a routerLink="/paginas/paginas-listagem/listagem-funcionarios"
+              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
+              <i class="bi bi-search me-2" style="font-size: 1rem;"></i>
+              Funcionário
             </a></li>
           <li><a routerLink="/paginas/paginas-listagem/listagem-acompanhamentos"
-              class="link-dark rounded submenu-hover">
+              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
               Acompanhamento
             </a></li>
         </ul>
@@ -38,14 +41,16 @@
     </li>
 
     <li>
-      <a routerLink="/paginas/paginas-listagem/listagem-setores" class="nav-link link-dark menu-hover">
+      <a routerLink="/paginas/paginas-listagem/listagem-setores" class="nav-link link-dark menu-hover"
+        (click)="ativarAoClicar($event)">
         <i class="bi bi-building me-2"></i>
         Setores
       </a>
     </li>
 
     <li>
-      <a routerLink="/paginas/paginas-listagem/listagem-cargos" class="nav-link link-dark menu-hover">
+      <a routerLink="/paginas/paginas-listagem/listagem-cargos" class="nav-link link-dark menu-hover"
+        (click)="ativarAoClicar($event)">
         <i class="bi bi-briefcase me-2"></i>
         Cargos
       </a>
@@ -58,11 +63,13 @@
       </button>
       <div class="collapse" id="desligamento-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-2">
-          <li><a routerLink="/paginas/paginas-listagem/listagem-desligamentos" class="link-dark rounded submenu-hover">
-              Lista Desligamento
+          <li><a routerLink="/paginas/paginas-listagem/listagem-desligamentos"
+              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
+              <i class="bi bi-search me-2" style="font-size: 1rem;"></i>
+              Desligamento
             </a></li>
           <li><a routerLink="/paginas/paginas-listagem/listagem-motivo-desligamento"
-              class="link-dark rounded submenu-hover">
+              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
               Motivo de Desligamento
             </a></li>
         </ul>
@@ -70,7 +77,8 @@
     </li>
 
     <li>
-      <a routerLink="/paginas/paginas-listagem/listagem-fit-cultural" class="nav-link link-dark menu-hover">
+      <a routerLink="/paginas/paginas-listagem/listagem-fit-cultural" class="nav-link link-dark menu-hover"
+        (click)="ativarAoClicar($event)">
         <i class="bi bi-hand-thumbs-up me-2"></i>
         Fit Cultural
       </a>
