@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SessaoService } from './services/sessao.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-turnOver-v1';
+
+  constructor(private sessaoService: SessaoService) { }
+
+  estaLogado() {
+    return this.sessaoService.estaLogado()
+  }
 }
