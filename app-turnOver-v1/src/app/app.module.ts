@@ -32,7 +32,7 @@ import { ListagemAcompanhamentosComponent } from './components/paginas/paginas-l
 import { MotivoDesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-motivo-desligamento/cadastro-motivo-desligamento.component';
 import { ListagemMotivoDesligamentoComponent } from './components/paginas/paginas-listagem/listagem-motivo-desligamento/listagem-motivo-desligamento/listagem-motivo-desligamento.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -70,6 +70,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MarkdownModule.forRoot(),
   ],
   providers: [
     provideHttpClient(),

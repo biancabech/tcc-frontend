@@ -12,6 +12,7 @@ import SweetAlert2 from 'sweetalert2';
 })
 export class ListagemDesligamentosComponent implements OnInit {
   faLinkSlash = faLinkSlash;
+  nomeBusca: string = '';
   desligamentos: Desligamento[] = [];
 
   constructor(
@@ -19,6 +20,8 @@ export class ListagemDesligamentosComponent implements OnInit {
     private toastr: ToastrService,
 
   ) { }
+
+  desligamentosFiltrados: Desligamento[] = [];
 
   ngOnInit(): void {
     this.carregarDesligamentos();
@@ -35,6 +38,27 @@ export class ListagemDesligamentosComponent implements OnInit {
       }
     });
   }
+
+  obterQuantidadeResultados(): number {
+    return this.desligamentos.length;
+  }
+
+  // Método para verificar se há resultados
+  temResultados(): boolean {
+    return this.desligamentos.length > 0;
+  }
+
+  // Método principal de filtro
+  filtrarDesligamento() {
+    return this.desligamentos.filter((avaliacao) =>
+      avaliacao.funcionario.nome.toLowerCase().includes(this.nomeBusca.toLowerCase())
+    );
+  }
+
+  aoMudarNome(): void {
+    this.filtrarDesligamento();
+  }
+
 
   deletar(desligamento: Desligamento) {
     SweetAlert2.fire({

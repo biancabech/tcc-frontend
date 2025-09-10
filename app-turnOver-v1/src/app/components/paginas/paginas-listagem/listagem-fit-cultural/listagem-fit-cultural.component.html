@@ -18,31 +18,8 @@
           class="btn text-white shadow-lg d-flex align-items-center gap-2" [ngStyle]="{'background-color': '#ef4444'}">
           <!-- Placeholder for FileText icon -->
           <i class="bi bi-file-text" style="font-size: 1rem;"></i>
-          Nova Avaliação
+          Add Avaliação
         </button>
-      </div>
-
-      <div class="card mb-4 shadow-lg border-0">
-        <div class="card-header text-white rounded-top"
-          style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
-          <h5 class="card-title d-flex align-items-center gap-2 mb-0">
-            <!-- Placeholder for Search icon -->
-            <i class="bi bi-search" style="font-size: 1.25rem;"></i>
-            Buscar Avaliações
-          </h5>
-        </div>
-        <div class="card-body p-4 bg-white">
-          <div class="row g-3">
-            <div class="col-12">
-              <label for="search" class="form-label text-sm fw-medium text-secondary">
-                Buscar por nome do candidato
-              </label>
-              <input id="search" type="text" class="form-control mt-1 border-2"
-                placeholder="Digite o nome do candidato... " [(ngModel)]="nomeBusca" (input)="aoMudarNome()"
-                name="nomeBusca" />
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="row">
@@ -54,7 +31,9 @@
                 {{ obterQuantidadeResultados() }} candidato(s) encontrado(s)
               </span>
             </div>
+
             <div class="card-body">
+
               <!-- Mensagem quando não há resultados -->
               <div *ngIf="!temResultados()" class="text-center">
                 <i class="bi bi-people display-1 text-muted opacity-50"></i>
@@ -64,7 +43,7 @@
               <!-- Tabela de resultados -->
               <div *ngIf="temResultados()" class="table-responsive">
                 <table class="table table-hover">
-                  <thead class="table-light">
+                  <thead>
                     <tr>
                       <th>Data da Entrevista</th>
                       <th>Nome</th>

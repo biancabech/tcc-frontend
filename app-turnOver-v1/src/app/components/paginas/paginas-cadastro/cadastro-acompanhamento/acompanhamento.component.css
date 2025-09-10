@@ -14,15 +14,3 @@ form {
   background-color: #FFFF;
   max-height: 100vh;
 }
-
-.btn-primary {
-  border: solid 1px;
-  background-color: #2b2d42;
-}
-
-.btn-secondary {
-  border: solid 1px;
-  background-color: white;
-  color: #2b2d42;
-  font-weight: bold;
-}

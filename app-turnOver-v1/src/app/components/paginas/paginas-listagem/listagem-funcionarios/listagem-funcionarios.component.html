@@ -18,74 +18,6 @@
       </button>
     </div>
 
-    <!-- Filtros de Busca -->
-    <div class="row mb-4">
-      <div class="col-12">
-        <div class="card shadow-sm">
-          <div class="card-header text-white" style="background-color: #2b2d42;">
-            <h5 class="card-title mb-0">
-              <i class="bi bi-funnel me-2"></i>
-              Filtros de Busca
-            </h5>
-          </div>
-          <div class="card-body">
-            <div class="row g-3">
-
-              <!-- Busca por Nome -->
-              <div class="col-md-4">
-                <label for="nomeBusca" class="form-label">
-                  <i class="bi bi-search me-1"></i>
-                  Nome do Funcionário
-                </label>
-                <input type="text" class="form-control" id="nomeBusca" placeholder="Digite o nome..."
-                  [(ngModel)]="nomeBusca" (input)="aoMudarNome()" name="nomeBusca">
-              </div>
-
-              <!-- Filtro por Cargo -->
-              <div class="col-md-4">
-                <label for="cargoSelecionado" class="form-label">
-                  <i class="bi bi-briefcase me-1"></i>
-                  Cargo
-                </label>
-                <select class="form-select" [(ngModel)]="cargoSelecionado" (change)="aoMudarCargo()"
-                  name="cargoSelecionado" id="cargoSelecionado">
-                  <option value="">Todos os cargos</option>
-                  <option *ngFor="let cargo of cargos" [value]="cargo">
-                    {{ cargo }}
-                  </option>
-                </select>
-              </div>
-
-              <!-- Filtro por Setor -->
-              <div class="col-md-4">
-                <label for="setorSelecionado" class="form-label">
-                  <i class="bi bi-building me-1"></i>
-                  Setor
-                </label>
-                <select class="form-select" id="setorSelecionado" [(ngModel)]="setorSelecionado"
-                  (change)="aoMudarSetor()" name="setorSelecionado">
-                  <option value="">Todos os setores</option>
-                  <option *ngFor="let setor of setores" [value]="setor">
-                    {{ setor }}
-                  </option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Botão para limpar filtros -->
-            <div class="row mt-3">
-              <div class="col-12 d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-secondary" (click)="limparFiltros()">
-                  <i class="bi bi-arrow-clockwise me-1"></i>
-                  Limpar Filtros
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Resultados -->
     <div class="row">
       <div class="col-12">
@@ -106,7 +38,7 @@
             <!-- Tabela de resultados -->
             <div *ngIf="temResultados()" class="table-responsive">
               <table class="table table-hover">
-                <thead class="table-light">
+                <thead>
                   <tr>
                     <th>Nome</th>
                     <th>Cargo</th>

@@ -1,25 +1,25 @@
-<form class="container-fluid d-flex flex-column align-items-center" (ngSubmit)="salvarMotivoDesligamento()">
+<form class="container-fluid p-3 mt-3" (ngSubmit)="salvarMotivoDesligamento()">
   <h2 class="m-5 text-center">Motivo de Desligamento - {{acao}}</h2>
 
-  <div class="card col-7 p-3 shadow-sm align-items-center">
+  <div class="card col-12 p-3 shadow-sm align-items-center">
 
-    <div class="col-md-11">
+    <div class="col-md-12">
       <label for="nome" class="form-label">Motivo de Desligamento</label>
       <input type="text" class="form-control" id="motivoDesligamento" name="motivoDesligamento"
         [(ngModel)]="motivodesligamento.motivo">
       <div *ngIf="erroValidacao" class="text-danger">{{ erroValidacao }}</div>
     </div>
 
-    <div class="col-md-11">
+    <div class="col-md-12">
       <label for="descricao">Descrição:</label>
       <textarea class="form-control" id="descricao" rows="3" name="descricao"
         [(ngModel)]="motivodesligamento.descricao"></textarea>
     </div>
 
     <div class="text-start mt-3">
-      <button [routerLink]="listaDeMotivosDesligamentoUrl" class="btn btn-secondary me-2"
+      <button [routerLink]="listaDeMotivosDesligamentoUrl" class="btn btn-outline-danger me-2"
         type="button">Cancelar</button>
-      <button class="btn btn-primary" type="submit">Salvar</button>
+      <button class="btn btn-danger" type="submit">Salvar</button>
     </div>
   </div>
 

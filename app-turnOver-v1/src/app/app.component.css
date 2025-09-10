@@ -1,6 +1,7 @@
 .conteudo {
   margin-bottom: 30px;
-  margin-top: 20px;
+  margin-top: 80px;
+  padding-left: 30px;
 }
 
 .footer {
@@ -8,9 +9,12 @@
   bottom: 0;
 }
 
-.menu {
+.header {
   position: fixed;
-  top: 0;
-  width: 15vw;
-  margin-top: 0px;
+  top: 0px;
+  z-index: 999;
+}
+
+.menu {
+  z-index: 9999;
 }

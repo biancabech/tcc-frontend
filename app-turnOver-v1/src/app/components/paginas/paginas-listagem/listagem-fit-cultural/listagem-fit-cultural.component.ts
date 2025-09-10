@@ -59,6 +59,7 @@ export class ListagemFitCulturalComponent implements OnInit {
       avaliacao.nome.toLowerCase().includes(this.nomeBusca.toLowerCase())
     );
   }
+
   aoMudarNome(): void {
     this.filtrarFitCultural();
   }
