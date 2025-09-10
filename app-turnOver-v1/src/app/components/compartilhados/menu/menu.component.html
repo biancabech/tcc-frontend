@@ -1,87 +1,94 @@
-<div class="menu-container d-flex flex-column flex-shrink-0 bg-light p-2">
-  <div routerLink="/">
-    <img src="/assets/img/logo1.jpg" alt="logo" class="logo">
-  </div>
-  <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a routerLink="/paginas/dashboard/grafico-anual" class="nav-link link-dark menu-hover" aria-current="page"
-        (click)="ativarAoClicar($event)">
-        <i class="bi bi-graph-up me-2"></i>
-        Dashboard
-      </a>
-    </li>
+<div class="sidebar">
+  <nav class="nav flex-column">
+    <a class="nav-link abridor-de-menu">
+      <span class="icon">
+        <i class="bi bi-justify"></i>
+      </span>
+    </a>
 
-    <li>
-      <a routerLink="/paginas/ia-indica" class="nav-link link-dark menu-hover" (click)="ativarAoClicar($event)">
-        <i class="bi bi-cpu me-2"></i>
-        IA Indica
-      </a>
-    </li>
+    <a [routerLink]="rotasService.dashboard()" class="nav-link">
+      <span class="icon">
+        <i class="bi bi-graph-up"></i>
+      </span>
+      <span class="description">Dashboard</span>
+    </a>
 
-    <li>
-      <button class="btn align-items-center rounded collapsed w-100 text-start nav-link link-dark menu-hover"
-        data-bs-toggle="collapse" data-bs-target="#funcionario-collapse" aria-expanded="false">
-        <i class="bi bi-people me-2"></i>
-        Funcionários
-      </button>
-      <div class="collapse" id="funcionario-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-2">
-          <li><a routerLink="/paginas/paginas-listagem/listagem-funcionarios"
-              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
-              <i class="bi bi-search me-2" style="font-size: 1rem;"></i>
-              Funcionário
-            </a></li>
-          <li><a routerLink="/paginas/paginas-listagem/listagem-acompanhamentos"
-              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
-              Acompanhamento
-            </a></li>
-        </ul>
-      </div>
-    </li>
+    <a [routerLink]="rotasService.iaIndica()" class="nav-link">
+      <span class="icon">
+        <i class="bi bi-cpu"></i>
+      </span>
+      <span class="description"> IA Indica</span>
+    </a>
 
-    <li>
-      <a routerLink="/paginas/paginas-listagem/listagem-setores" class="nav-link link-dark menu-hover"
-        (click)="ativarAoClicar($event)">
-        <i class="bi bi-building me-2"></i>
-        Setores
-      </a>
-    </li>
+    <a [routerLink]="rotasService.fitCultural()" class="nav-link">
+      <span class="icon">
+        <i class="bi bi-hand-thumbs-up"></i>
+      </span>
+      <span class="description">Fit Cultural</span>
+    </a>
 
-    <li>
-      <a routerLink="/paginas/paginas-listagem/listagem-cargos" class="nav-link link-dark menu-hover"
-        (click)="ativarAoClicar($event)">
-        <i class="bi bi-briefcase me-2"></i>
-        Cargos
-      </a>
-    </li>
-    <li>
-      <button class="btn align-items-center rounded collapsed w-100 text-start nav-link link-dark menu-hover"
-        data-bs-toggle="collapse" data-bs-target="#desligamento-collapse" aria-expanded="false">
-        <i class="bi bi-box-arrow-right me-2"></i>
-        Desligamento
-      </button>
-      <div class="collapse" id="desligamento-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-2">
-          <li><a routerLink="/paginas/paginas-listagem/listagem-desligamentos"
-              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
-              <i class="bi bi-search me-2" style="font-size: 1rem;"></i>
-              Desligamento
-            </a></li>
-          <li><a routerLink="/paginas/paginas-listagem/listagem-motivo-desligamento"
-              class="link-dark rounded submenu-hover nav-link" (click)="ativarAoClicar($event)">
-              Motivo de Desligamento
-            </a></li>
-        </ul>
-      </div>
-    </li>
+    <!-- menu funcionarios -->
+    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-funcionarios" aria-expanded="false"
+      aria-controls="submenu-funcionarios">
+      <span class="icon">
+        <i class="bi bi-people"></i>
+      </span>
+      <span class="description">Funcionários <i class="bi bi-caret-down-fill"></i></span>
+    </a>
 
-    <li>
-      <a routerLink="/paginas/paginas-listagem/listagem-fit-cultural" class="nav-link link-dark menu-hover"
-        (click)="ativarAoClicar($event)">
-        <i class="bi bi-hand-thumbs-up me-2"></i>
-        Fit Cultural
+    <!-- submenu-funcionarios -->
+    <div class="sub-menu collapse" id="submenu-funcionarios">
+      <a [routerLink]="rotasService.listagemFuncionarios()" class="nav-link">
+        <span class="icon">
+          <i class="bi bi-file-earmark-text"></i>
+        </span>
+        <span class="description">Listagem Funcionarios</span>
       </a>
-    </li>
-  </ul>
+      <a [routerLink]="rotasService.listagemSetores()" class="nav-link">
+        <span class="icon">
+          <i class="bi bi-building"></i>
+        </span>
+        <span class="description">Setores</span>
+      </a>
+      <a [routerLink]="rotasService.listagemCargos()" class="nav-link">
+        <span class="icon">
+          <i class="bi bi-briefcase"></i>
+        </span>
+        <span class="description">Cargos</span>
+      </a>
+    </div>
+
+    <!-- menu desligamentos -->
+    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-desligamentos" aria-expanded="false"
+      aria-controls="submenu-desligamentos">
+      <span class="icon">
+        <i class="bi bi-box-arrow-right"></i>
+      </span>
+      <span class="description">Desligamentos <i class="bi bi-caret-down-fill"></i></span>
+    </a>
+
+    <!-- submenu-desligamentos -->
+    <div class="sub-menu collapse" id="submenu-desligamentos">
+      <a [routerLink]="rotasService.listagemDesligamentos()" class="nav-link">
+        <span class="icon">
+          <i class="bi bi-file-earmark-text"></i>
+        </span>
+        <span class="description">Listagem Desligamentos</span>
+      </a>
+      <a [routerLink]="rotasService.listagemMotivoDesligamento()" class="nav-link">
+        <span class="icon">
+          <i class="bi bi-file-earmark-check"></i>
+        </span>
+        <span class="description">Motivos de Desligamento</span>
+      </a>
+    </div>
+
+    <!---------------------------------------->
+    <a class="nav-link" href="#">
+      <span class="icon">
+        <i class="bi bi-gear"></i>
+      </span>
+      <span class="description">Settings</span>
+    </a>
+  </nav>
 </div>

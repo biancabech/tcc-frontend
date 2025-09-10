@@ -1,148 +1,85 @@
-.logo {
-  width: 14vw;
-  height: 50px;
-  cursor: pointer;
-}
-
-.logo:hover {
-  opacity: 0.8;
-}
-
-.menu-container {
-  height: 95vh;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.bi {
-  vertical-align: -.125em;
-  pointer-events: none;
-  fill: currentColor;
-}
-
-/*navegação no menu*/
-.nav-pills .nav-link.active {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  padding-top: 20px;
   background-color: #ef4444;
-  color: white !important;
+  transition: width 0.3s;
 }
 
-.nav-pills .nav-link.active:hover {
-  background-color: #dc2626;
-}
-
-/* Simplified hover effects for nav-link */
-.nav-pills .nav-link {
-  transition: background-color 0.15s ease;
-  border-radius: 0.375rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-pills .nav-link:hover {
-  background-color: #ef4444 !important;
-  color: #fff !important;
-}
-
-.nav-pills .nav-link:hover * {
-  color: #fff !important;
-}
-
-.btn-toggle {
-  display: inline-flex;
+.sidebar .nav-link {
+  display: flex;
   align-items: center;
-  padding: .25rem .5rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.65);
-  background-color: transparent;
-  border: 0;
-  border-radius: 0.375rem;
-  transition: background-color 0.15s ease, color 0.15s ease;
-  width: 100%;
-  justify-content: flex-start;
-}
-
-/* Fixed hover effects to not interfere with collapse functionality */
-.btn-toggle:hover:not([aria-expanded="true"]),
-.btn-toggle:focus:not([aria-expanded="true"]) {
-  color: #fff !important;
-  background-color: #ef4444;
-}
-
-.btn-toggle:hover:not([aria-expanded="true"]) *,
-.btn-toggle:focus:not([aria-expanded="true"]) * {
-  color: #fff !important;
-}
-
-/* Keep normal colors when collapse is expanded */
-.btn-toggle[aria-expanded="true"] {
-  color: rgba(0, 0, 0, 0.65);
-  background-color: transparent;
-}
-
-.btn-toggle[aria-expanded="true"] * {
-  color: rgba(0, 0, 0, 0.65) !important;
-}
-
-.btn-toggle-nav a {
-  display: inline-flex;
-  padding: .1875rem .5rem;
-  margin-top: .125rem;
-  margin-left: 1.25rem;
-  text-decoration: none;
-  border-radius: 0.25rem;
-  transition: background-color 0.15s ease, color 0.15s ease;
-  width: calc(100% - 1.25rem);
-}
-
-.btn-toggle-nav a:hover,
-.btn-toggle-nav a:focus {
-  background-color: #ef4444;
-  color: #fff !important;
-}
-
-.btn-toggle-nav a:hover *,
-.btn-toggle-nav a:focus * {
-  color: #fff !important;
-}
-
-.fw-semibold {
-  font-weight: 600;
-}
-
-.lh-tight {
-  line-height: 1.25;
-}
-
-a {
-  font-size: 1.10em;
-}
-
-/* Added smooth scrollbar styling for menu */
-.menu-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.menu-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 3px;
-}
-
-.menu-container::-webkit-scrollbar-thumb {
-  background: #d2f4ea;
-  border-radius: 3px;
-}
-
-.menu-container::-webkit-scrollbar-thumb:hover {
-  background: #a7f3d0;
-}
-
-/*Mobile */
-/* Removed generic li:hover rules that were causing permanent red background */
-/* Removed problematic generic hover rules:
-li:hover {
+  gap: 20px;
+  padding: 10px 20px;
   color: #fff;
 }
 
-li:hover * {
-  color: #fff !important;
+.sidebar .description {
+  font-size: 14px;
 }
-*/
+
+.sidebar :not(.abridor-de-menu).nav-link:hover {
+  background-color: rgb(255, 105, 105);
+}
+
+.sidebar .sub-menu {
+  background-color: #4c5e7182;
+  padding-left: 3%;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebar .description {
+    display: none;
+  }
+
+  .sidebar .nav-link {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav>:first-child {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    width: 60px;
+    height: 60px;
+    padding-top: 5px;
+  }
+
+  nav {
+    overflow: hidden;
+    height: 60px;
+  }
+
+  /** sidebar com algum elemento filho direto com hover, aplicar o css no nav */
+  .sidebar:has(nav>:hover) nav {
+    overflow: unset;
+    height: unset;
+  }
+
+  .sidebar:has(nav>:hover) {
+    height: 100%;
+    width: 200px;
+  }
+
+  /* mostrar as descrições quando o icone estiver vazio */
+  .sidebar:has(nav>:hover) .description {
+    display: block;
+  }
+
+  /* ajustar texto do menu alinhado a esquerda */
+  .sidebar .nav-link:not(:first-child) {
+    justify-content: flex-start;
+  }
+}
