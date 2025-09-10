@@ -19,12 +19,16 @@ import { ListagemMotivoDesligamentoComponent } from './components/paginas/pagina
 import { MotivoDesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-motivo-desligamento/cadastro-motivo-desligamento.component';
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './guards/auth.guard';
+import { RotasService } from './services/rotas.service';
+
+
+const rotasService = new RotasService();
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent, canActivate: [authGuard] },
-  { path: 'paginas/dashboard/grafico-anual', component: GraficoAnualComponent, canActivate: [authGuard] },
-  { path: 'paginas/ia-indica', component: IaIndicaComponent, canActivate: [authGuard] },
+  { path: rotasService.home(true), component: HomeComponent, canActivate: [authGuard] },
+  { path: rotasService.dashboard(true), component: GraficoAnualComponent, canActivate: [authGuard] },
+  { path: rotasService.iaIndica(true), component: IaIndicaComponent, canActivate: [authGuard] },
   //Componentes de Cadastro
   { path: 'paginas/paginas-cadastro/cadastro-funcionario', component: CadastroFuncionarioComponent, canActivate: [authGuard] },
   { path: 'paginas/paginas-cadastro/cadastro-acompanhamento', component: AcompanhamentoComponent, canActivate: [authGuard] },
@@ -34,7 +38,7 @@ const routes: Routes = [
   { path: 'paginas/paginas-cadastro/cadastro-desligamento', component: DesligamentoComponent, canActivate: [authGuard] },
   { path: 'paginas/paginas-cadastro/cadastro-motivo-desligamento', component: MotivoDesligamentoComponent, canActivate: [authGuard] },
   //Componentes de Listagem
-  { path: 'paginas/paginas-listagem/listagem-funcionarios', component: ListagemFuncionariosComponent, canActivate: [authGuard] },
+  { path: rotasService.listagemFuncionarios(true), component: ListagemFuncionariosComponent, canActivate: [authGuard] },
   { path: 'paginas/paginas-listagem/listagem-cargos', component: ListagemCargoComponent, canActivate: [authGuard] },
   { path: 'paginas/paginas-listagem/listagem-setores', component: ListagemSetoresComponent, canActivate: [authGuard] },
   { path: 'paginas/paginas-listagem/listagem-fit-cultural', component: ListagemFitCulturalComponent, canActivate: [authGuard] },
