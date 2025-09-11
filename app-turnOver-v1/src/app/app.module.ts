@@ -31,7 +31,8 @@ import { HeaderComponent } from './components/compartilhados/header/header.compo
 import { ListagemAcompanhamentosComponent } from './components/paginas/paginas-listagem/listagem-acompanhamentos/listagem-acompanhamentos.component';
 import { MotivoDesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-motivo-desligamento/cadastro-motivo-desligamento.component';
 import { ListagemMotivoDesligamentoComponent } from './components/paginas/paginas-listagem/listagem-motivo-desligamento/listagem-motivo-desligamento/listagem-motivo-desligamento.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ListagemMotivoDesligamentoComponent } from './components/paginas/pagina
     ListagemAcompanhamentosComponent,
     MotivoDesligamentoComponent,
     ListagemMotivoDesligamentoComponent,
+    LoginComponent,
   ],
 
   imports: [
@@ -68,6 +70,7 @@ import { ListagemMotivoDesligamentoComponent } from './components/paginas/pagina
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MarkdownModule.forRoot(),
   ],
   providers: [
     provideHttpClient(),

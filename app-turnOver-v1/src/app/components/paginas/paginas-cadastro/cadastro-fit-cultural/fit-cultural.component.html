@@ -1,21 +1,20 @@
-<div class="container-fluid min-vh-100 py-4 px-md-5 m-2">
+<div class="container-fluid min-vh-100 px-md-5 m-2">
   <h2 class="fs-2 fw-bold text-dark"><fa-icon [icon]="faHandshake" class="fs-1 text-primary me-2" />Avaliação
     de Fit Cultural</h2>
   <p class="text-secondary">Avalie o alinhamento cultural dos candidatos</p>
   <div class="w-100">
     <ng-container>
-      <form (ngSubmit)="salvarFitCultural()" class="d-grid gap-4">
+      <form (ngSubmit)="salvarFitCultural()" class="d-grid gap-3">
         <div class="card shadow-lg border-0 bg-white">
           <div class="card-header text-white rounded-top"
             style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
-            <h4 class="card-title d-flex align-items-center gap-2 mb-1">
-
+            <h4 class="card-title d-flex align-items-center gap-2">
               <i class="bi bi-person" style="font-size: 1.25rem;"></i>
               Informações da Entrevista
             </h4>
           </div>
         </div>
-        <div class="card-body p-4 bg-white">
+        <div class="card-body p-2 bg-white">
           <div class="row g-3">
             <div class="col-12 col-md-8">
               <label for="nome" class="form-label d-flex align-items-center gap-2 text-sm fw-medium text-secondary">
@@ -41,7 +40,7 @@
 
 
         <div class="card shadow-lg border-0 bg-white">
-          <div class="card-header text-white rounded-top"
+          <div class="card-header text-light rounded-top"
             style="background: linear-gradient(135deg, #2b2d42 0%, #1a1c2e 100%);">
             <div class="d-flex justify-content-between align-items-start">
               <div>
@@ -70,11 +69,10 @@
               </div>
             </div>
           </div>
-          <div class="card-body p-4 bg-white">
-            <div class="row g-3">
-
+          <div class="card-body bg-white">
+            <div class="row">
               <div
-                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                class="d-flex items-center  border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-2 m-2">
                 <div class="form-check d-flex align-items-center gap-2">
                   <input id="trabalhoEquipe" type="checkbox" class="form-check-input"
                     [(ngModel)]="fitCultural.trabalhoEquipe" name="trabalhoEquipe" />
@@ -83,8 +81,9 @@
                   </label>
                 </div>
               </div>
+
               <div
-                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                class="d-flex items-center  border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-3 m-2">
                 <div class="form-check d-flex align-items-center gap-2">
                   <input id="adaptabilidade" type="checkbox" class="form-check-input"
                     [(ngModel)]="fitCultural.adaptabilidade" name="adaptabilidade" />
@@ -96,18 +95,18 @@
 
 
               <div
-                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                class="d-flex items-center  border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-2 m-2">
                 <div class="form-check d-flex align-items-center gap-2">
                   <input id="comunicativo" type="checkbox" class="form-check-input"
                     [(ngModel)]="fitCultural.comunicativo" name="comunicativo" />
-                  <label for="adaptabilidade" class="form-check-label text-secondary">
+                  <label for="comunicativo" class="form-check-label text-secondary">
                     Boa comunicação interpessoal
                   </label>
                 </div>
               </div>
 
               <div
-                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                class="d-flex items-center  border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-2 m-2 p-2">
                 <div class="form-check d-flex align-items-center gap-2">
                   <input id="iniciativa" type="checkbox" class="form-check-input" [(ngModel)]="fitCultural.iniciativa"
                     name="iniciativa" />
@@ -118,7 +117,7 @@
               </div>
 
               <div
-                class="flex items-start space-x-3 p-4 border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-5 m-3">
+                class="d-flex items-center  border border-secondary rounded-2 hover:bg-gray-50 transition-colors col-md-2 m-2">
                 <div class="form-check d-flex align-items-center gap-2">
                   <input id="resolucaoComflitos" type="checkbox" class="form-check-input"
                     [(ngModel)]="fitCultural.resolucaoConflitos" name="resolucaoComflitos" />
@@ -147,12 +146,11 @@
           </div>
         </div>
 
-        <div class="d-flex justify-content-end gap-3 me-2">
-          <button [routerLink]="listaDeFitCulturalsUrl" type="button"
-            class="btn btn-outline-secondary border-2 hover-bg-light">
+        <div class="d-flex justify-content-end gap-3 m-2">
+          <button [routerLink]="listaDeFitCulturalsUrl" type="button" class="btn btn-outline-danger border-2 hoverx">
             Cancelar
           </button>
-          <button type="submit" class="btn text-white shadow-lg px-4" [ngStyle]="{'background-color': '#ef4444'}">
+          <button type="submit" class="btn btn-danger">
             Salvar Avaliação
           </button>
         </div>

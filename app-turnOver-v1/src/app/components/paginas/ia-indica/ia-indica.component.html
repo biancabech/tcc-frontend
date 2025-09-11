@@ -27,49 +27,15 @@
     </div>
 
     <div class="col-md-8 offset-md-2" *ngIf="resultado">
-      {{resultado}}
+      <!-- <pre> {{resultado}}</pre> -->
+      <markdown [data]="resultado"></markdown>
     </div>
 
   </div>
 
   <div class="row mb-5" *ngIf="carregando">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-8 offset-md-2 d-flex justify-content-center">
       <span class="spinner loader"></span>
     </div>
   </div>
-
-  <!--
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title" style="color: #ef4444;">Campanha de Integração</h5>
-          <p class="card-text">Realize eventos de integração para fortalecer o espírito de equipe e aumentar o
-            engajamento dos colaboradores.</p>
-          <a href="#" class="btn" style="background: #ef4444; color: #fff;">Detalhes</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title" style="color: #ef4444;">Programa de Treinamento</h5>
-          <p class="card-text">Ofereça treinamentos contínuos para capacitar e valorizar o crescimento profissional dos
-            funcionários.</p>
-          <a href="#" class="btn" style="background: #ef4444; color: #fff;">Detalhes</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title" style="color: #ef4444;">Reconhecimento de Talentos</h5>
-          <p class="card-text">Implemente campanhas de reconhecimento para valorizar conquistas e estimular a
-            permanência dos colaboradores.</p>
-          <a href="#" class="btn" style="background: #ef4444; color: #fff;">Detalhes</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
 </div>

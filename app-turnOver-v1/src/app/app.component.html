@@ -1,14 +1,24 @@
-<div class="row">
-  <div class="col-lg-12">
-    <app-header />
-  </div>
+<div *ngIf="!estaLogado()">
+  <div class="col-lg-12"><router-outlet /></div>
+  <div class="footer"><app-footer /></div>
 </div>
 
-<div class="row">
-  <div class="col-lg-2">
-    <div class="menu"><app-menu /></div>
+<div *ngIf="estaLogado()">
+  <div class="row">
+    <div class="col-lg-12 header">
+      <app-header />
+    </div>
   </div>
 
-  <div class="col-lg-10 conteudo"><router-outlet /></div>
-  <div class="footer"><app-footer /></div>
+  <div class="row">
+    <div class="col-lg-2 col-md-1 col-sm-12 menu">
+      <app-menu />
+    </div>
+
+    <div class="col-lg-10 col-md-11 col-sm-12 conteudo">
+      <router-outlet />
+    </div>
+
+    <div class="footer"><app-footer /></div>
+  </div>
 </div>

@@ -1,0 +1,76 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center bg-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card border shadow-sm">
+          <div class="card-body p-4">
+
+            <div class="text-center mb-5">
+              <div class="d-inline-block mb-3">
+                <div class="logo-octagon rounded mx-auto"></div>
+              </div>
+              <h1 class="h4 fw-bold text-dark">Simplifique+</h1>
+            </div>
+
+
+            <form id="authForm">
+              <div class="mb-3">
+                <label for="username" class="visually-hidden">Username</label>
+                <input type="text" class="form-control form-control-lg" id="username" name="username"
+                  placeholder="Username" required style="height: 48px;" [(ngModel)]="login.usuario">
+              </div>
+
+              <div class="mb-3 d-none" id="emailField">
+                <label for="email" class="visually-hidden">Email</label>
+                <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email"
+                  style="height: 48px;">
+              </div>
+
+              <div class="mb-3 position-relative">
+                <label for="password" class="visually-hidden">Password</label>
+                <input type="password" class="form-control form-control-lg" id="password" name="password"
+                  placeholder="Password" required style="height: 48px; padding-right: 48px;" [(ngModel)]="login.senha">
+                <button type="button"
+                  class="btn btn-link position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0"
+                  id="togglePassword" style="z-index: 10;">
+                  <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="mb-3 position-relative d-none" id="confirmPasswordField">
+                <label for="confirmPassword" class="visually-hidden">Confirm Password</label>
+                <input type="password" class="form-control form-control-lg" id="confirmPassword" name="confirmPassword"
+                  placeholder="Confirm Password" style="height: 48px;">
+              </div>
+
+              <div class="mb-4">
+                <button type="submit" class="btn btn-custom btn-lg w-100 btn-danger fw-semibold" style="height: 48px;"
+                  id="submitBtn" (click)="logar()">
+                  Login
+                </button>
+              </div>
+            </form>
+
+
+            <div class="text-center mb-3">
+              <button type="button" class="btn btn-link text-decoration-underline p-0 text-dark" id="toggleMode">
+                Não tem uma conta? Criar conta
+              </button>
+            </div>
+
+
+            <div class="text-center" id="forgotPassword">
+              <button type="button" class="btn btn-link text-decoration-underline p-0 text-muted">
+                Esqueceu a senha?
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

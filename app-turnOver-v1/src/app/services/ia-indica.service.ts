@@ -2,11 +2,10 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, lastValueFrom, of, switchMap } from "rxjs";
 
-export interface DeepSeekResponse {
-  model: string,
-  created_at: string,
-  response: string,
-  done: boolean
+interface IaIndicaResponse {
+  resultado: {
+    result: string;
+  }
 }
 
 @Injectable({
@@ -19,9 +18,9 @@ export class IaIndicaService {
 
   async analisar() {
     const analise = await lastValueFrom(
-      this.http.get<{ resultado: string }>(this.apiUrl)
+      this.http.get<IaIndicaResponse>(this.apiUrl)
     );
 
-    return analise.resultado;
+    return analise.resultado.result
   }
 }
