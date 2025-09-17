@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { RotasService } from 'src/app/services/rotas.service';
+import { Component, OnInit } from '@angular/core';
+import { Rotas } from 'src/app/rotas.enum';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +7,9 @@ import { RotasService } from 'src/app/services/rotas.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  constructor(public rotasService: RotasService) { }
+  readonly Rotas = Rotas
+
+  constructor() { }
 
   ngOnInit(): void {
     this.ativarMenuAoCarregar();

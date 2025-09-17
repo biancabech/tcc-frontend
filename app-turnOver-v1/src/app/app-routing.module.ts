@@ -19,32 +19,29 @@ import { ListagemMotivoDesligamentoComponent } from './components/paginas/pagina
 import { MotivoDesligamentoComponent } from './components/paginas/paginas-cadastro/cadastro-motivo-desligamento/cadastro-motivo-desligamento.component';
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './guards/auth.guard';
-import { RotasService } from './services/rotas.service';
-
-
-const rotasService = new RotasService();
+import { Rotas } from './rotas.enum';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: rotasService.home(true), component: HomeComponent, canActivate: [authGuard] },
-  { path: rotasService.dashboard(true), component: GraficoAnualComponent, canActivate: [authGuard] },
-  { path: rotasService.iaIndica(true), component: IaIndicaComponent, canActivate: [authGuard] },
+  { path: Rotas.Login, component: LoginComponent },
+  { path: Rotas.Home, component: HomeComponent, canActivate: [authGuard] },
+  { path: Rotas.Dashboard, component: GraficoAnualComponent, canActivate: [authGuard] },
+  { path: Rotas.IaIndica, component: IaIndicaComponent, canActivate: [authGuard] },
   //Componentes de Cadastro
-  { path: 'paginas/paginas-cadastro/cadastro-funcionario', component: CadastroFuncionarioComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-cadastro/cadastro-acompanhamento', component: AcompanhamentoComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-cadastro/cadastro-setor', component: SetorComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-cadastro/cadastro-cargo', component: CargoComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-cadastro/cadastro-fit-cultural', component: FitCulturalComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-cadastro/cadastro-desligamento', component: DesligamentoComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-cadastro/cadastro-motivo-desligamento', component: MotivoDesligamentoComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroFuncionario, component: CadastroFuncionarioComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroAcompanhamento, component: AcompanhamentoComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroSetor, component: SetorComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroCargo, component: CargoComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroFitCultural, component: FitCulturalComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroDesligamento, component: DesligamentoComponent, canActivate: [authGuard] },
+  { path: Rotas.CadastroMotivoDesligamento, component: MotivoDesligamentoComponent, canActivate: [authGuard] },
   //Componentes de Listagem
-  { path: rotasService.listagemFuncionarios(true), component: ListagemFuncionariosComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-listagem/listagem-cargos', component: ListagemCargoComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-listagem/listagem-setores', component: ListagemSetoresComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-listagem/listagem-fit-cultural', component: ListagemFitCulturalComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-listagem/listagem-desligamentos', component: ListagemDesligamentosComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-listagem/listagem-acompanhamentos', component: ListagemAcompanhamentosComponent, canActivate: [authGuard] },
-  { path: 'paginas/paginas-listagem/listagem-motivo-desligamento', component: ListagemMotivoDesligamentoComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemFuncionarios, component: ListagemFuncionariosComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemCargos, component: ListagemCargoComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemSetores, component: ListagemSetoresComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemFitCultural, component: ListagemFitCulturalComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemDesligamentos, component: ListagemDesligamentosComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemAcompanhamentos, component: ListagemAcompanhamentosComponent, canActivate: [authGuard] },
+  { path: Rotas.ListagemMotivoDesligamento, component: ListagemMotivoDesligamentoComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({
